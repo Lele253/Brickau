@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar class="header bg-orange-accent-3" elevation="10" fixed>
+  <v-app-bar class="header bg-teal-accent-2" elevation="10" fixed>
     <v-row>
       <v-col class="d-flex align-center" style="height: 70px">
         <Icon class="icon ml-6 mt-3" icon="mdi:hamburger-menu" style="cursor: pointer" @click="$router.push('/')"/>
@@ -84,7 +84,7 @@ export default {
 .header {
   height: 75px;
   width: 100%;
-  box-shadow: 2px 2px 10px #b4b4b4;
+  box-shadow: 2px 2px 10px #484848;
 }
 
 .icon {

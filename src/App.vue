@@ -10,6 +10,8 @@
 import axios from "axios";
 
 export default {
+  components: {},
+
   async created() {
     const response = await axios.get('/server/getUser.php');
     await this.$store.dispatch('user', response.data.user);

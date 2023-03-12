@@ -13,22 +13,24 @@
 
     <v-row style="height: 600px">
       <v-col cols="6">
-        <v-img src="../assets/logo.png" style="max-height: 600px"/>
+        <!--        <v-img src="../assets/logo.png" style="max-height: 600px"/>-->
       </v-col>
       <v-col cols="6" style="background-color: aqua"></v-col>
     </v-row>
-
+    <footer-component/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import HeaderComponent from "@/components/HeaderComponent";
+import FooterComponent from "@/components/FooterComponent";
 
 export default {
   name: 'HomeView',
   components: {
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent,
   }
 }
 </script>

@@ -2,7 +2,7 @@
   <v-app-bar class="header bg-orange-accent-3" elevation="10" fixed>
     <v-row>
       <v-col class="d-flex align-center" style="height: 70px">
-        <Icon class="icon ml-6 mt-3" icon="mdi:house" style="cursor: pointer" @click="$router.push('/')"/>
+        <Icon class="icon ml-6 mt-3" icon="mdi:hamburger-menu" style="cursor: pointer" @click="$router.push('/')"/>
       </v-col>
       <v-col></v-col>
       <v-col class="d-flex justify-end align-center">

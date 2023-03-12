@@ -1,47 +1,53 @@
 <template>
-  <v-app-bar class="header bg-teal-accent-2" elevation="10" fixed>
+  <v-app-bar class="header bg-teal-accent-2" elevate-on-scroll elevation="10" fixed>
     <v-row>
       <v-col class="d-flex align-center" style="height: 70px">
-        <Icon class="icon ml-6 mt-3" icon="mdi:hamburger-menu" style="cursor: pointer" @click="$router.push('/')"/>
+        <v-app-bar-title class="titel-name text-black mt-2 ml-15">Ralf Brickau</v-app-bar-title>
       </v-col>
       <v-col></v-col>
-      <v-col class="d-flex justify-end align-center">
-
-        <Icon v-if="!user" class="icon mt-3 mr-3" icon="oi:account-login" style="cursor: pointer"
-              @click="$router.push('/login')"/>
-        <v-dialog
-            v-model="dialog"
-            max-width="290"
-            persistent
-        >
-          <template v-slot:activator="{ on, attrs }">
-            <Icon v-if="user" class="icon mt-3 mr-3" icon="oi:account-logout" style="cursor: pointer"
-                  v-bind="attrs" @click="dialog=true" v-on="on"/>
-          </template>
-          <v-card>
-            <v-card-text class="text-h5">
-              <span>Möchtest du dich<br> wirklich Abmelden?</span>
-            </v-card-text>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn
-                  color="green darken-1"
-                  text
-                  @click="dialog = false"
-              >
-                Nein
-              </v-btn>
-              <v-btn
-                  color="green darken-1"
-                  text
-                  @click="logout"
-              >
-                Ja
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
+      <v-col class="d-flex justify-end align-center" style="height: 70px">
+        <v-app-bar-nav-icon class="mr-15 mt-2">
+          <Icon class="icon" icon="mdi:hamburger-menu" style="cursor: pointer" @click="$router.push('/')"/>
+        </v-app-bar-nav-icon>
       </v-col>
+
+      <!--      <v-col class="d-flex justify-end align-center">
+
+              <Icon v-if="!user" class="icon mt-3 mr-3" icon="oi:account-login" style="cursor: pointer"
+                    @click="$router.push('/login')"/>
+              <v-dialog
+                  v-model="dialog"
+                  max-width="290"
+                  persistent
+              >
+                <template v-slot:activator="{ on, attrs }">
+                  <Icon v-if="user" class="icon mt-3 mr-3" icon="oi:account-logout" style="cursor: pointer"
+                        v-bind="attrs" @click="dialog=true" v-on="on"/>
+                </template>
+                <v-card>
+                  <v-card-text class="text-h5">
+                    <span>Möchtest du dich<br> wirklich Abmelden?</span>
+                  </v-card-text>
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                        color="green darken-1"
+                        text
+                        @click="dialog = false"
+                    >
+                      Nein
+                    </v-btn>
+                    <v-btn
+                        color="green darken-1"
+                        text
+                        @click="logout"
+                    >
+                      Ja
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+            </v-col>-->
     </v-row>
   </v-app-bar>
 </template>
@@ -89,5 +95,9 @@ export default {
 
 .icon {
   font-size: 35px;
+}
+
+.titel-name {
+  font-size: 30px;
 }
 </style>

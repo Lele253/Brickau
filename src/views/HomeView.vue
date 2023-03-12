@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <HeaderComponent></HeaderComponent>
+    <v-row>
+      <HeaderComponent></HeaderComponent>
+    </v-row>
     <v-row style="height: 800px;width: 100vw; background-color: white"></v-row>
 
     <v-row style="height: 600px; width: 100vw">
@@ -17,7 +19,9 @@
       </v-col>
       <v-col cols="6" style="background-color: aqua"></v-col>
     </v-row>
-    <footer-component/>
+    <v-row>
+      <footer-component/>
+    </v-row>
   </div>
 </template>
 

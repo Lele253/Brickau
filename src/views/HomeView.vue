@@ -3,7 +3,10 @@
     <v-row style="width: 100%;">
       <HeaderComponent/>
     </v-row>
-    <v-row style="height: 800px;width: 100vw; background-color: white"></v-row>
+
+    <div class="containerOne">
+      <v-row class="mt-8 ml-0" style="height: 800px;width: 100vw; background-color: white">
+        <v-col cols="6">
 
           <!--          Ansicht mit Umbruch in Unternehmensberatung und ohne Umbruch-->
 

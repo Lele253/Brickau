@@ -2,13 +2,23 @@
   <v-app-bar class="header bg-teal-accent-2" elevate-on-scroll elevation="10" fixed>
     <v-row>
       <v-col class="d-flex align-center" style="height: 70px">
-        <v-app-bar-title class="titel-name text-black mt-2 ml-15">Ralf Brickau</v-app-bar-title>
+        <v-app-bar-title class="titel-name text-black mt-2 ml-15">
+          <h4>Prof. Dr. Ralf A. Brickau</h4>
+        </v-app-bar-title>
       </v-col>
       <v-col></v-col>
       <v-col class="d-flex justify-end align-center" style="height: 70px">
         <v-app-bar-nav-icon class="mr-15 mt-2">
-          <Icon class="icon" icon="mdi:hamburger-menu" style="cursor: pointer" @click="$router.push('/')"/>
+          <Icon class="icon" icon="mdi:hamburger-menu" style="cursor: pointer" @click="drawer=!drawer"/>
         </v-app-bar-nav-icon>
+
+
+        <v-navigation-drawer v-model="drawer" absolute style="background-color: aqua" temporary>
+
+
+        </v-navigation-drawer>
+
+
       </v-col>
 
       <!--      <v-col class="d-flex justify-end align-center">
@@ -67,7 +77,8 @@ export default {
   },
   data() {
     return {
-      dialog: false
+      dialog: false,
+      drawer: false,
     }
   },
   methods: {

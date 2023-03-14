@@ -52,8 +52,8 @@
     </v-row>
   </v-app-bar>
 
-  <v-navigation-drawer v-model="drawer" absolute location="right"
-                       style="background-color: grey; width: 20%; height: 100vh" temporary>
+  <v-navigation-drawer v-model="drawer" fixed
+                       location="right" style="background-color: grey; width: 20%; height: 100vh" temporary>
 
 
     <v-list>

@@ -20,7 +20,7 @@
             Dortmund und managing Partner der
             Synergetic Management Consulting Group</p>
 
-          <v-btn style="margin-left: 5%; margin-top: 13%; background-color: aquamarine" @click="scrollDown">
+          <v-btn style="margin-left: 5%; margin-top: 13%; background-color: aquamarine" @click="$router.push('#about')">
             <b>Learn more about me</b>
           </v-btn>
         </v-col>
@@ -201,6 +201,10 @@
       </v-row>
     </div>
 
+    <div id="about"
+         style="height: 0; position: relative; top: -50px; pointer-events: none;"
+    ></div>
+
     <div class="containerThree mt-3 ml-0" style="height: 800px;width: 100vw; background-color: #dedede">
       <v-row>
         <v-col cols="6">
@@ -208,7 +212,7 @@
             <Icon class="mt-5" icon="material-symbols:person" style="font-size: 200px"/>
           </div>
           <div class="d-flex justify-center" style="width: 100%">
-            <h1 id="about">About Me</h1>
+            <h1>About Me</h1>
           </div>
           <div class="d-flex justify-center mt-10 text-center"
                style="font-size: 17px; margin-left: 25px">

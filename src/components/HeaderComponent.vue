@@ -3,7 +3,7 @@
     <v-row>
       <v-col class="d-flex align-center" style="height: 70px">
         <v-app-bar-title class="titel-name text-black mt-2 ml-15">
-          <h4 class="Brickau" @click="$router.push('/')">Prof. Dr. Ralf A. Brickau</h4>
+          <v-btn @click="$router.push('/#home')">Prof. Dr. Ralf A. Brickau</v-btn>
         </v-app-bar-title>
       </v-col>
       <v-col></v-col>
@@ -133,11 +133,7 @@ export default {
   font-size: 35px;
 }
 
-.titel-name {
-  font-size: 30px;
-}
-
-.Brickau:hover {
-  color: grey;
+v-btn {
+  font-size: 5em;
 }
 </style>

@@ -1,11 +1,13 @@
 <template>
   <v-app id="app">
-    <HeaderComponent/>
-    <v-main>
-      <router-view/>
-    </v-main>
+    <div id="home">
+      <HeaderComponent/>
+      <v-main>
+        <router-view/>
+      </v-main>
+      <FooterComponent/>
+    </div>
   </v-app>
-  <FooterComponent/>
 </template>
 
 <script>

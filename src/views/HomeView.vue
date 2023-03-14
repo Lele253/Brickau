@@ -212,7 +212,33 @@
       </div>
 
       <div class="d-flex justify-center mt-5" style="font-size: 20px">
-        //text about company
+        <b>Die Synergetic Management Consulting Group ist ein internationales Beratungsunternehmen, das sich auf die
+          Bereiche Strategie, Organisation, Prozesse, Technologie und Veränderungsmanagement spezialisiert hat.
+          Unsere
+          Kunden stammen aus verschiedenen Branchen und Regionen, und wir arbeiten eng mit ihnen zusammen, um
+          maßgeschneiderte Lösungen für komplexe Geschäftsprobleme zu entwickeln.
+
+          Unser Beratungsansatz ist ganzheitlich und zielt darauf ab, die Effektivität und Effizienz der
+          Geschäftsprozesse
+          unserer Kunden zu verbessern und eine nachhaltige Wertschöpfung zu erzielen. Wir setzen auf eine enge
+          Zusammenarbeit mit unseren Kunden, um eine fundierte Analyse und eine erfolgreiche Umsetzung von Lösungen
+          zu
+          gewährleisten.
+
+          Unser Leistungsportfolio umfasst die Entwicklung von Geschäftsstrategien, die Optimierung von
+          Organisationsstrukturen und -prozessen, die Einführung neuer Technologien, die Implementierung von
+          Veränderungsmanagement-Prozessen und die Durchführung von Schulungen und Workshops für Mitarbeiter.
+
+          Unser erfahrenes Team von Beratern verfügt über unterschiedliche fachliche Hintergründe und
+          Branchenkenntnisse.
+          Wir sind bekannt für unsere qualitativ hochwertigen Beratungsdienstleistungen und unsere umfassende
+          Betreuung
+          und Unterstützung unserer Kunden.
+
+          Insgesamt sind wir bei der Synergetic Management Consulting Group stolz darauf, Unternehmen dabei zu
+          unterstützen, komplexe Herausforderungen zu bewältigen und ihre Geschäftsprozesse zu verbessern, um
+          nachhaltige
+          Wertschöpfung zu erzielen. </b>
       </div>
 
     </div>

@@ -7,7 +7,7 @@
 
           <!--          Ansicht mit Umbruch in Unternehmensberatung und ohne Umbruch-->
 
-          <h1 class="hidden-sm-and-down" style="margin-top: 10%; font-size: 40px; margin-left: 5%">
+          <h1 class="hidden-sm-and-down" style="font-size: 40px; margin-left: 5%">
             Ihr Dozent in Betriebwirtschaft und Unternehmensberaterung
           </h1>
 
@@ -48,13 +48,154 @@
               <Icon icon="mdi:register"/>
             </v-col>
             <v-col class="justify-end d-flex" cols="6">
-              <v-btn>Anmelden</v-btn>
+              <v-btn @click="login=true">Anmelden</v-btn>
             </v-col>
             <v-col class="justify-start d-flex" cols="6">
-              <v-btn>Registrieren</v-btn>
+              <v-btn @click="regist=true">Registrieren</v-btn>
             </v-col>
           </v-row>
         </v-col>
+
+        <template class="regist">
+          <v-row justify="center">
+            <v-dialog
+                v-model="regist"
+                persistent
+                width="1024"
+            >
+              <v-card>
+                <v-card-title>
+                  <span class="text-h5">User Profile</span>
+                </v-card-title>
+                <v-card-text>
+                  <v-container>
+                    <v-row>
+                      <v-col
+                          cols="12"
+                          md="4"
+                          sm="6"
+                      >
+                        <v-text-field
+                            label="Legal first name*"
+                            required
+                        ></v-text-field>
+                      </v-col>
+                      <v-col
+                          cols="12"
+                          md="4"
+                          sm="6"
+                      >
+                        <v-text-field
+                            hint="example of persistent helper text"
+                            label="Legal last name*"
+                            persistent-hint
+                            required
+                        ></v-text-field>
+                      </v-col>
+                      <v-col
+                          cols="12"
+                          md="4"
+                          sm="6"
+                      >
+                        <v-select
+                            :items="['IT-Center', 'FH-Dortmund', 'ISM']"
+                            label="School*"
+                            required
+                        ></v-select>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-text-field
+                            label="Email*"
+                            required
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-text-field
+                            label="Password*"
+                            required
+                            type="password"
+                        ></v-text-field>
+                      </v-col>
+
+                    </v-row>
+                  </v-container>
+                  <small>*indicates required field</small>
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn
+                      color="blue-darken-1"
+                      variant="text"
+                      @click="regist = false"
+                  >
+                    Close
+                  </v-btn>
+                  <v-btn
+                      color="blue-darken-1"
+                      variant="text"
+                      @click="regist = false"
+                  >
+                    Regist
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          </v-row>
+        </template>
+
+
+        <template class="login">
+          <v-row justify="center">
+            <v-dialog
+                v-model="login"
+                persistent
+                width="512"
+            >
+              <v-card>
+                <v-card-title>
+                  <span class="text-h5">User Profile</span>
+                </v-card-title>
+                <v-card-text>
+                  <v-container>
+                    <v-row>
+                      <v-col cols="12">
+                        <v-text-field
+                            label="Email*"
+                            required
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-text-field
+                            label="Password*"
+                            required
+                            type="password"
+                        ></v-text-field>
+                      </v-col>
+                    </v-row>
+                  </v-container>
+                  <small>*indicates required field</small>
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn
+                      color="blue-darken-1"
+                      variant="text"
+                      @click="login = false"
+                  >
+                    Close
+                  </v-btn>
+                  <v-btn
+                      color="blue-darken-1"
+                      variant="text"
+                      @click="login = false"
+                  >
+                    Login
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          </v-row>
+        </template>
 
 
         <v-col cols="4" style="background-color: aqua" xs="12">
@@ -86,6 +227,10 @@
 import {Icon} from '@iconify/vue';
 
 export default {
+  data: () => ({
+    regist: false,
+    login: false,
+  }),
   name: 'HomeView',
   components: {
     Icon

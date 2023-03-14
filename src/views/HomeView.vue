@@ -2,23 +2,27 @@
   <div class="home">
 
     <div class="containerOne">
-      <v-row class="mt-3 ml-0" style="height: 800px;width: 100vw; background-color: white">
+      <v-row class="mt-3 ml-0" style="height: 800px;width: 100vw; background-color: #dedede">
         <v-col cols="6">
 
           <!--          Ansicht mit Umbruch in Unternehmensberatung und ohne Umbruch-->
 
-          <h1 class="hidden-sm-and-down" style="font-size: 40px; margin-left: 5%">
+          <h1 class="hidden-sm-and-down" style="font-size: 40px; margin-left: 5%; margin-top: 20%">
             Ihr Dozent in Betriebwirtschaft und Unternehmensberaterung
           </h1>
 
-          <h1 class="hidden-md-and-up" style="margin-top: 10%; font-size: 40px; margin-left: 5%">
+          <h1 class="hidden-md-and-up" style="margin-top: 10%; font-size: 40px; margin-left: 20%">
             Ihr Dozent in Betriebwirtschaft und Unternehmens-<br>beraterung
           </h1>
 
-          <p class="mx-10" style="font-size: 20px; margin-left: 5%; margin-top: 7%">
+          <p class="mx-10" style="font-size: 20px; margin-left: 5%; margin-top: 12%">
             Dozent an der International School of Management in
             Dortmund und managing Partner der
             Synergetic Management Consulting Group</p>
+
+          <v-btn style="margin-left: 5%; margin-top: 13%; background-color: aquamarine" @click="scrollDown">
+            <b>Learn more about me</b>
+          </v-btn>
         </v-col>
         <v-col cols="6">
           <v-img src="../assets/brickau-removebg-preview.png" style="width: 750px; height: auto"
@@ -65,7 +69,7 @@
             >
               <v-card>
                 <v-card-title>
-                  <span class="text-h5">User Profile</span>
+                  <span class="text-h5">Registrieren</span>
                 </v-card-title>
                 <v-card-text>
                   <v-container>
@@ -76,7 +80,7 @@
                           sm="6"
                       >
                         <v-text-field
-                            label="Legal first name*"
+                            label="Vorname*"
                             required
                         ></v-text-field>
                       </v-col>
@@ -86,8 +90,7 @@
                           sm="6"
                       >
                         <v-text-field
-                            hint="example of persistent helper text"
-                            label="Legal last name*"
+                            label="Name*"
                             persistent-hint
                             required
                         ></v-text-field>
@@ -98,8 +101,8 @@
                           sm="6"
                       >
                         <v-select
-                            :items="['IT-Center', 'FH-Dortmund', 'ISM']"
-                            label="School*"
+                            :items=schoolList
+                            label="Universität*"
                             required
                         ></v-select>
                       </v-col>
@@ -111,7 +114,7 @@
                       </v-col>
                       <v-col cols="12">
                         <v-text-field
-                            label="Password*"
+                            label="Passwort*"
                             required
                             type="password"
                         ></v-text-field>
@@ -119,19 +122,17 @@
 
                     </v-row>
                   </v-container>
-                  <small>*indicates required field</small>
+                  <small>*Pflichtfelder</small>
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn
-                      color="blue-darken-1"
                       variant="text"
                       @click="regist = false"
                   >
                     Close
                   </v-btn>
                   <v-btn
-                      color="blue-darken-1"
                       variant="text"
                       @click="regist = false"
                   >
@@ -152,39 +153,36 @@
             >
               <v-card>
                 <v-card-title>
-                  <span class="text-h5">User Profile</span>
+                  <span class="text-h5">Anmelden</span>
                 </v-card-title>
                 <v-card-text>
                   <v-container>
                     <v-row>
                       <v-col cols="12">
                         <v-text-field
-                            label="Email*"
+                            label="Email"
                             required
                         ></v-text-field>
                       </v-col>
                       <v-col cols="12">
                         <v-text-field
-                            label="Password*"
+                            label="Passwort"
                             required
                             type="password"
                         ></v-text-field>
                       </v-col>
                     </v-row>
                   </v-container>
-                  <small>*indicates required field</small>
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn
-                      color="blue-darken-1"
                       variant="text"
                       @click="login = false"
                   >
                     Close
                   </v-btn>
                   <v-btn
-                      color="blue-darken-1"
                       variant="text"
                       @click="login = false"
                   >
@@ -203,14 +201,14 @@
       </v-row>
     </div>
 
-    <div class="containerThree mt-3 ml-0" style="height: 800px;width: 100vw; background-color: white">
+    <div class="containerThree mt-3 ml-0" style="height: 800px;width: 100vw; background-color: #dedede">
 
       <div class="d-flex justify-center" style="width: 100%; max-height: 250px">
-        <Icon icon="ic:baseline-anchor" style="font-size: 200px; margin-top: 3%"/>
+        <Icon class="mt-5" icon="ic:baseline-anchor" style="font-size: 200px"/>
       </div>
 
       <div class="d-flex justify-center" style="width: 100%">
-        <h1>About Company</h1>
+        <h1 id="about">About Company</h1>
       </div>
 
       <div class="d-flex justify-center mt-5" style="font-size: 20px">
@@ -229,10 +227,16 @@ export default {
   data: () => ({
     regist: false,
     login: false,
+    schoolList: ['IT-Center', 'FH-Dortmund', 'ISM'],
   }),
   name: 'HomeView',
   components: {
     Icon
+  },
+  methods: {
+    scrollDown() {
+      window.scrollBy({top: 1500, left: 100, behavior: "smooth"});
+    }
   }
 }
 </script>

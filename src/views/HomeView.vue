@@ -33,16 +33,16 @@
 
     <div class="containerTwo">
       <v-row style="height: 500px; width: 100vw">
-        <v-col cols="4" style="background-color: black" xs="12">
+        <v-col cols="4" style="background-color: lightgreen" xs="12">
 
         </v-col>
 
 
         <v-col cols="4" style="background-color: aquamarine" xs="12">
-          <h2 class="text-center mt-5"> Anmelden und Registrieren </h2>
+          <h2 class="text-center mt-5"> Anmelden</h2>
           <p class="text-center mt-10 mx-10">
             Sie sind Student vom mir und möchten sich Dateien herunterladen? Dann melden Sie
-            sich hier an oder registrieren Sie sich!
+            sich mit den von mir bereitgestellten Anmeldedaten an!
           </p>
           <v-row class="mt-16">
             <v-col class="justify-end d-flex icon" cols="6">

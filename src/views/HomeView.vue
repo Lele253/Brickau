@@ -21,14 +21,19 @@
             Synergetic Management Consulting Group</p>
         </v-col>
         <v-col cols="6">
-          <v-img src="../assets/brickau-removebg-preview.png" style="width: 750px; height: auto"/>
+          <v-img src="../assets/brickau-removebg-preview.png" style="width: 750px; height: auto"
+                 transition="slide-y-transition"/>
         </v-col>
       </v-row>
     </div>
 
     <div class="containerTwo">
       <v-row style="height: 500px; width: 100vw">
-        <v-col cols="4" style="background-color: black" xs="12"></v-col>
+        <v-col cols="4" style="background-color: black" xs="12">
+
+        </v-col>
+
+
         <v-col cols="4" style="background-color: aquamarine" xs="12">
           <h2 class="text-center mt-5"> Anmelden und einloggen </h2>
           <p class="text-center mt-10 mx-10">
@@ -36,15 +41,25 @@
             sich hier an oder registrieren Sie sich!
           </p>
           <v-row class="mt-16">
-            <v-col class="justify-end d-flex">
+            <v-col class="justify-end d-flex icon" cols="6">
+              <Icon icon="ic:baseline-log-in"/>
+            </v-col>
+            <v-col class="justify-start d-flex icon" cols="6">
+              <Icon icon="mdi:register"/>
+            </v-col>
+            <v-col class="justify-end d-flex" cols="6">
               <v-btn>Anmelden</v-btn>
             </v-col>
-            <v-col class="justify-start d-flex">
+            <v-col class="justify-start d-flex" cols="6">
               <v-btn>Registrieren</v-btn>
             </v-col>
           </v-row>
         </v-col>
-        <v-col cols="4" style="background-color: aqua" xs="12"></v-col>
+
+
+        <v-col cols="4" style="background-color: aqua" xs="12">
+
+        </v-col>
       </v-row>
     </div>
 
@@ -77,3 +92,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.icon {
+  font-size: 100px;
+}
+</style>

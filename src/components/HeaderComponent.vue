@@ -3,7 +3,7 @@
     <v-row>
       <v-col class="d-flex align-center" style="height: 70px">
         <v-app-bar-title class="titel-name text-black mt-2 ml-15">
-          <h4>Prof. Dr. Ralf A. Brickau</h4>
+          <h4 class="Brickau" @click="$router.push('/')">Prof. Dr. Ralf A. Brickau</h4>
         </v-app-bar-title>
       </v-col>
       <v-col></v-col>
@@ -52,8 +52,8 @@
     </v-row>
   </v-app-bar>
 
-  <v-navigation-drawer v-model="drawer" fixed
-                       location="right" style="background-color: grey; width: 20%; height: 100vh" temporary>
+  <v-navigation-drawer v-model="drawer" fixed location="right"
+                       style="background-color: grey; width: 20%; height: 100vh" temporary>
 
 
     <v-list>
@@ -98,7 +98,7 @@ export default {
         {name: 'Impressum', icon: 'material-symbols:text-snippet', path: '/impressum'},
       ],
       dialog: false,
-      drawer: null,
+      drawer: false,
     }
   },
   methods: {
@@ -130,5 +130,9 @@ export default {
 
 .titel-name {
   font-size: 30px;
+}
+
+.Brickau:hover {
+  color: grey;
 }
 </style>

@@ -33,16 +33,79 @@
 
     <div class="containerTwo">
       <v-row style="height: 500px; width: 100vw">
-        <v-col cols="4" style="background-color: black" xs="12">
+        <v-col cols="4" style="background-color: lightgreen" xs="12">
+          <h2 class="text-center mt-5"> Werdegang</h2>
+
+          <v-timeline align="start" side="end" style="height: 400px">
+            <v-timeline-item
+                dot-color="pink"
+                size="small"
+            >
+              <div class="d-flex">
+                <strong class="me-4">August 2021</strong>
+                <div>
+                  <strong>International School of Management</strong>
+                  <div class="text-caption">
+                    - Dekan <br>
+                    - Dozent, Seminare, Workshops, Management Consulting <br>
+                    - Prof. Dr. <br>
+                  </div>
+                </div>
+              </div>
+            </v-timeline-item>
+
+            <v-timeline-item
+                dot-color="teal-lighten-3"
+                size="small"
+            >
+              <div class="d-flex">
+                <strong class="me-4">3-4pm</strong>
+                <div>
+                  <strong>Design Stand Up</strong>
+                  <div class="text-caption mb-2">
+                    Hangouts
+                  </div>
+                </div>
+              </div>
+            </v-timeline-item>
+            <v-timeline-item
+                dot-color="teal-lighten-3"
+                size="small"
+            >
+              <div class="d-flex">
+                <strong class="me-4">3-4pm</strong>
+                <div>
+                  <strong>Design Stand Up</strong>
+                  <div class="text-caption mb-2">
+                    Hangouts
+                  </div>
+                </div>
+              </div>
+            </v-timeline-item>
+
+            <v-timeline-item
+                dot-color="pink"
+                size="small"
+            >
+              <div class="d-flex">
+                <strong class="me-4">12pm</strong>
+                <div>
+                  <strong>Lunch break</strong>
+                </div>
+              </div>
+            </v-timeline-item>
+
+          </v-timeline>
+
 
         </v-col>
 
 
         <v-col cols="4" style="background-color: aquamarine" xs="12">
-          <h2 class="text-center mt-5"> Anmelden und Registrieren </h2>
+          <h2 class="text-center mt-5"> Anmelden</h2>
           <p class="text-center mt-10 mx-10">
             Sie sind Student vom mir und möchten sich Dateien herunterladen? Dann melden Sie
-            sich hier an oder registrieren Sie sich!
+            sich mit den von mir bereitgestellten Anmeldedaten an!
           </p>
           <v-row class="mt-16">
             <v-col class="justify-end d-flex icon" cols="6">
@@ -196,7 +259,7 @@
 
 
         <v-col cols="4" style="background-color: aqua" xs="12">
-
+          <h2 class="text-center mt-5"> Kontaktdaten</h2>
         </v-col>
       </v-row>
     </div>

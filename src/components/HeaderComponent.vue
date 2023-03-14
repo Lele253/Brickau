@@ -70,6 +70,11 @@
             </p></v-col>
         </v-row>
       </v-list-item>
+      <v-list-item class="d-flex justify-center">
+        <v-btn style="margin-top: 600px; width: 200px" @click="drawer=!drawer">
+          Logout
+        </v-btn>
+      </v-list-item>
       <v-divider></v-divider>
     </v-list>
 

@@ -35,7 +35,7 @@
 
 
         <v-col cols="4" style="background-color: aquamarine" xs="12">
-          <h2 class="text-center mt-5"> Anmelden und einloggen </h2>
+          <h2 class="text-center mt-5"> Anmelden und Registrieren </h2>
           <p class="text-center mt-10 mx-10">
             Sie sind Student vom mir und möchten sich Dateien herunterladen? Dann melden Sie
             sich hier an oder registrieren Sie sich!
@@ -142,7 +142,6 @@
             </v-dialog>
           </v-row>
         </template>
-
 
         <template class="login">
           <v-row justify="center">

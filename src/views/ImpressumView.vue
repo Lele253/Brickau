@@ -24,8 +24,4 @@ export default {
 </script>
 
 <style>
-.impressum {
-  margin-top: 6%;
-  margin-left: 2.5%;
-}
 </style>

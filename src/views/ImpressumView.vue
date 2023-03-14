@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-8 ml-14">
+  <div class="mt-8 ml-14" style="height: 557px">
     <h1>Impressum</h1>
 
     <b class="mt-10">I</b> Prof. Dr. Ralf A. Brickau

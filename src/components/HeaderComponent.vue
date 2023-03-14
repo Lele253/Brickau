@@ -11,16 +11,7 @@
         <v-app-bar-nav-icon class="mr-15 mt-2">
           <Icon class="icon" icon="mdi:hamburger-menu" style="cursor: pointer" @click="drawer=!drawer"/>
         </v-app-bar-nav-icon>
-
-
-        <v-navigation-drawer v-model="drawer" absolute style="background-color: aqua" temporary>
-
-
-        </v-navigation-drawer>
-
-
       </v-col>
-
       <!--      <v-col class="d-flex justify-end align-center">
 
               <Icon v-if="!user" class="icon mt-3 mr-3" icon="oi:account-login" style="cursor: pointer"
@@ -60,6 +51,31 @@
             </v-col>-->
     </v-row>
   </v-app-bar>
+
+  <v-navigation-drawer v-model="drawer" absolute location="right"
+                       style="background-color: grey; width: 20%; height: 100vh" temporary>
+
+
+    <v-list>
+      <v-divider></v-divider>
+      <v-list-item v-for="i in list" :key="i" class="d-flex align-center" link style="height: 80px"
+                   @click="$router.push(i.path)">
+        <v-row>
+          <v-col cols="1">
+            <Icon :icon="i.icon" style="font-size: 30px"/>
+          </v-col>
+          <v-col cols="9">
+            <p class="ml-2" style="font-size: 20px">
+              {{ i.name }}
+            </p></v-col>
+        </v-row>
+      </v-list-item>
+      <v-divider></v-divider>
+    </v-list>
+
+
+  </v-navigation-drawer>
+
 </template>
 
 <script>
@@ -77,8 +93,12 @@ export default {
   },
   data() {
     return {
+      list: [
+        {name: 'Home', icon: 'ic:baseline-home', path: '/'},
+        {name: 'Impressum', icon: 'material-symbols:text-snippet', path: '/impressum'},
+      ],
       dialog: false,
-      drawer: false,
+      drawer: null,
     }
   },
   methods: {

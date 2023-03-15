@@ -124,7 +124,7 @@ export default {
 
 <style scoped>
 .header {
-  height: 75px;
+  height: 4.5rem;
   width: 100%;
   box-shadow: 2px 2px 10px #484848;
 }

@@ -230,7 +230,7 @@
                   </v-btn>
                   <v-btn
                       variant="text"
-                      @click="login = false"
+                      @click="login = $router.push('/files')"
                   >
                     Login
                   </v-btn>
@@ -264,7 +264,7 @@
               <Icon class="iconDaten" icon="fluent-mdl2:website"/>
             </v-col>
             <v-col cols="4">
-              <p>www.Brickau.de</p>
+              <p>www.ralf.Brickau.de</p>
             </v-col>
           </v-row>
 

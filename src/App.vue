@@ -1,12 +1,12 @@
 <template>
   <v-app id="app">
+    <HeaderComponent/>
     <div id="home">
-      <HeaderComponent/>
       <v-main class="mt-3" style="min-height: 91vh">
         <router-view/>
       </v-main>
-      <FooterComponent/>
     </div>
+    <FooterComponent/>
   </v-app>
 </template>
 

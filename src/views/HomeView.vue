@@ -92,18 +92,18 @@
             sich mit den von mir bereitgestellten Anmeldedaten an!
           </p>
           <v-row class="mt-16">
-            <v-col class="justify-end d-flex icon" cols="6">
+            <v-col class="justify-center d-flex icon" cols="12">
               <Icon icon="ic:baseline-log-in"/>
             </v-col>
-            <v-col class="justify-start d-flex icon" cols="6">
-              <Icon icon="mdi:register"/>
-            </v-col>
-            <v-col class="justify-end d-flex" cols="6">
+            <!--            <v-col class="justify-start d-flex icon" cols="6">-->
+            <!--              <Icon icon="mdi:register"/>-->
+            <!--            </v-col>-->
+            <v-col class="justify-center d-flex" cols="12">
               <v-btn @click="login=true">Anmelden</v-btn>
             </v-col>
-            <v-col class="justify-start d-flex" cols="6">
-              <v-btn @click="regist=true">Registrieren</v-btn>
-            </v-col>
+            <!--            <v-col class="justify-start d-flex" cols="6">-->
+            <!--              <v-btn @click="regist=true">Registrieren</v-btn>-->
+            <!--            </v-col>-->
           </v-row>
         </v-col>
 

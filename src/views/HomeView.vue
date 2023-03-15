@@ -32,10 +32,10 @@
     </div>
 
     <div class="containerTwo">
-      <v-row style="height: 500px; width: 100vw">
+      <v-row style="height: 400px; width: 100vw">
         <v-col cols="5" style="background-color: lightgreen" xs="12">
           <h2 class="text-center mt-5">Werdegang</h2>
-          <v-timeline align="start" class="pt-10" side="end" style="height: 400px">
+          <v-timeline align="start" class="pt-4" side="end" style="height: 300px">
             <v-timeline-item
                 size="small"
             >
@@ -57,7 +57,7 @@
                 size="small"
             >
               <div class="d-flex">
-                <strong class="me-4">Dez 2000</strong>
+                <strong class="me-9">Dez 2000</strong>
                 <div>
                   <strong>Dozent</strong>
                   <div class="text-caption mb-2">
@@ -70,7 +70,7 @@
                 size="small"
             >
               <div class="d-flex">
-                <strong class="me-4">1990-1999</strong>
+                <strong class="me-6">1990-1999</strong>
                 <div>
                   <strong>Key Accounter</strong>
                   <div class="text-caption mb-2">
@@ -87,11 +87,11 @@
 
         <v-col cols="4" style="background-color: aquamarine" xs="12">
           <h2 class="text-center mt-5"> Anmelden</h2>
-          <p class="text-center mt-10 mx-10">
+          <p class="text-center mt-7 mx-10">
             Sie sind Student vom mir und möchten sich Dateien herunterladen? Dann melden Sie
             sich mit den von mir bereitgestellten Anmeldedaten an!
           </p>
-          <v-row class="mt-16">
+          <v-row class="pt-7">
             <v-col class="justify-center d-flex icon" cols="12">
               <Icon icon="ic:baseline-log-in"/>
             </v-col>
@@ -247,15 +247,15 @@
             <v-col cols="2">
               <Icon class="iconDaten" icon="ic:round-email"/>
             </v-col>
-            <v-col cols="4">
-              <p>Ralf.Brickau</p>
+            <v-col class="mt-2" cols="4">
+              <p>Ralf.Brickau@smcg.de</p>
             </v-col>
           </v-row>
           <v-row class="d-flex justify-center">
             <v-col cols="2">
               <Icon class="iconDaten" icon="material-symbols:phone-android"/>
             </v-col>
-            <v-col cols="4">
+            <v-col class="mt-2" cols="4">
               <p>0157 89636558</p>
             </v-col>
           </v-row>
@@ -263,7 +263,7 @@
             <v-col cols="2">
               <Icon class="iconDaten" icon="fluent-mdl2:website"/>
             </v-col>
-            <v-col cols="4">
+            <v-col class="mt-2" cols="4">
               <p>www.ralf.Brickau.de</p>
             </v-col>
           </v-row>

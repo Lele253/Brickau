@@ -2,7 +2,7 @@
   <v-app id="app">
     <div id="home">
       <HeaderComponent/>
-      <v-main style="min-height: 91vh">
+      <v-main class="mt-3" style="min-height: 91vh">
         <router-view/>
       </v-main>
       <FooterComponent/>

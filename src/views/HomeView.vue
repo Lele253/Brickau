@@ -34,9 +34,8 @@
     <div class="containerTwo">
       <v-row style="height: 500px; width: 100vw">
         <v-col cols="5" style="background-color: lightgreen" xs="12">
-          <h2 class="text-center mt-5"> Werdegang</h2>
-
-          <v-timeline align="start" side="end" style="height: 400px">
+          <h2 class="text-center mt-5">Werdegang</h2>
+          <v-timeline align="start" class="pt-10" side="end" style="height: 400px">
             <v-timeline-item
                 size="small"
             >
@@ -80,22 +79,9 @@
                 </div>
               </div>
             </v-timeline-item>
-
-            <v-timeline-item
-                dot-color="light-blue-lighten-3"
-                size="small"
-            >
-              <div class="d-flex">
-                <strong class="me-4">12pm</strong>
-                <div>
-                  <strong>Lunch break</strong>
-                </div>
-              </div>
-            </v-timeline-item>
+            ‚
 
           </v-timeline>
-
-
         </v-col>
 
 
@@ -204,7 +190,6 @@
             </v-dialog>
           </v-row>
         </template>
-
         <template class="login">
           <v-row justify="center">
             <v-dialog
@@ -258,7 +243,33 @@
 
         <v-col cols="3" style="background-color: aqua" xs="12">
           <h2 class="text-center mt-5"> Kontaktdaten</h2>
+          <v-row class="justify-center d-flex pt-16">
+            <v-col cols="2">
+              <Icon class="iconDaten" icon="ic:round-email"/>
+            </v-col>
+            <v-col cols="4">
+              <p>Ralf.Brickau</p>
+            </v-col>
+          </v-row>
+          <v-row class="d-flex justify-center">
+            <v-col cols="2">
+              <Icon class="iconDaten" icon="material-symbols:phone-android"/>
+            </v-col>
+            <v-col cols="4">
+              <p>0157 89636558</p>
+            </v-col>
+          </v-row>
+          <v-row class="d-flex justify-center">
+            <v-col cols="2">
+              <Icon class="iconDaten" icon="fluent-mdl2:website"/>
+            </v-col>
+            <v-col cols="4">
+              <p>www.Brickau.de</p>
+            </v-col>
+          </v-row>
+
         </v-col>
+
       </v-row>
     </div>
 
@@ -370,5 +381,9 @@ export default {
 <style>
 .icon {
   font-size: 100px;
+}
+
+.iconDaten {
+  font-size: 40px;
 }
 </style>

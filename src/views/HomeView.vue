@@ -33,12 +33,11 @@
 
     <div class="containerTwo">
       <v-row style="height: 500px; width: 100vw">
-        <v-col cols="4" style="background-color: lightgreen" xs="12">
+        <v-col cols="5" style="background-color: lightgreen" xs="12">
           <h2 class="text-center mt-5"> Werdegang</h2>
 
           <v-timeline align="start" side="end" style="height: 400px">
             <v-timeline-item
-                dot-color="pink"
                 size="small"
             >
               <div class="d-flex">
@@ -55,36 +54,35 @@
             </v-timeline-item>
 
             <v-timeline-item
-                dot-color="teal-lighten-3"
+                dot-color="light-blue-lighten-3"
                 size="small"
             >
               <div class="d-flex">
-                <strong class="me-4">3-4pm</strong>
+                <strong class="me-4">Dez 2000</strong>
                 <div>
-                  <strong>Design Stand Up</strong>
+                  <strong>Dozent</strong>
                   <div class="text-caption mb-2">
-                    Hangouts
+                    IT-Center Dortmund GmbH
                   </div>
                 </div>
               </div>
             </v-timeline-item>
             <v-timeline-item
-                dot-color="teal-lighten-3"
                 size="small"
             >
               <div class="d-flex">
-                <strong class="me-4">3-4pm</strong>
+                <strong class="me-4">1990-1999</strong>
                 <div>
-                  <strong>Design Stand Up</strong>
+                  <strong>Key Accounter</strong>
                   <div class="text-caption mb-2">
-                    Hangouts
+                    Konzeptionelle Marketing und Vertriebstätigkeit bei Großkunden
                   </div>
                 </div>
               </div>
             </v-timeline-item>
 
             <v-timeline-item
-                dot-color="pink"
+                dot-color="light-blue-lighten-3"
                 size="small"
             >
               <div class="d-flex">
@@ -258,7 +256,7 @@
         </template>
 
 
-        <v-col cols="4" style="background-color: aqua" xs="12">
+        <v-col cols="3" style="background-color: aqua" xs="12">
           <h2 class="text-center mt-5"> Kontaktdaten</h2>
         </v-col>
       </v-row>

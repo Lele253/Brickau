@@ -2,13 +2,13 @@
   <v-app-bar class="header bg-teal-accent-2" elevate-on-scroll elevation="10" fixed>
     <v-row>
       <v-col class="d-flex align-center" style="height: 70px">
-        <v-app-bar-title class="titel-name text-black mt-2 ml-15">
-          <v-btn class="text-h4" @click="$router.push('/#home')">Prof. Dr. Ralf A. Brickau</v-btn>
+        <v-app-bar-title class="titel-name text-black mt-2 ml-sm-5">
+          <v-btn class="text-sm-h4" @click="$router.push('/#home')">Prof. Dr. Ralf A. Brickau</v-btn>
         </v-app-bar-title>
       </v-col>
       <v-col></v-col>
       <v-col class="d-flex justify-end align-center" style="height: 70px">
-        <v-app-bar-nav-icon class="mr-15 mt-2">
+        <v-app-bar-nav-icon class="mr-sm-5 mt-2 text-sm-h6">
           <Icon class="icon" icon="mdi:hamburger-menu" style="cursor: pointer" @click="drawer=!drawer"/>
         </v-app-bar-nav-icon>
       </v-col>

@@ -50,7 +50,7 @@
             Ihr Dozent in Betriebwirtschaft und Unternehmens-<br>beraterung
           </h1>
 
-          <p style="font-size: 20px; margin-left: 10%;margin-right: 10%; margin-top: 5%">
+          <p class="text-center" style="font-size: 20px; margin-left: 10%;margin-right: 10%; margin-top: 5%">
             Dozent an der International School of Management in
             Dortmund und managing Partner der
             Synergetic Management Consulting Group</p>

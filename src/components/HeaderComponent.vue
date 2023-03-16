@@ -3,7 +3,7 @@
     <v-row>
       <v-col class="d-flex align-center" style="height: 70px">
         <v-app-bar-title class="titel-name text-black mt-2 ml-sm-5">
-          <v-btn class="text-sm-h4" @click="$router.push('/#home')">Prof. Dr. Ralf A. Brickau</v-btn>
+          <v-btn class="text-sm-h4" @click="$router.push('/#home')"><b>Prof. Dr. Ralf A. Brickau</b></v-btn>
         </v-app-bar-title>
       </v-col>
       <v-col></v-col>

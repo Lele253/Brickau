@@ -277,81 +277,88 @@
          style="height: 0; position: relative; top: -50px; pointer-events: none;"
     ></div>
 
-    <div class="containerThree mt-3 ml-0" style="height: 800px;width: 100vw; background-color: #dedede">
-      <v-row>
-        <v-col cols="6">
-          <div class="d-flex justify-center" style="width: 100%; max-height: 250px">
-            <Icon class="mt-5" icon="material-symbols:person" style="font-size: 200px"/>
-          </div>
-          <div class="d-flex justify-center" style="width: 100%">
-            <h1>About Me</h1>
-          </div>
-          <div class="d-flex justify-center mt-4 text"
-               style="font-size: 17px; margin-left: 10%; margin-right: 10%">
-            <b>Ich, Prof. Dr. Ralf A. Brickau, bin ein Wirtschaftswissenschaftler und Unternehmer mit langjähriger
-              Erfahrung in der Beratung von Unternehmen. Als Gründer und Geschäftsführer der Synergetic Management
-              Consulting Group (SMCG) liegt mein Fokus darauf, maßgeschneiderte Lösungen für komplexe Geschäftsprobleme
-              zu entwickeln und nachhaltige Wertschöpfung für unsere Kunden zu schaffen.
+    <div class="containerThree mt-3 ml-0" style="min-height: 800px; width: 100vw; background-color: #dedede">
+      <v-card>
+        <v-row>
+          <v-col cols="6">
+            <div class="d-flex justify-center" style="width: 100%; max-height: 250px">
+              <Icon class="mt-5" icon="material-symbols:person" style="font-size: 200px"/>
+            </div>
+            <div class="d-flex justify-center" style="width: 100%">
+              <h1>About Me</h1>
+            </div>
+            <div class="d-flex justify-center mt-4 text"
+                 style="font-size: 17px; margin-left: 10%; margin-right: 10%">
+              <b>Ich, Prof. Dr. Ralf A. Brickau, bin ein Wirtschaftswissenschaftler und Unternehmer mit langjähriger
+                Erfahrung in der Beratung von Unternehmen. Als Gründer und Geschäftsführer der Synergetic Management
+                Consulting Group (SMCG) liegt mein Fokus darauf, maßgeschneiderte Lösungen für komplexe
+                Geschäftsprobleme
+                zu entwickeln und nachhaltige Wertschöpfung für unsere Kunden zu schaffen.
 
-              Ich habe mein Studium an der Universität Hamburg absolviert und meine Promotion in
-              Wirtschaftswissenschaften an der Universität Witten/Herdecke abgeschlossen. Während meiner akademischen
-              Laufbahn habe ich mich auf die Themen Unternehmensführung, Strategie, Organisationsentwicklung und
-              Veränderungsmanagement spezialisiert. Ich habe mehrere Bücher und Artikel zu diesen Themen veröffentlicht
-              und bin regelmäßiger Gastredner auf Konferenzen und Seminaren.
+                Ich habe mein Studium an der Universität Hamburg absolviert und meine Promotion in
+                Wirtschaftswissenschaften an der Universität Witten/Herdecke abgeschlossen. Während meiner akademischen
+                Laufbahn habe ich mich auf die Themen Unternehmensführung, Strategie, Organisationsentwicklung und
+                Veränderungsmanagement spezialisiert. Ich habe mehrere Bücher und Artikel zu diesen Themen
+                veröffentlicht
+                und bin regelmäßiger Gastredner auf Konferenzen und Seminaren.
 
-              Neben meiner Tätigkeit bei SMCG bin ich auch Gründer und CEO der BTB Brickau Unternehmensgruppe, einem
-              Unternehmen, das sich auf den Bereich der Energieeffizienz spezialisiert hat. Ich bin stolz darauf, mit
-              beiden Unternehmen dazu beizutragen, nachhaltige Geschäftsstrategien und -prozesse zu entwickeln und
-              umzusetzen.
+                Neben meiner Tätigkeit bei SMCG bin ich auch Gründer und CEO der BTB Brickau Unternehmensgruppe, einem
+                Unternehmen, das sich auf den Bereich der Energieeffizienz spezialisiert hat. Ich bin stolz darauf, mit
+                beiden Unternehmen dazu beizutragen, nachhaltige Geschäftsstrategien und -prozesse zu entwickeln und
+                umzusetzen.
 
-              Insgesamt betrachte ich meine Arbeit bei SMCG und BTB Brickau Unternehmensgruppe als eine erfüllende und
-              herausfordernde Aufgabe, bei der ich mein Wissen und meine Erfahrung einbringen kann, um Unternehmen dabei
-              zu helfen, erfolgreich zu sein und nachhaltige Werte für ihre Kunden und die Gesellschaft zu
-              schaffen. </b>
-          </div>
-        </v-col>
+                Insgesamt betrachte ich meine Arbeit bei SMCG und BTB Brickau Unternehmensgruppe als eine erfüllende und
+                herausfordernde Aufgabe, bei der ich mein Wissen und meine Erfahrung einbringen kann, um Unternehmen
+                dabei
+                zu helfen, erfolgreich zu sein und nachhaltige Werte für ihre Kunden und die Gesellschaft zu
+                schaffen. </b>
+            </div>
+          </v-col>
 
-        <v-col cols="6">
-          <div class="d-flex justify-center" style="width: 100%; max-height: 250px">
-            <Icon class="mt-5" icon="ic:baseline-anchor" style="font-size: 200px"/>
-          </div>
+          <v-col cols="6">
+            <div class="d-flex justify-center" style="width: 100%; max-height: 250px">
+              <Icon class="mt-5" icon="ic:baseline-anchor" style="font-size: 200px"/>
+            </div>
 
-          <div class="d-flex justify-center" style="width: 100%">
-            <h1 id="about">About Company</h1>
-          </div>
+            <div class="d-flex justify-center" style="width: 100%">
+              <h1 id="about">About Company</h1>
+            </div>
 
-          <div class="d-flex justify-center mt-4 text"
-               style="font-size: 17px; margin-right: 10%; margin-left: 10%">
-            <b>Die Synergetic Management Consulting Group ist ein internationales Beratungsunternehmen, das sich auf die
-              Bereiche Strategie, Organisation, Prozesse, Technologie und Veränderungsmanagement spezialisiert hat.
-              Unsere
-              Kunden stammen aus verschiedenen Branchen und Regionen, und wir arbeiten eng mit ihnen zusammen, um
-              maßgeschneiderte Lösungen für komplexe Geschäftsprobleme zu entwickeln.
+            <div class="d-flex justify-center mt-4 text"
+                 style="font-size: 17px; margin-right: 10%; margin-left: 10%">
+              <b>Die Synergetic Management Consulting Group ist ein internationales Beratungsunternehmen, das sich auf
+                die
+                Bereiche Strategie, Organisation, Prozesse, Technologie und Veränderungsmanagement spezialisiert hat.
+                Unsere
+                Kunden stammen aus verschiedenen Branchen und Regionen, und wir arbeiten eng mit ihnen zusammen, um
+                maßgeschneiderte Lösungen für komplexe Geschäftsprobleme zu entwickeln.
 
-              Unser Beratungsansatz ist ganzheitlich und zielt darauf ab, die Effektivität und Effizienz der
-              Geschäftsprozesse
-              unserer Kunden zu verbessern und eine nachhaltige Wertschöpfung zu erzielen. Wir setzen auf eine enge
-              Zusammenarbeit mit unseren Kunden, um eine fundierte Analyse und eine erfolgreiche Umsetzung von Lösungen
-              zu
-              gewährleisten.
+                Unser Beratungsansatz ist ganzheitlich und zielt darauf ab, die Effektivität und Effizienz der
+                Geschäftsprozesse
+                unserer Kunden zu verbessern und eine nachhaltige Wertschöpfung zu erzielen. Wir setzen auf eine enge
+                Zusammenarbeit mit unseren Kunden, um eine fundierte Analyse und eine erfolgreiche Umsetzung von
+                Lösungen
+                zu
+                gewährleisten.
 
-              Unser Leistungsportfolio umfasst die Entwicklung von Geschäftsstrategien, die Optimierung von
-              Organisationsstrukturen und -prozessen, die Einführung neuer Technologien, die Implementierung von
-              Veränderungsmanagement-Prozessen und die Durchführung von Schulungen und Workshops für Mitarbeiter.
+                Unser Leistungsportfolio umfasst die Entwicklung von Geschäftsstrategien, die Optimierung von
+                Organisationsstrukturen und -prozessen, die Einführung neuer Technologien, die Implementierung von
+                Veränderungsmanagement-Prozessen und die Durchführung von Schulungen und Workshops für Mitarbeiter.
 
-              Unser erfahrenes Team von Beratern verfügt über unterschiedliche fachliche Hintergründe und
-              Branchenkenntnisse.
-              Wir sind bekannt für unsere qualitativ hochwertigen Beratungsdienstleistungen und unsere umfassende
-              Betreuung
-              und Unterstützung unserer Kunden.
+                Unser erfahrenes Team von Beratern verfügt über unterschiedliche fachliche Hintergründe und
+                Branchenkenntnisse.
+                Wir sind bekannt für unsere qualitativ hochwertigen Beratungsdienstleistungen und unsere umfassende
+                Betreuung
+                und Unterstützung unserer Kunden.
 
-              Insgesamt sind wir bei der Synergetic Management Consulting Group stolz darauf, Unternehmen dabei zu
-              unterstützen, komplexe Herausforderungen zu bewältigen und ihre Geschäftsprozesse zu verbessern, um
-              nachhaltige
-              Wertschöpfung zu erzielen. </b>
-          </div>
-        </v-col>
-      </v-row>
+                Insgesamt sind wir bei der Synergetic Management Consulting Group stolz darauf, Unternehmen dabei zu
+                unterstützen, komplexe Herausforderungen zu bewältigen und ihre Geschäftsprozesse zu verbessern, um
+                nachhaltige
+                Wertschöpfung zu erzielen. </b>
+            </div>
+          </v-col>
+        </v-row>
+      </v-card>
     </div>
   </div>
 </template>

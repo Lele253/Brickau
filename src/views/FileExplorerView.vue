@@ -1,26 +1,24 @@
 <template>
   <div id="fileExplorer">
-    <v-table>
-      <thead>
-      <tr>
-        <th class="text-left">
-          Name
-        </th>
-        <th class="text-left">
-          Typ
-        </th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr
-          v-for="file in files"
-          :key="file.name" @click="downloadFile(file.name)"
-      >
-        <td>{{ file.name }}</td>
-        <td>{{ file.type }}</td>
-      </tr>
-      </tbody>
-    </v-table>
+    <v-card>
+      <v-card-title>
+        <v-text-field
+            v-model="search"
+            append-icon="search"
+            hide-details
+            label="Search"
+            single-line
+        ></v-text-field>
+      </v-card-title>
+      <v-data-table
+          :headers="headers"
+          :items="files"
+          :search="search"
+          class="elevation-1"
+          item-value="name"
+          @click:row="downloadFile"
+      ></v-data-table>
+    </v-card>
   </div>
 </template>
 
@@ -28,6 +26,15 @@
 export default {
   name: "FileExplorerView",
   data: () => ({
+    search: '',
+    headers: [
+      {
+        title: 'Name',
+        align: 'start',
+        key: 'name',
+      },
+      {title: 'Typ', key: 'type'},
+    ],
     userPath: "/ISM/",
     files: [
       {
@@ -45,12 +52,19 @@ export default {
     ],
   }),
   methods: {
-    downloadFile(name) {
+    downloadFile(value) {
+      let name = value.target.parentNode.firstElementChild.innerHTML;
       let path = this.userPath + name + '.' + this.files.filter((e) => e.name == name)[0].type;
       const link = document.createElement("a");
       link.href = path;
       link.download = path;
       link.click();
+    },
+    convertFilePathNamesToFiles(filePathNames) {
+      for (let filePath in filePathNames) {
+        let filePathArray = filePath.split('.');
+        this.files.push({name: filePathArray[0], type: filePathArray[1]});
+      }
     }
   }
 }

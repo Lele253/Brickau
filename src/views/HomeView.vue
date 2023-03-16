@@ -287,7 +287,7 @@
             <h1>About Me</h1>
           </div>
           <div class="d-flex justify-center mt-10 text-center"
-               style="font-size: 17px; margin-left: 25px">
+               style="font-size: 17px; margin-left: 30px">
             <b>Ich, Prof. Dr. Ralf A. Brickau, bin ein Wirtschaftswissenschaftler und Unternehmer mit langjähriger
               Erfahrung in der Beratung von Unternehmen. Als Gründer und Geschäftsführer der Synergetic Management
               Consulting Group (SMCG) liegt mein Fokus darauf, maßgeschneiderte Lösungen für komplexe Geschäftsprobleme

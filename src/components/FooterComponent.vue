@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="bg-black h-25" padless>
+  <v-footer class="bg-black h-25 mt-10" padless>
     <v-row justify="center" no-gutters>
       <v-col class="text-center mt-4" cols="12">
         <router-link class="mx-2" style="color: #e0e0e0" to="/"><strong>Home</strong></router-link>

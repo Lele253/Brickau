@@ -286,8 +286,8 @@
           <div class="d-flex justify-center" style="width: 100%">
             <h1>About Me</h1>
           </div>
-          <div class="d-flex justify-center mt-10 text-center"
-               style="font-size: 17px; margin-left: 30px">
+          <div class="d-flex justify-center mt-4 text-center"
+               style="font-size: 17px; margin-left: 10%; margin-right: 10%">
             <b>Ich, Prof. Dr. Ralf A. Brickau, bin ein Wirtschaftswissenschaftler und Unternehmer mit langjähriger
               Erfahrung in der Beratung von Unternehmen. Als Gründer und Geschäftsführer der Synergetic Management
               Consulting Group (SMCG) liegt mein Fokus darauf, maßgeschneiderte Lösungen für komplexe Geschäftsprobleme
@@ -320,8 +320,8 @@
             <h1 id="about">About Company</h1>
           </div>
 
-          <div class="d-flex justify-center mt-10 text-center"
-               style="font-size: 17px; margin-right: 25px">
+          <div class="d-flex justify-center mt-4 text-center"
+               style="font-size: 17px; margin-right: 10%; margin-left: 10%">
             <b>Die Synergetic Management Consulting Group ist ein internationales Beratungsunternehmen, das sich auf die
               Bereiche Strategie, Organisation, Prozesse, Technologie und Veränderungsmanagement spezialisiert hat.
               Unsere

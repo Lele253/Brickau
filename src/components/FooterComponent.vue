@@ -1,22 +1,15 @@
 <template>
-  <v-footer bottom padless style="height: 4rem; width: 100%; background-color: black;">
-    <v-row
-        align="baseline"
-        justify="space-between"
-        no-gutters
-        style="font-size: 23px"
-    >
-      <v-col></v-col>
-      <v-col style="text-align: center">
+  <v-footer class="bg-black h-25" padless>
+    <v-row justify="center" no-gutters>
+      <v-col class="text-center mt-4" cols="12">
         <router-link class="mx-2" style="color: #e0e0e0" to="/"><strong>Home</strong></router-link>
         <span class="mx-2" style="color: #e0e0e0"><strong>|</strong></span>
         <router-link class="mx-2" style="color: #e0e0e0" to="/impressum"><strong>Impressum</strong></router-link>
       </v-col>
-      <v-col class="text-end" style="color: #e0e0e0">
+      <v-col class="text-center mt-4" cols="12">
         {{ new Date().getFullYear() }} — <strong>Brickau.de</strong>
       </v-col>
     </v-row>
-
   </v-footer>
 </template>
 

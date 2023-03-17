@@ -15,8 +15,10 @@
 
 <script>
 
+
 export default {
   name: "FooterComponent",
+  components: {}
 }
 </script>
 

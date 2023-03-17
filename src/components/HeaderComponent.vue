@@ -6,22 +6,81 @@
           <v-btn class="text-sm-h4" @click="$router.push('/#home')"><b>Prof. Dr. Ralf A. Brickau</b></v-btn>
         </v-app-bar-title>
       </v-col>
-      <v-col></v-col>
     </v-row>
+
+    <!--    Icon fürs Einloggen: icon="mdi:emergency-exit"-->
+
+    <Icon v-if="!user" class="icon" icon="ri:login-circle-line" style="cursor: pointer; margin-right: 2%"
+          @click="loginDialog = true"/>
+    <Icon v-if="user" class="icon" icon="ri:logout-circle-line" style="cursor: pointer; margin-right: 2%"
+          @click="logout"/>
   </v-app-bar>
+
+  <template class="login">
+    <v-row justify="center">
+      <v-dialog
+          v-model="loginDialog"
+          persistent
+          width="512"
+      >
+        <v-card>
+          <v-card-title>
+            <span class="text-h5">Anmelden</span>
+          </v-card-title>
+          <v-card-text>
+            <v-container>
+              <v-row>
+                <v-col cols="12">
+                  <v-text-field
+                      label="Email"
+                      required
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="12">
+                  <v-text-field
+                      label="Passwort"
+                      required
+                      type="password"
+                  ></v-text-field>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn
+                variant="text"
+                @click="loginDialog = false"
+            >
+              Close
+            </v-btn>
+            <v-btn
+                variant="text"
+                @click="login"
+            >
+              Login
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-row>
+  </template>
 
 </template>
 
 <script>
 import {mapGetters} from "vuex";
-import axios from "axios";
+import {Icon} from '@iconify/vue';
+import router from "@/router";
 
 export default {
   computed: {
     ...mapGetters(['user'])
   },
   name: "HeaderComponent",
-  components: {},
+  components: {
+    Icon
+  },
   data() {
     return {
       list: [
@@ -30,19 +89,29 @@ export default {
       ],
       dialog: false,
       drawer: false,
+      loginDialog: false,
     }
   },
   methods: {
-    async logout() {
-      const response = await axios.post('/server/endSession.php');
-      if (response.status !== 205) {
-        alert('Abmelden fehlgeschlagen!');
-        return;
-      }
-      localStorage.removeItem('token');
-      this.$store.dispatch('user', null);
-      this.dialog = false;
-      this.$router.push('/');
+    // async logout() {
+    //   const response = await axios.post('/server/endSession.php');
+    //   if (response.status !== 205) {
+    //     alert('Abmelden fehlgeschlagen!');
+    //     return;
+    //   }
+    //   localStorage.removeItem('token');
+    //   this.$store.dispatch('user', null);
+    //   this.dialog = false;
+    //   this.$router.push('/');
+    // },
+    logout() {
+      this.$store.state.user = false;
+      router.push('/')
+    },
+    login() {
+      this.loginDialog = false;
+      this.$store.state.user = true;
+      router.push('/files')
     }
   }
 }

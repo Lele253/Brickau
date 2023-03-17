@@ -1,18 +1,14 @@
 <template>
   <div class="home">
 
-    <div class="containerOne desktop hidden-md-and-down">
+    <div class="containerOne desktop hidden-sm-and-down">
       <v-row class="mt-3 ml-0" style="height: 750px;width: 100vw; background-color: #dedede">
         <v-col cols="6" sm="6">
 
           <!--          Ansicht mit Umbruch in Unternehmensberatung und ohne Umbruch-->
 
-          <h1 class="hidden-sm-and-down" style="font-size: 40px; margin-left: 10%;margin-right: 10%; margin-top: 20%">
+          <h1 style="font-size: 40px; margin-left: 10%;margin-right: 10%; margin-top: 20%">
             Ihr Dozent in Betriebwirtschaft und Unternehmensberaterung
-          </h1>
-
-          <h1 class="hidden-md-and-up" style="margin-top: 10%; font-size: 40px; margin-left: 10%">
-            Ihr Dozent in Betriebwirtschaft und Unternehmens-<br>beraterung
           </h1>
 
           <p style="font-size: 20px; margin-left: 10%;margin-right: 10%; margin-top: 12%">
@@ -25,32 +21,36 @@
             <b>Learn more about me</b>
           </v-btn>
         </v-col>
-        <v-col cols="6">
-          <v-img src="../assets/brickau-removebg-preview.png" style="width: 80%; height: auto"
+        <v-col class="d-flex justify-center" cols="6">
+          <v-img src="../assets/brickau.png" style="width: auto; height: 57%"
                  transition="slide-y-transition"/>
         </v-col>
       </v-row>
     </div>
 
-    <div class="containerOne tablet hidden-lg">
+    <div class="containerOne tablet hidden-md-and-up">
       <v-row class="mt-3 ml-0" style="width: 100vw; background-color: #dedede">
-        <v-col cols="12" style="max-height: 60%">
-          <v-img src="../assets/brickau-removebg-preview.png" style="width: 90%; height: auto"
+        <v-col class="d-flex justify-center" cols="12" style="height: 600px">
+          <v-img src="../assets/brickau.png"
                  transition="slide-y-transition"/>
         </v-col>
         <v-col cols="12">
 
           <!--          Ansicht mit Umbruch in Unternehmensberatung und ohne Umbruch-->
 
-          <h1 class="hidden-sm-and-down" style="font-size: 40px; margin-left: 10%;margin-right: 10%; margin-top: 20%">
+          <h1 class="text-center hidden-xs"
+              style="font-size: 40px; margin-left: 10%;margin-right: 10%">
             Ihr Dozent in Betriebwirtschaft und Unternehmensberaterung
           </h1>
 
-          <h1 class="hidden-lg-and-up text-center" style="font-size: 40px;">
+          <h1 class="text-center" style="font-size: 40px;">
             Ihr Dozent in Betriebwirtschaft und Unternehmens-<br>beraterung
           </h1>
+        </v-col>
+        <v-col cols="12">
 
-          <p class="text-center" style="font-size: 20px; margin-left: 10%;margin-right: 10%; margin-top: 5%">
+          <p class="text-center"
+             style="font-size: 20px; margin-left: 10%;margin-right: 10%">
             Dozent an der International School of Management in
             Dortmund und managing Partner der
             Synergetic Management Consulting Group</p>
@@ -66,7 +66,7 @@
 
     <div class="containerTwo mt-10">
       <v-row style="height: 50%; width: 100vw">
-        <v-col lg="5" sm="12" style="background-color: lightgreen" xs="12">
+        <v-col cols="12" lg="5" md="12" sm="12" style="background-color: lightgreen" xs="12">
           <h2 class="text-center mt-5">Werdegang</h2>
           <v-timeline align="start" class="pt-4" side="end">
             <v-timeline-item
@@ -118,7 +118,7 @@
         </v-col>
 
 
-        <v-col lg="4" sm="12" style="background-color: aquamarine" xs="12">
+        <v-col cols="12" lg="4" md="12" sm="12" style="background-color: aquamarine" xs="12">
           <h2 class="text-center mt-5"> Anmelden</h2>
           <p class="text-center mt-5 mx-10">
             Sie sind Student vom mir und möchten sich Dateien herunterladen? Dann melden Sie
@@ -132,11 +132,17 @@
             <!--              <Icon icon="mdi:register"/>-->
             <!--            </v-col>-->
             <v-col class="justify-center d-flex" cols="12">
-              <v-btn @click="login=true">Anmelden</v-btn>
+              <v-btn v-if="!user" @click="loginDialog=true">Anmelden</v-btn>
+              <v-btn v-if="user" @click="logout">Ausloggen</v-btn>
             </v-col>
-            <!--            <v-col class="justify-start d-flex" cols="6">-->
-            <!--              <v-btn @click="regist=true">Registrieren</v-btn>-->
-            <!--            </v-col>-->
+            <!--              Wenn der user halt admin is dann button anzeigen-->
+            <v-col v-if="user" class="justify-center d-flex" cols="12">
+              <v-btn @click="regist=true">Registrieren</v-btn>
+            </v-col>
+
+            <v-col class="justify-center d-flex" cols="12">
+              <v-btn v-if="user" @click="$router.push('/files')">Dateien</v-btn>
+            </v-col>
           </v-row>
         </v-col>
 
@@ -226,7 +232,7 @@
         <template class="login">
           <v-row justify="center">
             <v-dialog
-                v-model="login"
+                v-model="loginDialog"
                 persistent
                 width="512"
             >
@@ -257,13 +263,13 @@
                   <v-spacer></v-spacer>
                   <v-btn
                       variant="text"
-                      @click="login = false"
+                      @click="loginDialog = false"
                   >
                     Close
                   </v-btn>
                   <v-btn
                       variant="text"
-                      @click="login = $router.push('/files')"
+                      @click="login"
                   >
                     Login
                   </v-btn>
@@ -274,13 +280,13 @@
         </template>
 
 
-        <v-col lg="3" sm="12" style="background-color: aqua">
+        <v-col cols="12" lg="3" md="12" sm="12" style="background-color: aqua" xs="12">
           <h2 class="text-center mt-5"> Kontaktdaten</h2>
           <v-row class="justify-center d-flex mt-5">
             <v-col cols="2">
               <Icon class="iconDaten" icon="ic:round-email"/>
             </v-col>
-            <v-col class="mt-2" cols="4">
+            <v-col class="mt-2" cols="5" lg="5" sm="4">
               <p>Ralf.Brickau@smcg.de</p>
             </v-col>
           </v-row>
@@ -288,7 +294,7 @@
             <v-col cols="2">
               <Icon class="iconDaten" icon="material-symbols:phone-android"/>
             </v-col>
-            <v-col class="mt-2" cols="4">
+            <v-col class="mt-2" cols="5" lg="5" sm="4">
               <p>0157 89636558</p>
             </v-col>
           </v-row>
@@ -296,7 +302,7 @@
             <v-col cols="2">
               <Icon class="iconDaten" icon="fluent-mdl2:website"/>
             </v-col>
-            <v-col class="mt-2" cols="4">
+            <v-col class="mt-2" cols="5" lg="5" sm="4">
               <p>www.ralf.Brickau.de</p>
             </v-col>
           </v-row>
@@ -312,7 +318,7 @@
 
     <div class="containerThree mt-3 ml-0" style="min-height: 800px; width: 100vw; background-color: #dedede">
       <v-row style="width: 100%">
-        <v-col lg="6" sm="12">
+        <v-col cols="12" lg="6" md="6" sm="12">
           <div class="d-flex justify-center" style="width: 100%; max-height: 250px">
             <Icon class="mt-5" icon="material-symbols:person" style="font-size: 200px"/>
           </div>
@@ -321,33 +327,39 @@
           </div>
           <div class="d-flex justify-center mt-4 text"
                style="font-size: 17px; margin-left: 10%; margin-right: 10%">
-            <b>Ich, Prof. Dr. Ralf A. Brickau, bin ein Wirtschaftswissenschaftler und Unternehmer mit langjähriger
-              Erfahrung in der Beratung von Unternehmen. Als Gründer und Geschäftsführer der Synergetic Management
-              Consulting Group (SMCG) liegt mein Fokus darauf, maßgeschneiderte Lösungen für komplexe
-              Geschäftsprobleme
-              zu entwickeln und nachhaltige Wertschöpfung für unsere Kunden zu schaffen.
+            <b>Prof. Dr. Ralf Brickau erwarb einen Doppelabschluss an der Fachhochschule in Dortmund und der University
+              of Plymouth, nach einem Studium der Betriebswirtschaftslehre.
 
-              Ich habe mein Studium an der Universität Hamburg absolviert und meine Promotion in
-              Wirtschaftswissenschaften an der Universität Witten/Herdecke abgeschlossen. Während meiner akademischen
-              Laufbahn habe ich mich auf die Themen Unternehmensführung, Strategie, Organisationsentwicklung und
-              Veränderungsmanagement spezialisiert. Ich habe mehrere Bücher und Artikel zu diesen Themen
-              veröffentlicht
-              und bin regelmäßiger Gastredner auf Konferenzen und Seminaren.
+              1993 promovierte er an der University of Plymouth und gleichzeitig erhielt er ein Diplom in Marketing vom
+              Chartered Institute of Marketing.
 
-              Neben meiner Tätigkeit bei SMCG bin ich auch Gründer und CEO der BTB Brickau Unternehmensgruppe, einem
-              Unternehmen, das sich auf den Bereich der Energieeffizienz spezialisiert hat. Ich bin stolz darauf, mit
-              beiden Unternehmen dazu beizutragen, nachhaltige Geschäftsstrategien und -prozesse zu entwickeln und
-              umzusetzen.
 
-              Insgesamt betrachte ich meine Arbeit bei SMCG und BTB Brickau Unternehmensgruppe als eine erfüllende und
-              herausfordernde Aufgabe, bei der ich mein Wissen und meine Erfahrung einbringen kann, um Unternehmen
-              dabei
-              zu helfen, erfolgreich zu sein und nachhaltige Werte für ihre Kunden und die Gesellschaft zu
-              schaffen. </b>
+              Er war anschließend als Key Account Manager und Berater für eine Handels- und Dienstleistungsagentur in
+              der Lebensmittelbranche tätig.
+
+
+              Nach einigen Lehraufträgen wurde Brickau 1998 als Professor an die FHW Berlin berufen. Danach wechselte
+              er an die FH Dortmund bevor er im Jahr 2001 zur ISM kam, an der er 7 Jahre Dekan und Studiengangsleiter
+              war. Als Visiting Professor übernimmt er auch heute noch an verschiedenen Hochschulen im In- und Ausland
+              Lehraufträge.
+
+
+              In den letzten 25 Jahren war er als Berater für zahlreiche Unternehmen, u.a. Volkswagen, BMW, Mercedes-
+              Benz, Signal Iduna, REWE, Edeka, Ferrero, Fujitsu, BVB 09, Lambertz, Frosta, Apetito und Progas tätig. Er
+              ist Managing Partner der Synergetic Management Consulting Group.
+
+
+              Analyse, Planung und Strategie spielt nicht nur in seinem Job, sondern auch in seiner Freizeit eine
+              wichtige Rolle: er nimmt regelmäßig an Segelregatten teil.
+
+
+              Seine Forschungsschwerpunkte sind Strategieentwicklung, Markenaufbau, Vertrauensmanagement,
+              neurowissenschaftliche Aspekte des POS-Marketings und CRM/Vertriebsmanagement in verschiedenen
+              Branchen.</b>
           </div>
         </v-col>
 
-        <v-col lg="6" sm="12">
+        <v-col cols="12" lg="6" md="6" sm="12">
           <div class="d-flex justify-center" style="width: 100%; max-height: 250px">
             <Icon class="mt-5" icon="ic:baseline-anchor" style="font-size: 200px"/>
           </div>
@@ -397,11 +409,15 @@
 <script>
 // @ is an alias to /src
 import {Icon} from '@iconify/vue';
+import {mapGetters} from "vuex";
 
 export default {
+  computed: {
+    ...mapGetters(['user'])
+  },
   data: () => ({
     regist: false,
-    login: false,
+    loginDialog: false,
     schoolList: ['IT-Center', 'FH-Dortmund', 'ISM'],
   }),
   name: 'HomeView',
@@ -411,6 +427,13 @@ export default {
   methods: {
     scrollDown() {
       window.scrollBy({top: 1500, left: 100, behavior: "smooth"});
+    },
+    logout() {
+      this.$store.state.user = false
+      location.reload()
+    },
+    login() {
+      this.$store.state.user = true;
     }
   }
 }

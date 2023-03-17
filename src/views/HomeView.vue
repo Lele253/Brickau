@@ -410,6 +410,7 @@
 // @ is an alias to /src
 import {Icon} from '@iconify/vue';
 import {mapGetters} from "vuex";
+import router from "@/router";
 
 export default {
   computed: {
@@ -434,6 +435,7 @@ export default {
     },
     login() {
       this.$store.state.user = true;
+      router.push('/')
     }
   }
 }

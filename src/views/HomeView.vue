@@ -2,13 +2,13 @@
   <div class="home">
 
     <div class="containerOne desktop hidden-sm-and-down">
-      <v-row class="mt-3 ml-0" style="height: 750px;width: 100vw; background-color: #dedede">
+      <v-row class="mt-3 ml-0" style="height: 750px;width: 100vw">
         <v-col cols="6" sm="6">
 
           <!--          Ansicht mit Umbruch in Unternehmensberatung und ohne Umbruch-->
 
           <h1 style="font-size: 40px; margin-left: 10%;margin-right: 10%; margin-top: 20%">
-            Ihr Dozent in Betriebwirtschaft und Unternehmensberaterung
+            Ihr Dozent in Betriebwirtschaft und Unternehmensberatung
           </h1>
 
           <p style="font-size: 20px; margin-left: 10%;margin-right: 10%; margin-top: 12%">
@@ -29,7 +29,7 @@
     </div>
 
     <div class="containerOne tablet hidden-md-and-up">
-      <v-row class="mt-3 ml-0" style="width: 100vw; background-color: #dedede">
+      <v-row class="mt-3 ml-0" style="width: 100vw">
         <v-col class="d-flex justify-center" cols="12" style="height: 600px">
           <v-img src="../assets/brickau.png"
                  transition="slide-y-transition"/>
@@ -40,11 +40,11 @@
 
           <h1 class="text-center hidden-xs"
               style="font-size: 40px; margin-left: 10%;margin-right: 10%">
-            Ihr Dozent in Betriebwirtschaft und Unternehmensberaterung
+            Ihr Dozent in Betriebwirtschaft und Unternehmensberatung
           </h1>
 
           <h1 class="text-center" style="font-size: 40px;">
-            Ihr Dozent in Betriebwirtschaft und Unternehmens-<br>beraterung
+            Ihr Dozent in Betriebwirtschaft und Unternehmens-<br>beratung
           </h1>
         </v-col>
         <v-col cols="12">
@@ -316,14 +316,14 @@
          style="height: 0; position: relative; top: -50px; pointer-events: none;"
     ></div>
 
-    <div class="containerThree mt-3 ml-0" style="min-height: 800px; width: 100vw; background-color: #dedede">
-      <v-row style="width: 100%">
+    <div class="containerThree mt-3 ml-0" style="min-height: 800px; width: 100vw">
+      <v-row style="width: 100%;">
         <v-col cols="12" lg="6" md="6" sm="12">
           <div class="d-flex justify-center" style="width: 100%; max-height: 250px">
             <Icon class="mt-5" icon="material-symbols:person" style="font-size: 200px"/>
           </div>
           <div class="d-flex justify-center" style="width: 100%">
-            <h1>About Me</h1>
+            <h1>About him</h1>
           </div>
           <div class="d-flex justify-center mt-4 text"
                style="font-size: 17px; margin-left: 10%; margin-right: 10%">
@@ -401,6 +401,8 @@
               Wertschöpfung zu erzielen. </b>
           </div>
         </v-col>
+        <v-col cols="12"></v-col>
+        <v-col cols="12"></v-col>
       </v-row>
     </div>
   </div>

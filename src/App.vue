@@ -3,7 +3,7 @@
     <HeaderComponent/>
     <div id="home">
       <v-main class="mt-3"
-              style="min-height: 80vh; background-color: #dedede">
+              style="min-height: 80vh;">
         <router-view/>
       </v-main>
     </div>
@@ -37,5 +37,10 @@ export default {
 <style scoped>
 #app {
   background-color: #e0e0e0;
+  background-image: url("assets/background.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>

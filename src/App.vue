@@ -1,7 +1,7 @@
 <template>
   <v-app id="app">
     <HeaderComponent/>
-    <div id="home">
+    <div id="home" style="background-color: rgba(0,0,0,0.74)">
       <v-main class="mt-3"
               style="min-height: 80vh;">
         <router-view/>
@@ -36,7 +36,7 @@ export default {
 
 <style scoped>
 #app {
-  background-color: #e0e0e0;
+  background-color: #cb1a1a;
   background-image: url("assets/background.jpg");
   background-attachment: fixed;
   background-position: center;

@@ -71,7 +71,7 @@
         <v-col class="cardOne" cols="12" lg="4"
                md="12"
                sm="12"
-               style="background-color: rgba(127,255,212,0.44)"
+               style="background-color: rgba(127,255,212,0.93)"
                xs="12"
         >
           <h2 class="text-center mt-5">Werdegang</h2>
@@ -126,7 +126,7 @@
 
 
         <v-col class="cardTwo" cols="12" lg="4" md="12" sm="12"
-               style="background-color: rgba(127,255,212,0.45)"
+               style="background-color: rgba(127,255,212,0.93)"
                xs="12"
         >
           <h2 class="text-center mt-5"> Anmelden</h2>
@@ -295,7 +295,7 @@
         </template>
 
 
-        <v-col class="cardThree" cols="12" lg="3" md="12" sm="12" style="background-color: rgba(127,255,212,0.44)"
+        <v-col class="cardThree" cols="12" lg="3" md="12" sm="12" style="background-color: rgba(127,255,212,0.93)"
                xs="12">
           <h2 class="ml-15 mt-5"> Kontaktdaten</h2>
           <v-row class=" ml-5 mt-5">
@@ -331,7 +331,7 @@
     <div class="containerTwo tablet hidden-md-and-up mt-10">
       <v-row style="height: 50%; width: 100vw;">
         <v-col class="card" cols="12" lg="5" md="12" sm="12"
-               style="background-color: rgba(127,255,212,0.44);"
+               style="background-color: rgba(127,255,212,0.93)"
                xs="12">
           <h2 class="text-center mt-5">Werdegang</h2>
           <v-timeline align="start" class="pt-4" side="end">
@@ -385,7 +385,7 @@
 
         <v-divider :thickness="5"></v-divider>
 
-        <v-col class="card" cols="12" lg="4" md="12" sm="12" style="background-color: rgba(127,255,212,0.45)" xs="12">
+        <v-col class="card" cols="12" lg="4" md="12" sm="12" style="background-color: rgba(127,255,212,0.93)" xs="12">
           <h2 class="text-center mt-5"> Anmelden</h2>
           <p class="text-center mt-5 mx-10">
             Sie sind Student vom mir und möchten sich Dateien herunterladen? Dann melden Sie
@@ -555,7 +555,7 @@
 
 
         <v-col class="card" cols="12" lg="3" md="12" sm="12"
-               style="background-color: rgba(127,255,212,0.44)" xs="12">
+               style="background-color: rgba(127,255,212,0.93)" xs="12">
           <h2 class="text-center mt-5"> Kontaktdaten</h2>
           <v-row class="justify-center d-flex mt-5">
             <v-col cols="2">

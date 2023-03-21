@@ -651,7 +651,7 @@ export default {
     login() {
       this.loginDialog = false;
       this.$store.state.user = true;
-      router.push('/')
+      router.push('/files')
     }
   }
 }

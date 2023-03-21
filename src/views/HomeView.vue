@@ -1,13 +1,13 @@
 <template>
   <div class="home">
 
-    <div class="containerOne desktop hidden-sm-and-down">
-      <v-row class="mt-3 ml-0" style="height: 750px;width: 100vw">
+    <div class="containerOne desktop hidden-md-and-down">
+      <v-row class="ml-0" style="height: 750px;width: 100vw">
         <v-col cols="6" sm="6">
 
           <!--          Ansicht mit Umbruch in Unternehmensberatung und ohne Umbruch-->
 
-          <h1 class="text-white" style="font-size: 40px; margin-left: 10%;margin-right: 10%; margin-top: 20%">
+          <h1 class="text-white" style="font-size: 40px; margin-left: 10%;margin-right: 10%; margin-top: 125px">
             Ihr Dozent in Betriebwirtschaft und Unternehmensberatung
           </h1>
 
@@ -23,15 +23,15 @@
           </v-btn>
         </v-col>
         <v-col class="d-flex justify-center" cols="6">
-          <v-img src="../assets/brickau.png" style=" width: auto; height: 57%"
+          <v-img src="../assets/brickau.png" style=" width: auto; max-height: 750px"
                  transition="slide-y-transition"/>
         </v-col>
       </v-row>
     </div>
 
-    <div class="containerOne tablet hidden-md-and-up">
+    <div class="containerOne tablet hidden-lg-and-up">
       <v-row class="mt-3 ml-0" style="width: 100vw">
-        <v-col class="d-flex justify-center" cols="12" style="height: 600px">
+        <v-col class="d-flex justify-center" cols="12" style="height: 50vh">
           <v-img src="../assets/brickau.png"
                  transition="slide-y-transition"/>
         </v-col>
@@ -66,7 +66,7 @@
       </v-row>
     </div>
 
-    <div class="containerTwo desktop hidden-sm-and-down mt-10">
+    <div class="containerTwo desktop hidden-md-and-down mt-10">
       <v-row class="d-flex justify-center" style="height: 50%; width: 100vw;">
         <v-col class="cardOne" cols="12" lg="4"
                md="12"
@@ -146,15 +146,20 @@
                      @click="loginDialog=true">
                 Anmelden
               </v-btn>
-              <v-btn v-if="user" class="text-white" style="background-color: black" @click="logout">Ausloggen</v-btn>
+              <v-btn v-if="user" class="text-white" style="background-color: black" variant="outlined" @click="logout">
+                Ausloggen
+              </v-btn>
             </v-col>
             <!--              Wenn der user halt admin is dann button anzeigen-->
             <v-col v-if="user" class="justify-center d-flex" cols="12">
-              <v-btn class="text-white" style="background-color: black" @click="regist=true">Registrieren</v-btn>
+              <v-btn class="text-white" style="background-color: black" variant="outlined" @click="regist=true">
+                Registrieren
+              </v-btn>
             </v-col>
 
             <v-col class="justify-center d-flex" cols="12">
-              <v-btn v-if="user" class="text-white" style="background-color: black" @click="$router.push('/files')">
+              <v-btn v-if="user" class="text-white" style="background-color: black" variant="outlined"
+                     @click="$router.push('/files')">
                 Dateien
               </v-btn>
             </v-col>
@@ -173,39 +178,15 @@
                   <span class="text-h5">Registrieren</span>
                 </v-card-title>
                 <v-card-text>
-                  <v-container>
+                  <div>
                     <v-row>
                       <v-col
                           cols="12"
-                          md="4"
-                          sm="6"
                       >
                         <v-text-field
-                            label="Vorname*"
+                            label="Ordnerpfad*"
                             required
                         ></v-text-field>
-                      </v-col>
-                      <v-col
-                          cols="12"
-                          md="4"
-                          sm="6"
-                      >
-                        <v-text-field
-                            label="Name*"
-                            persistent-hint
-                            required
-                        ></v-text-field>
-                      </v-col>
-                      <v-col
-                          cols="12"
-                          md="4"
-                          sm="6"
-                      >
-                        <v-select
-                            :items=schoolList
-                            label="Universität*"
-                            required
-                        ></v-select>
                       </v-col>
                       <v-col cols="12">
                         <v-text-field
@@ -222,7 +203,7 @@
                       </v-col>
 
                     </v-row>
-                  </v-container>
+                  </div>
                   <small>*Pflichtfelder</small>
                 </v-card-text>
                 <v-card-actions>
@@ -328,7 +309,7 @@
       </v-row>
     </div>
 
-    <div class="containerTwo tablet hidden-md-and-up mt-10">
+    <div class="containerTwo tablet hidden-lg-and-up mt-10">
       <v-row style="height: 50%; width: 100vw;">
         <v-col class="card" cols="12" lg="5" md="12" sm="12"
                style="background-color: rgba(127,255,212,0.93)"
@@ -403,15 +384,20 @@
                      @click="loginDialog=true">
                 Anmelden
               </v-btn>
-              <v-btn v-if="user" class="text-white" style="background-color: black" @click="logout">Ausloggen</v-btn>
+              <v-btn v-if="user" class="text-white" style="background-color: black" variant="outlined" @click="logout">
+                Ausloggen
+              </v-btn>
             </v-col>
             <!--              Wenn der user halt admin is dann button anzeigen-->
             <v-col v-if="user" class="justify-center d-flex" cols="12">
-              <v-btn class="text-white" style="background-color: black" @click="regist=true">Registrieren</v-btn>
+              <v-btn class="text-white" style="background-color: black" variant="outlined" @click="regist=true">
+                Registrieren
+              </v-btn>
             </v-col>
 
             <v-col class="justify-center d-flex" cols="12">
-              <v-btn v-if="user" class="text-white" style="background-color: black" @click="$router.push('/files')">
+              <v-btn v-if="user" class="text-white" style="background-color: black" variant="outlined"
+                     @click="$router.push('/files')">
                 Dateien
               </v-btn>
             </v-col>
@@ -419,139 +405,6 @@
         </v-col>
 
         <v-divider :thickness="5"></v-divider>
-
-        <template class="regist">
-          <v-row justify="center">
-            <v-dialog
-                v-model="regist"
-                persistent
-                width="1024"
-            >
-              <v-card>
-                <v-card-title>
-                  <span class="text-h5">Registrieren</span>
-                </v-card-title>
-                <v-card-text>
-                  <v-container>
-                    <v-row>
-                      <v-col
-                          cols="12"
-                          md="4"
-                          sm="6"
-                      >
-                        <v-text-field
-                            label="Vorname*"
-                            required
-                        ></v-text-field>
-                      </v-col>
-                      <v-col
-                          cols="12"
-                          md="4"
-                          sm="6"
-                      >
-                        <v-text-field
-                            label="Name*"
-                            persistent-hint
-                            required
-                        ></v-text-field>
-                      </v-col>
-                      <v-col
-                          cols="12"
-                          md="4"
-                          sm="6"
-                      >
-                        <v-select
-                            :items=schoolList
-                            label="Universität*"
-                            required
-                        ></v-select>
-                      </v-col>
-                      <v-col cols="12">
-                        <v-text-field
-                            label="Email*"
-                            required
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12">
-                        <v-text-field
-                            label="Passwort*"
-                            required
-                            type="password"
-                        ></v-text-field>
-                      </v-col>
-
-                    </v-row>
-                  </v-container>
-                  <small>*Pflichtfelder</small>
-                </v-card-text>
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn
-                      variant="text"
-                      @click="regist = false"
-                  >
-                    Close
-                  </v-btn>
-                  <v-btn
-                      variant="text"
-                      @click="regist = false"
-                  >
-                    Regist
-                  </v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
-          </v-row>
-        </template>
-        <template class="login">
-          <v-row justify="center">
-            <v-dialog
-                v-model="loginDialog"
-                persistent
-                width="512"
-            >
-              <v-card>
-                <v-card-title>
-                  <span class="text-h5">Anmelden</span>
-                </v-card-title>
-                <v-card-text>
-                  <v-container>
-                    <v-row>
-                      <v-col cols="12">
-                        <v-text-field
-                            label="Email"
-                            required
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12">
-                        <v-text-field
-                            label="Passwort"
-                            required
-                            type="password"
-                        ></v-text-field>
-                      </v-col>
-                    </v-row>
-                  </v-container>
-                </v-card-text>
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn
-                      variant="text"
-                      @click="loginDialog = false"
-                  >
-                    Close
-                  </v-btn>
-                  <v-btn
-                      variant="text"
-                      @click="login"
-                  >
-                    Login
-                  </v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
-          </v-row>
-        </template>
 
 
         <v-col class="card" cols="12" lg="3" md="12" sm="12"
@@ -591,7 +444,7 @@
          style="height: 0; position: relative; top: -50px; pointer-events: none;"
     ></div>
 
-    <div class="containerThree desktop hidden-sm-and-down mt-3 ml-0" style="min-height: 800px; width: 100vw">
+    <div class="containerThree desktop hidden-md-and-down mt-3 ml-0" style="min-height: 800px; width: 100vw">
       <v-row style="width: 100%;">
         <v-col cols="12" lg="6" md="6" sm="12">
           <div class="d-flex justify-center" style="width: 100%; max-height: 250px; margin-left: 25%">
@@ -681,7 +534,7 @@
       </v-row>
     </div>
 
-    <div class="containerThree tablet hidden-md-and-up mt-3 ml-0" style="min-height: 800px; width: 100vw">
+    <div class="containerThree tablet hidden-lg-and-up mt-3 ml-0" style="min-height: 800px; width: 100vw">
       <v-row class="pl-6" style="width: 100%;">
         <v-col cols="12" lg="6" md="6" sm="12">
           <div class="d-flex justify-center" style="width: 100%; max-height: 250px">
@@ -785,16 +638,12 @@ export default {
   data: () => ({
     regist: false,
     loginDialog: false,
-    schoolList: ['IHK-Münster', 'IT-Center Dortmund', 'ISM', 'Private'],
   }),
   name: 'HomeView',
   components: {
     Icon
   },
   methods: {
-    scrollDown() {
-      window.scrollBy({top: 1500, left: 100, behavior: "smooth"});
-    },
     logout() {
       this.$store.state.user = false
       this.$router.push("/")

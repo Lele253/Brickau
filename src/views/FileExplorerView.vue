@@ -24,6 +24,7 @@
 
 <script>
 import {mapGetters} from "vuex";
+import axios from "axios";
 
 export default {
   name: "FileExplorerView",
@@ -58,6 +59,18 @@ export default {
     ],
   }),
   methods: {
+    async getFiles() {
+      try {
+        const response = await axios.get(
+            "http://localhost:8080/auth/test",{
+            }
+        );
+        this.files1 = response.data;
+        console.log(this.files1)
+      } catch (error) {
+        console.log("error");
+      }
+    },
     downloadFile(value) {
       let name = value.target.parentNode.firstElementChild.innerHTML;
       let path = this.userPath + name + '.' + this.files.filter((e) => e.name == name)[0].type;

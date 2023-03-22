@@ -1,7 +1,7 @@
 FROM node:16.13.1 as build-stage
 WORKDIR /app
 COPY package*.json ./
-RUN npm install -g npm@9.6.2
+RUN npm install
 COPY ./ .
 RUN npm run build
 FROM nginx as production-stage

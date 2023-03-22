@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar class="header bg-teal-accent-2" elevate-on-scroll elevation="10" fixed>
+  <v-app-bar class="header" elevate-on-scroll elevation="10" fixed>
     <v-row>
       <v-col class="d-flex align-center" style="height: 70px">
         <v-app-bar-title class="titel-name text-black mt-2 ml-sm-5">
@@ -122,6 +122,7 @@ export default {
   height: 4.5rem;
   width: 100%;
   box-shadow: 2px 2px 10px #484848;
+  background-color: dodgerblue;
 }
 
 .icon {

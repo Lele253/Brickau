@@ -23,8 +23,8 @@ export default {
   },
 
   async created() {
-    const response = await axios.get('/server/getUser.php');
-    await this.$store.dispatch('user', response.data.user);
+    const respons = await axios.get('http://localhost:8080/auth/user');
+    await this.$store.dispatch('user', respons.data);
   },
   name: 'App',
 

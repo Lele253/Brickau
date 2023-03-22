@@ -71,7 +71,7 @@
 <script>
 import {mapGetters} from "vuex";
 import {Icon} from '@iconify/vue';
-import router from "@/router";
+import axios from "axios";
 
 export default {
   computed: {
@@ -105,14 +105,22 @@ export default {
     //   this.$router.push('/');
     // },
     logout() {
-      this.$store.state.user = false;
-      router.push('/')
+      localStorage.removeItem('token');
+      this.$store.dispatch('user', null);
+      location.reload();
     },
-    login() {
-      this.loginDialog = false;
-      this.$store.state.user = true;
-      router.push('/files')
-    }
+    async login() {
+      const response = await axios.post('http://localhost:8080/auth/login',
+          {
+            email: this.email,
+            password: this.password
+          });
+      console.log('klappt')
+      localStorage.setItem('token', response.data)
+      await this.$store.dispatch('user', response.data.user)
+
+      await location.reload()
+    },
   }
 }
 </script>

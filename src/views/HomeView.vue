@@ -178,22 +178,38 @@
                 <v-card-text>
                   <div>
                     <v-row>
+
                       <v-col
                           cols="12"
                       >
-                        <v-text-field
+                        <v-select
+                            v-model="ordnerpfad"
+                            :items="ordner"
                             label="Ordnerpfad*"
                             required
-                        ></v-text-field>
+                        ></v-select>
+                      </v-col>
+                      <v-col
+                          cols="12"
+                      >
+                        <v-select
+                            v-model="status"
+                            :items="rechte"
+                            label="Status*"
+                            required
+                        ></v-select>
                       </v-col>
                       <v-col cols="12">
                         <v-text-field
+                            v-model="email"
                             label="Email*"
                             required
                         ></v-text-field>
                       </v-col>
+
                       <v-col cols="12">
                         <v-text-field
+                            v-model="password"
                             label="Passwort*"
                             required
                             type="password"
@@ -214,7 +230,7 @@
                   </v-btn>
                   <v-btn
                       variant="text"
-                      @click="regist = false"
+                      @click="registrieren "
                   >
                     Regist
                   </v-btn>
@@ -231,6 +247,7 @@
                 width="512"
             >
               <v-card>
+              <v-form @submit.prevent="login">
                 <v-card-title>
                   <span class="text-h5">Anmelden</span>
                 </v-card-title>
@@ -239,12 +256,14 @@
                     <v-row>
                       <v-col cols="12">
                         <v-text-field
+                            v-model="email"
                             label="Email"
                             required
                         ></v-text-field>
                       </v-col>
                       <v-col cols="12">
                         <v-text-field
+                            v-model="password"
                             label="Passwort"
                             required
                             type="password"
@@ -262,15 +281,16 @@
                     Close
                   </v-btn>
                   <v-btn
-                      variant="text"
                       @click="login"
-                  >
+                    >
                     Login
                   </v-btn>
                 </v-card-actions>
+            </v-form>
               </v-card>
             </v-dialog>
           </v-row>
+
         </template>
 
 
@@ -625,31 +645,73 @@
 // @ is an alias to /src
 import {Icon} from '@iconify/vue';
 import {mapGetters} from "vuex";
-import router from "@/router";
+import axios from "axios";
 
 export default {
+  created() {
+    this.getOrdner()
+  },
   computed: {
     ...mapGetters(['user'])
   },
   data: () => ({
+    password:'',
+    email:'',
+    ordnerpfad:'',
     regist: false,
     loginDialog: false,
+    status:'',
+    rechte:['Admin','Nutzer'],
+    ordner:[]
   }),
   name: 'HomeView',
   components: {
     Icon
   },
   methods: {
-    logout() {
-      this.$store.state.user = false
-      this.$router.push("/")
+    async getOrdner() {
+      try {
+        const response = await axios.get(
+            "http://localhost:8080/auth/ordner",{
+            }
+        );
+        this.ordner = response.data;
+        console.log(this.ordner)
+      } catch (error) {
+        console.log("error");
+      }
     },
-    login() {
-      this.loginDialog = false;
-      this.$store.state.user = true;
-      router.push('/files')
-    }
-  }
+    logout() {
+      localStorage.removeItem('token');
+      this.$store.dispatch('user', null);
+      location.reload();
+    },
+    async login() {
+      const response = await axios.post('http://localhost:8080/auth/login',
+          {
+            email: this.email,
+            password: this.password
+          });
+      console.log('klappt')
+      localStorage.setItem('token', response.data)
+      await this.$store.dispatch('user', response.data.user)
+
+      await location.reload()
+    },
+    async registrieren() {
+
+        const respons = await axios.post('http://localhost:8080/auth/Regist', {
+          email: this.email,
+          password: this.password,
+          pfad: '/Users/stefanfranke/Desktop/Brickau/public/ISM/'+ this.ordnerpfad,
+          status: this.status
+        });
+        console.log(respons)
+
+      }
+    },
+
+
 }
 </script>
 

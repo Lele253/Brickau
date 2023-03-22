@@ -23,8 +23,13 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+
 export default {
   name: "FileExplorerView",
+  computed: {
+    ...mapGetters(['user'])
+  },
   data: () => ({
     search: '',
     headers: [
@@ -36,6 +41,7 @@ export default {
       {title: 'Typ', key: 'type'},
     ],
     userPath: "/ISM/",
+    files1: [],
     files: [
       {
         name: 'BWL ein mal eins',

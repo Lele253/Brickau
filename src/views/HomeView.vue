@@ -100,7 +100,7 @@
                 Ausloggen
               </v-btn>
             </v-col>
-            <v-col class="ContainerTwoCardOneColInhalt" cols="12">
+            <v-col v-if="user1 === 'Admin'" class="ContainerTwoCardOneColInhalt" cols="12">
               <v-btn class="text-white" style="background-color: black" variant="outlined" @click="regist=true">
                 Registrieren
               </v-btn>

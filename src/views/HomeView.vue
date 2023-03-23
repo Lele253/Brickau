@@ -740,7 +740,7 @@ export default {
       const respons = await axios.post('http://localhost:8080/auth/Regist', {
         email: this.email,
         password: this.password,
-        pfad: '/Users/stefanfranke/Desktop/Brickau/public/ISM/' + this.ordnerpfad,
+        pfad: '/ISM/' + this.ordnerpfad +'/',
         status: this.status
       });
       console.log(respons)

@@ -1,6 +1,8 @@
 <template>
   <div id="fileExplorer">
     <v-card>
+      <a href="/Users/stefanfranke/Desktop/Brickau/public/ISM/Neuer Ordner3/PIDI DOKU.doc"> test</a>
+
       <v-card-title>
         <v-text-field
             v-model="search"
@@ -32,7 +34,8 @@ export default {
     ...mapGetters(['user'])
   },
   created() {
-    this.convertFilePathNamesToFiles(this.getFiles());
+    this.getFiles()
+    console.log(this.files)
     this.umleitung();
   },
   data: () => ({
@@ -59,7 +62,8 @@ export default {
         const response = await axios.get(
             "http://localhost:8080/auth/test", {}
         );
-        return response.data;
+        this.convertFilePathNamesToFiles( response.data);
+
       } catch (error) {
         console.log("error");
         return [];
@@ -67,19 +71,20 @@ export default {
     },
     downloadFile(value) {
       let name = value.target.parentNode.firstElementChild.innerHTML;
-      let path = this.userPath + name + '.' + this.files.filter((e) => e.name == name)[0].type;
+      let path = this.user.pfad + name + '.' + this.files.filter((e) => e.name == name)[0].type;
+      console.log(path)
       const link = document.createElement("a");
       link.href = path;
+      console.log(link)
       link.download = path;
       link.click();
     },
     convertFilePathNamesToFiles(filePathNames) {
-      for (let filePath in filePathNames) {
-        let filePathArray = filePath.split('.');
+      filePathNames.forEach((element) => {
+        let filePathArray = element.split('.');
         this.files.push({name: filePathArray[0], type: filePathArray[1]});
-        console.log(filePathNames + "|" + filePathArray);
-      }
-      console.log(this.files);
+      });
+
     }
   }
 }

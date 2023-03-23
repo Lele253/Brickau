@@ -54,7 +54,6 @@ export default {
         const response = await axios.get(
             "http://localhost:8080/auth/test", {}
         );
-        console.log(this.files1)
         return response.data;
       } catch (error) {
         console.log("error");
@@ -77,6 +76,7 @@ export default {
         let filePathArray = filePath.split('.');
         this.files.push({name: filePathArray[0], type: filePathArray[1]});
       }
+      console.log(this.files);
     }
   }
 }

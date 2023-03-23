@@ -12,9 +12,10 @@
       </v-card-title>
       <v-data-table
           :headers="headers"
+          :item-children="row_classes"
           :items="files"
           :search="search"
-          class="elevation-1"
+          class="elevation-1 myFiles"
           item-value="name"
           @click:row="downloadFile"
       ></v-data-table>
@@ -32,7 +33,7 @@ export default {
     ...mapGetters(['user'])
   },
   created() {
-    this.getFiles()
+    this.convertFilePathNamesToFiles(this.getFiles());
   },
   data: () => ({
     search: '',
@@ -45,21 +46,7 @@ export default {
       {title: 'Typ', key: 'type'},
     ],
     userPath: "/ISM/",
-    files1: [],
-    files: [
-      {
-        name: 'BWL ein mal eins',
-        type: 'PDF'
-      },
-      {
-        name: 'BWL for Dummies',
-        type: 'EPUB'
-      },
-      {
-        name: 'BWL1-Skript-ITC-WS 19_20',
-        type: 'pdf',
-      }
-    ],
+    files: [],
   }),
   methods: {
     async getFiles() {
@@ -67,10 +54,11 @@ export default {
         const response = await axios.get(
             "http://localhost:8080/auth/test", {}
         );
-        this.files1 = response.data;
         console.log(this.files1)
+        return response.data;
       } catch (error) {
         console.log("error");
+        return [];
       }
     },
     downloadFile(value) {
@@ -80,6 +68,9 @@ export default {
       link.href = path;
       link.download = path;
       link.click();
+    },
+    row_classes() {
+      return "dataRow";
     },
     convertFilePathNamesToFiles(filePathNames) {
       for (let filePath in filePathNames) {

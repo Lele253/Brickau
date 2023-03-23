@@ -75,6 +75,7 @@ export default {
       for (let filePath in filePathNames) {
         let filePathArray = filePath.split('.');
         this.files.push({name: filePathArray[0], type: filePathArray[1]});
+        console.log(filePathNames + "|" + filePathArray);
       }
       console.log(this.files);
     }

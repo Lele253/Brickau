@@ -1,7 +1,6 @@
 <template>
   <div id="fileExplorer">
     <v-card>
-      <a href="/Users/stefanfranke/Desktop/Brickau/public/ISM/Neuer Ordner3/PIDI DOKU.doc"> test</a>
 
       <v-card-title>
         <v-text-field
@@ -62,7 +61,7 @@ export default {
         const response = await axios.get(
             "http://localhost:8080/auth/test", {}
         );
-        this.convertFilePathNamesToFiles( response.data);
+        this.convertFilePathNamesToFiles(response.data);
 
       } catch (error) {
         console.log("error");

@@ -11,7 +11,6 @@
             Ihr Dozent für Management und Consulting
 
 
-
           </h1>
 
           <p class="text-white" style="font-size: 20px; margin-left: 10%;margin-right: 10%; margin-top: 12%">
@@ -101,8 +100,8 @@
                 Ausloggen
               </v-btn>
             </v-col>
-            <v-col v-if="user1 =='Admin'" class="ContainerTwoCardOneColInhalt" cols="12">
-              <v-btn  class="text-white" style="background-color: black" variant="outlined" @click="regist=true">
+            <v-col v-if="user1 === 'Admin'" class="ContainerTwoCardOneColInhalt" cols="12">
+              <v-btn class="text-white" style="background-color: black" variant="outlined" @click="regist=true">
                 Registrieren
               </v-btn>
 
@@ -338,15 +337,15 @@
             </v-col>
             <v-col class="align-center ml-5 d-flex" cols="12">
               <Icon class="iconDaten" icon="ic:round-email"/>
-              <p class="ml-3">Ralf.Brickau@ism.de</p>
+              <a class="ml-3" href="mailto:Ralf.Brickau@smcg.de">Ralf.Brickau@smcg.de</a>
             </v-col>
             <v-col class="d-flex align-center ml-5" cols="12">
               <Icon class="iconDaten" icon="material-symbols:phone-android"/>
-              <p class="ml-3">+49 231 97523952</p>
+              <a class="ml-3" href="tel:+4923197523952">+49 231 97523952</a>
             </v-col>
             <v-col class="d-flex align-center ml-5" cols="12">
               <Icon class="iconDaten" icon="fluent-mdl2:website"/>
-              <p class="ml-3">www.brickau.de</p>
+              <a class="ml-3" href="https://www.brickau.de" target="_blank">www.brickau.de</a>
             </v-col>
           </v-row>
 
@@ -356,7 +355,48 @@
     </div>
 
     <div class="containerTwo tablet hidden-lg-and-up mt-10">
-      <v-row style="height: 50%; width: 100vw;">
+      <v-row class="mx-0" style="height: 50%; width: 100%;">
+
+        <v-col class="card" cols="12" lg="4" md="12" sm="12" xs="12">
+          <h2 class="text-center mt-5"> Anmelden</h2>
+          <p class="text-center mt-5 mx-10">
+            Sie sind Student vom mir und möchten sich Dateien herunterladen? Dann melden Sie
+            sich mit den von mir bereitgestellten Anmeldedaten an!
+          </p>
+          <v-row class="pt-7">
+            <v-col class="justify-center d-flex icon" cols="12">
+              <Icon icon="ic:baseline-log-in"/>
+            </v-col>
+            <!--            <v-col class="justify-start d-flex icon" cols="6">-->
+            <!--              <Icon icon="mdi:register"/>-->
+            <!--            </v-col>-->
+            <v-col class="justify-center d-flex" cols="12">
+              <v-btn v-if="!user" class="text-white" style="background-color: black" variant="outlined"
+                     @click="loginDialog=true">
+                Anmelden
+              </v-btn>
+              <v-btn v-if="user" class="text-white" style="background-color: black" variant="outlined" @click="logout">
+                Ausloggen
+              </v-btn>
+            </v-col>
+            <!--              Wenn der user halt admin is dann button anzeigen-->
+            <v-col class="justify-center d-flex" cols="12">
+              <v-btn v-if="user1 === 'Admin'" class="text-white" style="background-color: black" variant="outlined"
+                     @click="regist=true">
+                Registrieren
+              </v-btn>
+            </v-col>
+
+            <v-col class="justify-center d-flex" cols="12">
+              <v-btn v-if="user" class="text-white" style="background-color: black" variant="outlined"
+                     @click="$router.push('/files')">
+                Dateien
+              </v-btn>
+            </v-col>
+          </v-row>
+        </v-col>
+        <v-divider :thickness="5"></v-divider>
+
         <v-col class="card" cols="12" lg="5" md="12" sm="12"
                xs="12">
           <h2 class="text-center mt-5">Werdegang</h2>
@@ -440,46 +480,6 @@
 
         <v-divider :thickness="5"></v-divider>
 
-        <v-col class="card" cols="12" lg="4" md="12" sm="12" xs="12">
-          <h2 class="text-center mt-5"> Anmelden</h2>
-          <p class="text-center mt-5 mx-10">
-            Sie sind Student vom mir und möchten sich Dateien herunterladen? Dann melden Sie
-            sich mit den von mir bereitgestellten Anmeldedaten an!
-          </p>
-          <v-row class="pt-7">
-            <v-col class="justify-center d-flex icon" cols="12">
-              <Icon icon="ic:baseline-log-in"/>
-            </v-col>
-            <!--            <v-col class="justify-start d-flex icon" cols="6">-->
-            <!--              <Icon icon="mdi:register"/>-->
-            <!--            </v-col>-->
-            <v-col class="justify-center d-flex" cols="12">
-              <v-btn v-if="!user" class="text-white" style="background-color: black" variant="outlined"
-                     @click="loginDialog=true">
-                Anmelden
-              </v-btn>
-              <v-btn v-if="user" class="text-white" style="background-color: black" variant="outlined" @click="logout">
-                Ausloggen
-              </v-btn>
-            </v-col>
-            <!--              Wenn der user halt admin is dann button anzeigen-->
-            <v-col  class="justify-center d-flex" cols="12">
-              <v-btn v-if="user1 === 'Admin'"  class="text-white" style="background-color: black" variant="outlined" @click="regist=true">
-                Registrieren
-              </v-btn>
-            </v-col>
-
-            <v-col class="justify-center d-flex" cols="12">
-              <v-btn v-if="user" class="text-white" style="background-color: black" variant="outlined"
-                     @click="$router.push('/files')">
-                Dateien
-              </v-btn>
-            </v-col>
-          </v-row>
-        </v-col>
-
-        <v-divider :thickness="5"></v-divider>
-
 
         <v-col class="card" cols="12" lg="3" md="12" sm="12" xs="12">
           <h2 class="text-center mt-5"> Kontaktdaten</h2>
@@ -488,7 +488,7 @@
               <Icon class="iconDaten" icon="ic:round-email"/>
             </v-col>
             <v-col class="mt-2" cols="5" lg="5" sm="4">
-              <p>Ralf.Brickau@ism.de</p>
+              <a href="mailto:ralf.brickau@ism.de">Ralf.Brickau@ism.de</a>
             </v-col>
           </v-row>
           <v-row class="d-flex justify-center">
@@ -496,7 +496,7 @@
               <Icon class="iconDaten" icon="material-symbols:phone-android"/>
             </v-col>
             <v-col class="mt-2" cols="5" lg="5" sm="4">
-              <p>0231 97523952</p>
+              <a href="tel:+4923197523952">0231 97523952</a>
             </v-col>
           </v-row>
           <v-row class="d-flex justify-center">
@@ -504,7 +504,7 @@
               <Icon class="iconDaten" icon="fluent-mdl2:website"/>
             </v-col>
             <v-col class="mt-2" cols="5" lg="5" sm="4">
-              <p>www.brickau.de</p>
+              <a href="https://www.brickau.de">www.brickau.de</a>
             </v-col>
           </v-row>
 
@@ -676,9 +676,10 @@ import axios from "axios";
 
 export default {
   async created() {
+    this.getOrdner()
     const respons = await axios.get('http://localhost:8080/auth/user');
     await this.$store.dispatch('user', respons.data);
-    this.getOrdner()
+
     this.test()
 
   },
@@ -703,7 +704,7 @@ export default {
   },
 
   methods: {
-    test(){
+    test() {
       this.user1 = this.user.status
       console.log(this.user1)
     },
@@ -740,7 +741,7 @@ export default {
       const respons = await axios.post('http://localhost:8080/auth/Regist', {
         email: this.email,
         password: this.password,
-        pfad: '/ISM/' + this.ordnerpfad +'/',
+        pfad: '/ISM/' + this.ordnerpfad + '/',
         status: this.status
       });
       console.log(respons)
@@ -777,7 +778,7 @@ export default {
 }
 
 .card {
-  background-color: dodgerblue;
+  background-color: lightskyblue;
 }
 
 .ContainerTwoCardOneColInhalt {

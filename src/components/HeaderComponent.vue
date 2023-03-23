@@ -133,7 +133,7 @@ export default {
   height: 4.5rem;
   width: 100%;
   box-shadow: 2px 2px 10px #484848;
-  background-color: dodgerblue;
+  background-color: lightskyblue;
 }
 
 .icon {

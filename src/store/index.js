@@ -1,7 +1,7 @@
 import {createStore} from 'vuex'
 
 
-const state={
+const state = {
     user: null,
 
 }
@@ -9,32 +9,31 @@ export default createStore({
 
     state,
     getters: {
-        user:(state) =>{
+        user: (state) => {
             return state.user
         },
-        password:(state) =>{
+        password: (state) => {
             return state.password
         }
     },
     actions: {
-        user(context, user){
+        user(context, user) {
             context.commit('user', user)
         },
-        password(context, password){
+        password(context, password) {
             context.commit('password', password)
 
         }
     },
     mutations: {
-        user(state,user){
-            state.user=user;
+        user(state, user) {
+            state.user = user;
         },
-        password(state,password){
-            state.password=password;
+        password(state, password) {
+            state.password = password;
         }
     },
 
-    modules: {
-    }
+    modules: {}
 })
 

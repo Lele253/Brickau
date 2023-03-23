@@ -8,13 +8,16 @@
           <!--          Ansicht mit Umbruch in Unternehmensberatung und ohne Umbruch-->
 
           <h1 class="text-white" style="font-size: 40px; margin-left: 10%;margin-right: 10%; margin-top: 125px">
-            Ihr Dozent in Betriebwirtschaft und Unternehmensberatung
+            Ihr Dozent für Management und Consulting
           </h1>
 
           <p class="text-white" style="font-size: 20px; margin-left: 10%;margin-right: 10%; margin-top: 12%">
-            Dozent an der International School of Management in
-            Dortmund und managing Partner der
-            Synergetic Management Consulting Group</p>
+            Dozent an der International School of Management und dem ITC in Dortmund - Gast-Dozent an diversen
+            Hochschulen im In- und Ausland.</p>
+
+          <p class="text-white mt-5" style="font-size: 20px; margin-left: 10%;margin-right: 10%; margin-top: 12%">
+            Managing Partner der Synergetic Management Consulting Group
+          </p>
 
           <v-btn class="text-white" style="background-color: black; margin-left: 10%; margin-top: 13%"
                  variant="outlined"
@@ -41,20 +44,19 @@
 
           <h1 class="text-center hidden-xs text-white"
               style="font-size: 40px; margin-left: 10%;margin-right: 10%">
-            Ihr Dozent in Betriebwirtschaft und Unternehmensberatung
-          </h1>
-
-          <h1 class="text-center text-white" style="font-size: 40px;">
-            Ihr Dozent in Betriebwirtschaft und Unternehmens-<br>beratung
+            Ihr Dozent für Management und Consulting
           </h1>
         </v-col>
         <v-col cols="12">
 
           <p class="text-center text-white"
              style="font-size: 20px; margin-left: 10%;margin-right: 10%">
-            Dozent an der International School of Management in
-            Dortmund und managing Partner der
-            Synergetic Management Consulting Group</p>
+            Dozent an der International School of Management und dem ITC in Dortmund - Gast-Dozent an diversen
+            Hochschulen im In- und Ausland.</p>
+          <p class="text-center text-white mt-5"
+             style="font-size: 20px; margin-left: 10%;margin-right: 10%">
+            Managing Partner der Synergetic Management Consulting Group
+          </p>
           <div class="d-flex justify-center">
             <v-btn class="text-white" style="background-color: black; margin-top: 5%"
                    variant="outlined"
@@ -68,100 +70,126 @@
 
     <div class="containerTwo desktop hidden-md-and-down mt-10">
       <v-row class="d-flex justify-center" style="height: 50%; width: 100vw;">
-        <v-col class="cardOne card" cols="12" lg="4"
-               md="12"
-               sm="12"
-               xs="12"
-        >
-          <h2 class="text-center mt-5">Werdegang</h2>
-          <v-timeline align="start" class="pt-4 pl-10" side="end">
-            <v-timeline-item
-                size="small"
-            >
-              <div class="d-flex">
-                <strong class="me-4">August 2021</strong>
-                <div>
-                  <strong>International School of Management</strong>
-                  <div class="text-caption">
-                    - Dekan <br>
-                    - Dozent, Seminare, Workshops, Management Consulting <br>
-                    - Prof. Dr. <br>
-                  </div>
-                </div>
-              </div>
-            </v-timeline-item>
 
-            <v-timeline-item
-                dot-color="light-blue-lighten-3"
-                size="small"
-            >
-              <div class="d-flex">
-                <strong class="me-9">Dez 2000</strong>
-                <div>
-                  <strong>Dozent</strong>
-                  <div class="text-caption mb-2">
-                    IT-Center Dortmund GmbH
-                  </div>
-                </div>
-              </div>
-            </v-timeline-item>
-            <v-timeline-item
-                size="small"
-            >
-              <div class="d-flex">
-                <strong class="me-6">1990-1999</strong>
-                <div>
-                  <strong>Key Accounter</strong>
-                  <div class="text-caption mb-2">
-                    Konzeptionelle Marketing und Vertriebstätigkeit bei Großkunden
-                  </div>
-                </div>
-              </div>
-            </v-timeline-item>
-            ‚
-
-          </v-timeline>
-        </v-col>
-
-
-        <v-col class="cardTwo card" cols="12" lg="4" md="12" sm="12"
-               xs="12"
-        >
-          <h2 class="text-center mt-5"> Anmelden</h2>
-          <p class="text-center mt-5 mx-10">
-            Sie sind Student vom mir und möchten sich Dateien herunterladen? Dann melden Sie
-            sich mit den von mir bereitgestellten Anmeldedaten an!
-          </p>
-          <v-row class="pt-7">
-            <v-col class="justify-center d-flex icon" cols="12">
+        <v-col class="cardOne card d-flex align-center" cols="12" lg="4"
+               md="12" sm="12" xs="12">
+          <v-row>
+            <v-col class="ContainerTwoCardOneColInhalt" cols="12">
+              <h2 class="mt-5"> Anmelden</h2>
+            </v-col>
+            <v-col class="ContainerTwoCardOneColInhalt" cols="12">
+              <p class="text-center" style="width: 300px">
+                Sie sind Student vom mir und möchten sich Dateien herunterladen? Dann melden Sie
+                sich mit den von mir bereitgestellten Anmeldedaten an!
+              </p>
+            </v-col>
+            <v-col class="ContainerTwoCardOneColInhalt icon" cols="12">
               <Icon icon="ic:baseline-log-in"/>
             </v-col>
-            <!--            <v-col class="justify-start d-flex icon" cols="6">-->
-            <!--              <Icon icon="mdi:register"/>-->
-            <!--            </v-col>-->
-            <v-col class="justify-center d-flex" cols="12">
-              <v-btn v-if="!user" class="text-white" style="background-color: black" variant="outlined"
+            <v-col v-if="!user" class="ContainerTwoCardOneColInhalt" cols="12">
+              <v-btn class="text-white" style="background-color: black" variant="outlined"
                      @click="loginDialog=true">
                 Anmelden
               </v-btn>
-              <v-btn v-if="user" class="text-white" style="background-color: black" variant="outlined" @click="logout">
+            </v-col>
+            <v-col v-if="user" class="ContainerTwoCardOneColInhalt" cols="12">
+              <v-btn class="text-white" style="background-color: black" variant="outlined" @click="logout">
                 Ausloggen
               </v-btn>
             </v-col>
-            <!--              Wenn der user halt admin is dann button anzeigen-->
-            <v-col v-if="user" class="justify-center d-flex" cols="12">
+            <v-col class="ContainerTwoCardOneColInhalt" cols="12">
               <v-btn class="text-white" style="background-color: black" variant="outlined" @click="regist=true">
                 Registrieren
               </v-btn>
             </v-col>
-
-            <v-col class="justify-center d-flex" cols="12">
-              <v-btn v-if="user" class="text-white" style="background-color: black" variant="outlined"
+            <v-col v-if="user" class="ContainerTwoCardOneColInhalt" cols="12">
+              <v-btn class="text-white" style="background-color: black" variant="outlined"
                      @click="$router.push('/files')">
                 Dateien
               </v-btn>
             </v-col>
           </v-row>
+        </v-col>
+
+        <v-col class="cardTwo card" cols="12" lg="4" md="12" sm="12" xs="12"
+        >
+          <h2 class="text-center mt-5">Werdegang</h2>
+          <v-timeline align="start" side="end">
+            <v-timeline-item size="small">
+              <div class="d-flex">
+                <strong class="me-3">seit August 2021</strong>
+                <div>
+                  <strong>International School of Management</strong>
+                  <div class="text-caption">
+                    - Dekan und Studiengangsleiter <br>
+                    - Dozent für Strategy & Planning, Marketing, CRM & Sales Mgt, Brand Mgt, Consulting, Market Research
+                  </div>
+                </div>
+              </div>
+            </v-timeline-item>
+
+            <v-timeline-item dot-color="black" size="small">
+              <div class="d-flex">
+                <strong class="me-15">1999</strong>
+                <div>
+                  <strong>Berufung zum Professor an der FH Dortmund</strong>
+                </div>
+              </div>
+            </v-timeline-item>
+            <v-timeline-item dot-color="black" size="small">
+              <div class="d-flex justify-center">
+                <strong class="me-15">1998</strong>
+                <div>
+                  <strong>Berufung zum Professor an der FHw Berlin</strong>
+                </div>
+              </div>
+            </v-timeline-item>
+            <v-timeline-item dot-color="black" size="small">
+              <div class="d-flex">
+                <strong class="me-10">seit Dez 2000</strong>
+                <div>
+                  <strong>IT-Center</strong>
+                  <div class="text-caption">
+                    Dozent Am IT-Center Dortmund GmbH und verschiedenen VWA, Lehraufträge an Partner-Hochschulen der ISM
+                    im Ausland
+                  </div>
+                </div>
+              </div>
+            </v-timeline-item>
+            <v-timeline-item dot-color="black" size="small">
+              <div class="d-flex justify-center">
+                <strong class="me-6">seit 1999</strong>
+                <div>
+                  <strong>Unternehmensberater für verschiedene Unternehmen</strong>
+                </div>
+              </div>
+            </v-timeline-item>
+            <v-timeline-item dot-color="black" size="small">
+              <div class="d-flex">
+                <strong class="me-9">1994-1999</strong>
+                <div>
+                  <strong>Key Accounter</strong>
+                  <div class="text-caption">
+                    Konzeptionelle Marketing-, Beratungs- und Vertriebstätigkeit bei Großkunden in der Food-Industrie
+                  </div>
+                </div>
+              </div>
+            </v-timeline-item>
+            <v-timeline-item dot-color="black" size="small">
+              <div class="d-flex justify-center">
+                <strong class="me-13">seit 1999</strong>
+                <div>
+                  <strong>
+                    BWL-Studien-Abschlüsse an FH Dortmund, University of Plymouth, Chartered Institute of Marketing, PhD
+                    an der University of Plymouth
+                  </strong>
+                </div>
+              </div>
+            </v-timeline-item>
+
+            ,
+
+          </v-timeline>
         </v-col>
 
         <template class="regist">
@@ -247,46 +275,46 @@
                 width="512"
             >
               <v-card>
-              <v-form @submit.prevent="login">
-                <v-card-title>
-                  <span class="text-h5">Anmelden</span>
-                </v-card-title>
-                <v-card-text>
-                  <v-container>
-                    <v-row>
-                      <v-col cols="12">
-                        <v-text-field
-                            v-model="email"
-                            label="Email"
-                            required
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12">
-                        <v-text-field
-                            v-model="password"
-                            label="Passwort"
-                            required
-                            type="password"
-                        ></v-text-field>
-                      </v-col>
-                    </v-row>
-                  </v-container>
-                </v-card-text>
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn
-                      variant="text"
-                      @click="loginDialog = false"
-                  >
-                    Close
-                  </v-btn>
-                  <v-btn
-                      @click="login"
+                <v-form @submit.prevent="login">
+                  <v-card-title>
+                    <span class="text-h5">Anmelden</span>
+                  </v-card-title>
+                  <v-card-text>
+                    <v-container>
+                      <v-row>
+                        <v-col cols="12">
+                          <v-text-field
+                              v-model="email"
+                              label="Email"
+                              required
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12">
+                          <v-text-field
+                              v-model="password"
+                              label="Passwort"
+                              required
+                              type="password"
+                          ></v-text-field>
+                        </v-col>
+                      </v-row>
+                    </v-container>
+                  </v-card-text>
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                        variant="text"
+                        @click="loginDialog = false"
                     >
-                    Login
-                  </v-btn>
-                </v-card-actions>
-            </v-form>
+                      Close
+                    </v-btn>
+                    <v-btn
+                        @click="login"
+                    >
+                      Login
+                    </v-btn>
+                  </v-card-actions>
+                </v-form>
               </v-card>
             </v-dialog>
           </v-row>
@@ -294,31 +322,26 @@
         </template>
 
 
-        <v-col class="cardThree card" cols="12" lg="3" md="12" sm="12"
-               xs="12">
-          <h2 class="ml-15 mt-5"> Kontaktdaten</h2>
-          <v-row class=" ml-5 mt-5">
-            <v-col cols="2">
+        <!--        // ein row align-center mit col und cols="12"-->
+        <!--        // icon mit text col dflex-->
+
+        <v-col class="card cardThree justify-center align-center d-flex pl-8" cols="3" lg="3" md="12" sm="12" xs="12">
+
+          <v-row class="d-flex">
+            <v-col cols="12">
+              <h2 class="ml-16 mt-5">Kontaktdaten</h2>
+            </v-col>
+            <v-col class="align-center ml-5 d-flex" cols="12">
               <Icon class="iconDaten" icon="ic:round-email"/>
+              <p class="ml-3">Ralf.Brickau@ism.de</p>
             </v-col>
-            <v-col class="mt-2" cols="5" lg="5" sm="4">
-              <p>Ralf.Brickau@smcg.de</p>
-            </v-col>
-          </v-row>
-          <v-row class="ml-5">
-            <v-col cols="2">
+            <v-col class="d-flex align-center ml-5" cols="12">
               <Icon class="iconDaten" icon="material-symbols:phone-android"/>
+              <p class="ml-3">+49 231 97523952</p>
             </v-col>
-            <v-col class="mt-2" cols="5" lg="5" sm="4">
-              <p>0157 89636558</p>
-            </v-col>
-          </v-row>
-          <v-row class="ml-5 ">
-            <v-col cols="2">
+            <v-col class="d-flex align-center ml-5" cols="12">
               <Icon class="iconDaten" icon="fluent-mdl2:website"/>
-            </v-col>
-            <v-col class="mt-2" cols="5" lg="5" sm="4">
-              <p>www.ralf.Brickau.de</p>
+              <p class="ml-3">www.brickau.de</p>
             </v-col>
           </v-row>
 
@@ -332,51 +355,80 @@
         <v-col class="card" cols="12" lg="5" md="12" sm="12"
                xs="12">
           <h2 class="text-center mt-5">Werdegang</h2>
-          <v-timeline align="start" class="pt-4" side="end">
-            <v-timeline-item
-                size="small"
-            >
+          <v-timeline align="start" side="end">
+            <v-timeline-item size="small">
               <div class="d-flex">
-                <strong class="me-4">August 2021</strong>
+                <strong class="me-3">seit August 2021</strong>
                 <div>
                   <strong>International School of Management</strong>
                   <div class="text-caption">
-                    - Dekan <br>
-                    - Dozent, Seminare, Workshops, Management Consulting <br>
-                    - Prof. Dr. <br>
+                    - Dekan und Studiengangsleiter <br>
+                    - Dozent für Strategy & Planning, Marketing, CRM & Sales Mgt, Brand Mgt, Consulting, Market Research
                   </div>
                 </div>
               </div>
             </v-timeline-item>
 
-            <v-timeline-item
-                dot-color="light-blue-lighten-3"
-                size="small"
-            >
+            <v-timeline-item dot-color="black" size="small">
               <div class="d-flex">
-                <strong class="me-9">Dez 2000</strong>
+                <strong class="me-15">1999</strong>
                 <div>
-                  <strong>Dozent</strong>
-                  <div class="text-caption mb-2">
-                    IT-Center Dortmund GmbH
+                  <strong>Berufung zum Professor an der FH Dortmund</strong>
+                </div>
+              </div>
+            </v-timeline-item>
+            <v-timeline-item dot-color="black" size="small">
+              <div class="d-flex justify-center">
+                <strong class="me-15">1998</strong>
+                <div>
+                  <strong>Berufung zum Professor an der FHw Berlin</strong>
+                </div>
+              </div>
+            </v-timeline-item>
+            <v-timeline-item dot-color="black" size="small">
+              <div class="d-flex">
+                <strong class="me-10">seit Dez 2000</strong>
+                <div>
+                  <strong>IT-Center</strong>
+                  <div class="text-caption">
+                    Dozent Am IT-Center Dortmund GmbH und verschiedenen VWA, Lehraufträge an Partner-Hochschulen der ISM
+                    im Ausland
                   </div>
                 </div>
               </div>
             </v-timeline-item>
-            <v-timeline-item
-                size="small"
-            >
+            <v-timeline-item dot-color="black" size="small">
+              <div class="d-flex justify-center">
+                <strong class="me-6">seit 1999</strong>
+                <div>
+                  <strong>Unternehmensberater für verschiedene Unternehmen</strong>
+                </div>
+              </div>
+            </v-timeline-item>
+            <v-timeline-item dot-color="black" size="small">
               <div class="d-flex">
-                <strong class="me-6">1990-1999</strong>
+                <strong class="me-9">1994-1999</strong>
                 <div>
                   <strong>Key Accounter</strong>
-                  <div class="text-caption mb-2">
-                    Konzeptionelle Marketing und Vertriebstätigkeit bei Großkunden
+                  <div class="text-caption">
+                    Konzeptionelle Marketing-, Beratungs- und Vertriebstätigkeit bei Großkunden in der Food-Industrie
                   </div>
                 </div>
               </div>
             </v-timeline-item>
-            ‚
+            <v-timeline-item dot-color="black" size="small">
+              <div class="d-flex justify-center">
+                <strong class="me-13">seit 1999</strong>
+                <div>
+                  <strong>
+                    BWL-Studien-Abschlüsse an FH Dortmund, University of Plymouth, Chartered Institute of Marketing, PhD
+                    an der University of Plymouth
+                  </strong>
+                </div>
+              </div>
+            </v-timeline-item>
+
+            ,
 
           </v-timeline>
         </v-col>
@@ -431,7 +483,7 @@
               <Icon class="iconDaten" icon="ic:round-email"/>
             </v-col>
             <v-col class="mt-2" cols="5" lg="5" sm="4">
-              <p>Ralf.Brickau@smcg.de</p>
+              <p>Ralf.Brickau@ism.de</p>
             </v-col>
           </v-row>
           <v-row class="d-flex justify-center">
@@ -439,7 +491,7 @@
               <Icon class="iconDaten" icon="material-symbols:phone-android"/>
             </v-col>
             <v-col class="mt-2" cols="5" lg="5" sm="4">
-              <p>0157 89636558</p>
+              <p>0231 97523952</p>
             </v-col>
           </v-row>
           <v-row class="d-flex justify-center">
@@ -447,7 +499,7 @@
               <Icon class="iconDaten" icon="fluent-mdl2:website"/>
             </v-col>
             <v-col class="mt-2" cols="5" lg="5" sm="4">
-              <p>www.ralf.Brickau.de</p>
+              <p>www.brickau.de</p>
             </v-col>
           </v-row>
 
@@ -514,35 +566,20 @@
 
           <div class="d-flex justify-center mt-4 text text-white"
                style="text-align: left; font-size: 17px; margin-right: 20% ">
-            <b>Die Synergetic Management Consulting Group ist ein internationales Beratungsunternehmen, das sich auf
-              die
-              Bereiche Strategie, Organisation, Prozesse, Technologie und Veränderungsmanagement spezialisiert hat.
-              Unsere
-              Kunden stammen aus verschiedenen Branchen und Regionen, und wir arbeiten eng mit ihnen zusammen, um
-              maßgeschneiderte Lösungen für komplexe Geschäftsprobleme zu entwickeln.
-
-              Unser Beratungsansatz ist ganzheitlich und zielt darauf ab, die Effektivität und Effizienz der
-              Geschäftsprozesse
+            <b>Die Synergetic Management Consulting Group ist ein Beratungsunternehmen, das sich u.a. auf die Bereiche
+              Strategische Analyse, Strategieentwicklung, Markenentwicklung, Vertrauens-Mgt., und Neurowissenschaftliche
+              PoS-Gestaltung spezialisiert hat. Unsere Kunden stammen aus verschiedenen Branchen und Regionen, und wir
+              arbeiten eng mit ihnen zusammen, um maßgeschneiderte Lösungen für deren strategische Ausrichtung zu
+              entwickeln. Unser Beratungsansatz ist ganzheitlich und zielt darauf ab, die Effektivität und Effizienz
               unserer Kunden zu verbessern und eine nachhaltige Wertschöpfung zu erzielen. Wir setzen auf eine enge
-              Zusammenarbeit mit unseren Kunden, um eine fundierte Analyse und eine erfolgreiche Umsetzung von
-              Lösungen
-              zu
-              gewährleisten.
-
-              Unser Leistungsportfolio umfasst die Entwicklung von Geschäftsstrategien, die Optimierung von
-              Organisationsstrukturen und -prozessen, die Einführung neuer Technologien, die Implementierung von
-              Veränderungsmanagement-Prozessen und die Durchführung von Schulungen und Workshops für Mitarbeiter.
-
-              Unser erfahrenes Team von Beratern verfügt über unterschiedliche fachliche Hintergründe und
-              Branchenkenntnisse.
-              Wir sind bekannt für unsere qualitativ hochwertigen Beratungsdienstleistungen und unsere umfassende
-              Betreuung
-              und Unterstützung unserer Kunden.
-
+              Zusammenarbeit mit unseren Kunden, um eine fundierte Analyse und eine erfolgreiche Umsetzung von Lösungen
+              zu gewährleisten. Unser Leistungsportfolio umfasst auch die Durchführung von Schulungen und Workshops für
+              Mitarbeiter*innen und Manager*innen. Unser kleines erfahrenes Team von Beratern verfügt über
+              unterschiedliche fachliche Hintergründe und Branchenkenntnisse. Wir sind bekannt für unsere qualitativ
+              hochwertigen Beratungsdienstleistungen und unsere umfassende Betreuung und Unterstützung unserer Kunden.
               Insgesamt sind wir bei der Synergetic Management Consulting Group stolz darauf, Unternehmen dabei zu
-              unterstützen, komplexe Herausforderungen zu bewältigen und ihre Geschäftsprozesse zu verbessern, um
-              nachhaltige
-              Wertschöpfung zu erzielen. </b>
+              unterstützen, komplexe Herausforderungen zu bewältigen und ihre Strategien zu verbessern, um nachhaltige
+              Wertschöpfung zu erzielen.</b>
           </div>
         </v-col>
         <v-col cols="12"></v-col>
@@ -603,35 +640,20 @@
           </div>
           <div class="mt-4 text text-white"
                style="text-align: center; font-size: 17px; margin-left: 3%; margin-right: 3%">
-            <b>Die Synergetic Management Consulting Group ist ein internationales Beratungsunternehmen, das sich auf
-              die
-              Bereiche Strategie, Organisation, Prozesse, Technologie und Veränderungsmanagement spezialisiert hat.
-              Unsere
-              Kunden stammen aus verschiedenen Branchen und Regionen, und wir arbeiten eng mit ihnen zusammen, um
-              maßgeschneiderte Lösungen für komplexe Geschäftsprobleme zu entwickeln.
-
-              Unser Beratungsansatz ist ganzheitlich und zielt darauf ab, die Effektivität und Effizienz der
-              Geschäftsprozesse
+            <b>Die Synergetic Management Consulting Group ist ein Beratungsunternehmen, das sich u.a. auf die Bereiche
+              Strategische Analyse, Strategieentwicklung, Markenentwicklung, Vertrauens-Mgt., und Neurowissenschaftliche
+              PoS-Gestaltung spezialisiert hat. Unsere Kunden stammen aus verschiedenen Branchen und Regionen, und wir
+              arbeiten eng mit ihnen zusammen, um maßgeschneiderte Lösungen für deren strategische Ausrichtung zu
+              entwickeln. Unser Beratungsansatz ist ganzheitlich und zielt darauf ab, die Effektivität und Effizienz
               unserer Kunden zu verbessern und eine nachhaltige Wertschöpfung zu erzielen. Wir setzen auf eine enge
-              Zusammenarbeit mit unseren Kunden, um eine fundierte Analyse und eine erfolgreiche Umsetzung von
-              Lösungen
-              zu
-              gewährleisten.
-
-              Unser Leistungsportfolio umfasst die Entwicklung von Geschäftsstrategien, die Optimierung von
-              Organisationsstrukturen und -prozessen, die Einführung neuer Technologien, die Implementierung von
-              Veränderungsmanagement-Prozessen und die Durchführung von Schulungen und Workshops für Mitarbeiter.
-
-              Unser erfahrenes Team von Beratern verfügt über unterschiedliche fachliche Hintergründe und
-              Branchenkenntnisse.
-              Wir sind bekannt für unsere qualitativ hochwertigen Beratungsdienstleistungen und unsere umfassende
-              Betreuung
-              und Unterstützung unserer Kunden.
-
+              Zusammenarbeit mit unseren Kunden, um eine fundierte Analyse und eine erfolgreiche Umsetzung von Lösungen
+              zu gewährleisten. Unser Leistungsportfolio umfasst auch die Durchführung von Schulungen und Workshops für
+              Mitarbeiter*innen und Manager*innen. Unser kleines erfahrenes Team von Beratern verfügt über
+              unterschiedliche fachliche Hintergründe und Branchenkenntnisse. Wir sind bekannt für unsere qualitativ
+              hochwertigen Beratungsdienstleistungen und unsere umfassende Betreuung und Unterstützung unserer Kunden.
               Insgesamt sind wir bei der Synergetic Management Consulting Group stolz darauf, Unternehmen dabei zu
-              unterstützen, komplexe Herausforderungen zu bewältigen und ihre Geschäftsprozesse zu verbessern, um
-              nachhaltige
-              Wertschöpfung zu erzielen. </b>
+              unterstützen, komplexe Herausforderungen zu bewältigen und ihre Strategien zu verbessern, um nachhaltige
+              Wertschöpfung zu erzielen.</b>
           </div>
         </v-col>
         <v-col cols="12"></v-col>
@@ -655,14 +677,14 @@ export default {
     ...mapGetters(['user'])
   },
   data: () => ({
-    password:'',
-    email:'',
-    ordnerpfad:'',
+    password: '',
+    email: '',
+    ordnerpfad: '',
     regist: false,
     loginDialog: false,
-    status:'',
-    rechte:['Admin','Nutzer'],
-    ordner:[]
+    status: '',
+    rechte: ['Admin', 'Nutzer'],
+    ordner: []
   }),
   name: 'HomeView',
   components: {
@@ -672,8 +694,7 @@ export default {
     async getOrdner() {
       try {
         const response = await axios.get(
-            "http://localhost:8080/auth/ordner",{
-            }
+            "http://localhost:8080/auth/ordner", {}
         );
         this.ordner = response.data;
         console.log(this.ordner)
@@ -700,16 +721,16 @@ export default {
     },
     async registrieren() {
 
-        const respons = await axios.post('http://localhost:8080/auth/Regist', {
-          email: this.email,
-          password: this.password,
-          pfad: '/Users/stefanfranke/Desktop/Brickau/public/ISM/'+ this.ordnerpfad,
-          status: this.status
-        });
-        console.log(respons)
+      const respons = await axios.post('http://localhost:8080/auth/Regist', {
+        email: this.email,
+        password: this.password,
+        pfad: '/Users/stefanfranke/Desktop/Brickau/public/ISM/' + this.ordnerpfad,
+        status: this.status
+      });
+      console.log(respons)
 
-      }
-    },
+    }
+  },
 
 
 }
@@ -727,6 +748,7 @@ export default {
 .cardOne {
   border-bottom-left-radius: 300px;
   border-top-left-radius: 300px;
+
 }
 
 .cardTwo {
@@ -740,5 +762,14 @@ export default {
 
 .card {
   background-color: dodgerblue;
+}
+
+.ContainerTwoCardOneColInhalt {
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 75px;
+  /*text-white d-flex justify-end align-center*/
 }
 </style>

@@ -31,6 +31,9 @@ export default {
   computed: {
     ...mapGetters(['user'])
   },
+  created() {
+    this.getFiles()
+  },
   data: () => ({
     search: '',
     headers: [
@@ -62,8 +65,7 @@ export default {
     async getFiles() {
       try {
         const response = await axios.get(
-            "http://localhost:8080/auth/test",{
-            }
+            "http://localhost:8080/auth/test", {}
         );
         this.files1 = response.data;
         console.log(this.files1)

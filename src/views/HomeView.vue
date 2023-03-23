@@ -713,7 +713,7 @@ export default {
             email: this.email,
             password: this.password
           });
-      console.log('klappt')
+
       localStorage.setItem('token', response.data)
       await this.$store.dispatch('user', response.data.user)
 

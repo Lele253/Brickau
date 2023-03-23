@@ -32,12 +32,14 @@
               <v-row>
                 <v-col cols="12">
                   <v-text-field
+                      v-model="email"
                       label="Email"
                       required
                   ></v-text-field>
                 </v-col>
                 <v-col cols="12">
                   <v-text-field
+                      v-model="password"
                       label="Passwort"
                       required
                       type="password"
@@ -90,6 +92,8 @@ export default {
       dialog: false,
       drawer: false,
       loginDialog: false,
+      email: '',
+      password: '',
     }
   },
   methods: {
@@ -115,7 +119,6 @@ export default {
             email: this.email,
             password: this.password
           });
-      console.log('klappt')
       localStorage.setItem('token', response.data)
       await this.$store.dispatch('user', response.data.user)
 

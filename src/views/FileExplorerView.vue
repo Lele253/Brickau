@@ -32,7 +32,8 @@ export default {
     ...mapGetters(['user'])
   },
   created() {
-    this.getFiles()
+    this.convertFilePathNamesToFiles(this.getFiles());
+    this.umleitung();
   },
   data: () => ({
     search: '',
@@ -45,32 +46,23 @@ export default {
       {title: 'Typ', key: 'type'},
     ],
     userPath: "/ISM/",
-    files1: [],
-    files: [
-      {
-        name: 'BWL ein mal eins',
-        type: 'PDF'
-      },
-      {
-        name: 'BWL for Dummies',
-        type: 'EPUB'
-      },
-      {
-        name: 'BWL1-Skript-ITC-WS 19_20',
-        type: 'pdf',
-      }
-    ],
+    files: [],
   }),
   methods: {
+    umleitung() {
+      if (!this.user) {
+        this.$router.push('/')
+      }
+    },
     async getFiles() {
       try {
         const response = await axios.get(
             "http://localhost:8080/auth/test", {}
         );
-        this.files1 = response.data;
-        console.log(this.files1)
+        return response.data;
       } catch (error) {
         console.log("error");
+        return [];
       }
     },
     downloadFile(value) {
@@ -85,7 +77,9 @@ export default {
       for (let filePath in filePathNames) {
         let filePathArray = filePath.split('.');
         this.files.push({name: filePathArray[0], type: filePathArray[1]});
+        console.log(filePathNames + "|" + filePathArray);
       }
+      console.log(this.files);
     }
   }
 }

@@ -100,7 +100,7 @@
                 Ausloggen
               </v-btn>
             </v-col>
-            <v-col v-if="user1 === 'Admin'" class="ContainerTwoCardOneColInhalt" cols="12">
+            <v-col class="ContainerTwoCardOneColInhalt" cols="12">
               <v-btn class="text-white" style="background-color: black" variant="outlined" @click="regist=true">
                 Registrieren
               </v-btn>
@@ -725,7 +725,7 @@ export default {
       location.reload();
     },
     async login() {
-      const response = await axios.post('http://localhost:8080/auth/login',
+      const response = await axios.post('http://leandro-graf.de:8080/auth/login',
           {
             email: this.email,
             password: this.password
@@ -738,7 +738,7 @@ export default {
     },
     async registrieren() {
 
-      const respons = await axios.post('http://localhost:8080/auth/Regist', {
+      const respons = await axios.post('http://leandro-graf.de:8080/auth/Regist', {
         email: this.email,
         password: this.password,
         pfad: '/ISM/' + this.ordnerpfad + '/',

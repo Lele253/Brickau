@@ -1,14 +1,17 @@
 <template>
   <div class="home">
-
     <div class="containerOne desktop hidden-md-and-down">
       <v-row class="ml-0" style="height: 750px;width: 100vw">
         <v-col cols="6" sm="6">
+
 
           <!--          Ansicht mit Umbruch in Unternehmensberatung und ohne Umbruch-->
 
           <h1 class="text-white" style="font-size: 40px; margin-left: 10%;margin-right: 10%; margin-top: 125px">
             Ihr Dozent für Management und Consulting
+
+
+
           </h1>
 
           <p class="text-white" style="font-size: 20px; margin-left: 10%;margin-right: 10%; margin-top: 12%">
@@ -69,6 +72,7 @@
     </div>
 
     <div class="containerTwo desktop hidden-md-and-down mt-10">
+
       <v-row class="d-flex justify-center" style="height: 50%; width: 100vw;">
 
         <v-col class="cardOne card d-flex align-center" cols="12" lg="4"
@@ -97,10 +101,11 @@
                 Ausloggen
               </v-btn>
             </v-col>
-            <v-col class="ContainerTwoCardOneColInhalt" cols="12">
-              <v-btn class="text-white" style="background-color: black" variant="outlined" @click="regist=true">
+            <v-col v-if="user1 =='Admin'" class="ContainerTwoCardOneColInhalt" cols="12">
+              <v-btn  class="text-white" style="background-color: black" variant="outlined" @click="regist=true">
                 Registrieren
               </v-btn>
+
             </v-col>
             <v-col v-if="user" class="ContainerTwoCardOneColInhalt" cols="12">
               <v-btn class="text-white" style="background-color: black" variant="outlined"
@@ -187,7 +192,7 @@
               </div>
             </v-timeline-item>
 
-            ,
+            <br>
 
           </v-timeline>
         </v-col>
@@ -458,8 +463,8 @@
               </v-btn>
             </v-col>
             <!--              Wenn der user halt admin is dann button anzeigen-->
-            <v-col v-if="user" class="justify-center d-flex" cols="12">
-              <v-btn class="text-white" style="background-color: black" variant="outlined" @click="regist=true">
+            <v-col  class="justify-center d-flex" cols="12">
+              <v-btn v-if="user1 === 'Admin'"  class="text-white" style="background-color: black" variant="outlined" @click="regist=true">
                 Registrieren
               </v-btn>
             </v-col>
@@ -670,11 +675,16 @@ import {mapGetters} from "vuex";
 import axios from "axios";
 
 export default {
-  created() {
+  async created() {
+    const respons = await axios.get('http://localhost:8080/auth/user');
+    await this.$store.dispatch('user', respons.data);
     this.getOrdner()
+    this.test()
+
   },
   computed: {
-    ...mapGetters(['user'])
+    ...mapGetters(['user']),
+
   },
   data: () => ({
     password: '',
@@ -683,6 +693,7 @@ export default {
     regist: false,
     loginDialog: false,
     status: '',
+    user1: '',
     rechte: ['Admin', 'Nutzer'],
     ordner: []
   }),
@@ -690,7 +701,12 @@ export default {
   components: {
     Icon
   },
+
   methods: {
+    test(){
+      this.user1 = this.user.status
+      console.log(this.user1)
+    },
     async getOrdner() {
       try {
         const response = await axios.get(

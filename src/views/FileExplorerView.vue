@@ -28,11 +28,13 @@ import axios from "axios";
 
 export default {
   name: "FileExplorerView",
+
   computed: {
     ...mapGetters(['user'])
   },
   created() {
     this.getFiles()
+    this.umleitung()
   },
   data: () => ({
     search: '',
@@ -61,7 +63,13 @@ export default {
       }
     ],
   }),
+
   methods: {
+    umleitung(){
+      if (!this.user){
+        this.$router.push('/')
+      }
+    },
     async getFiles() {
       try {
         const response = await axios.get(

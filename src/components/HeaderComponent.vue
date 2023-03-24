@@ -24,48 +24,51 @@
           width="512"
       >
         <v-card>
-          <v-card-title>
-            <span class="text-h5">Anmelden</span>
-          </v-card-title>
-          <v-card-text>
-            <v-container>
-              <v-row>
-                <v-col cols="12">
-                  <v-text-field
-                      v-model="email"
-                      label="Email"
-                      required
-                  ></v-text-field>
-                </v-col>
-                <v-col cols="12">
-                  <v-text-field
-                      v-model="password"
-                      label="Passwort"
-                      required
-                      type="password"
-                  ></v-text-field>
-                </v-col>
-              </v-row>
-            </v-container>
-          </v-card-text>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn
-                variant="text"
-                @click="loginDialog = false"
-            >
-              Close
-            </v-btn>
-            <v-btn
-                variant="text"
-                @click="login"
-            >
-              Login
-            </v-btn>
-          </v-card-actions>
+          <v-form @submit.prevent="login">
+            <v-card-title>
+              <span class="text-h5">Anmelden</span>
+            </v-card-title>
+            <v-card-text>
+              <v-container>
+                <v-row>
+                  <v-col cols="12">
+                    <v-text-field
+                        v-model="email"
+                        label="Email"
+                        required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-text-field
+                        v-model="password"
+                        label="Passwort"
+                        required
+                        type="password"
+                    ></v-text-field>
+                  </v-col>
+                </v-row>
+              </v-container>
+              <v-alert v-if="error!==''" class="mx-4" color="red">E-Mail oder Passwort falsch!</v-alert>
+            </v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn
+                  variant="text"
+                  @click="loginDialog = false"
+              >
+                Close
+              </v-btn>
+              <v-btn
+                  @click="login"
+              >
+                Login
+              </v-btn>
+            </v-card-actions>
+          </v-form>
         </v-card>
       </v-dialog>
     </v-row>
+
   </template>
 
 </template>
@@ -89,8 +92,8 @@ export default {
         {name: 'Home', icon: 'ic:baseline-home', path: '/'},
         {name: 'Impressum', icon: 'material-symbols:text-snippet', path: '/impressum'},
       ],
+      error: '',
       dialog: false,
-      drawer: false,
       loginDialog: false,
       email: '',
       password: '',
@@ -114,15 +117,20 @@ export default {
       location.reload();
     },
     async login() {
-      const response = await axios.post('http://localhost:8080/auth/login',
-          {
-            email: this.email,
-            password: this.password
-          });
-      localStorage.setItem('token', response.data)
-      await this.$store.dispatch('user', response.data.user)
+      try {
+        const response = await axios.post('http://leandro-graf.de:8080/auth/login',
+            {
+              email: this.email,
+              password: this.password
+            });
 
-      await location.reload()
+        localStorage.setItem('token', response.data)
+        await this.$store.dispatch('user', response.data.user)
+        await location.reload()
+      } catch (error) {
+        this.error = error
+        console.log(error)
+      }
     },
   }
 }

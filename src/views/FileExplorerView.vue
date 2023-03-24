@@ -1,7 +1,6 @@
 <template>
   <div id="fileExplorer">
     <v-card>
-
       <v-card-title>
         <v-text-field
             v-model="search"
@@ -33,6 +32,7 @@ export default {
     ...mapGetters(['user'])
   },
   created() {
+    this.convertFilePathNamesToFiles(this.test)
     this.getFiles()
     console.log(this.files)
     this.umleitung();
@@ -49,6 +49,7 @@ export default {
     ],
     userPath: "/ISM/",
     files: [],
+    test: ["jürgen von der . lippe . 23...pdf"]
   }),
   methods: {
     umleitung() {
@@ -74,14 +75,18 @@ export default {
       console.log(path)
       const link = document.createElement("a");
       link.href = path;
-      console.log(link)
       link.download = path;
       link.click();
     },
     convertFilePathNamesToFiles(filePathNames) {
-      filePathNames.forEach((element) => {
-        let filePathArray = element.split('.');
-        this.files.push({name: filePathArray[0], type: filePathArray[1]});
+      filePathNames.forEach((filePath) => {
+        let pos = filePath.lastIndexOf('.');
+        if (pos <= filePath.length - 1) {
+          this.files.push({
+            name: filePath.substring(0, pos),
+            type: filePath.substring(pos, filePath.length).replace('.', '')
+          });
+        }
       });
 
     }

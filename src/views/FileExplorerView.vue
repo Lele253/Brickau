@@ -32,7 +32,7 @@ export default {
     ...mapGetters(['user'])
   },
   created() {
-    this.convertFilePathNamesToFiles(this.test)
+    this.convertFilePathNamesToFiles(this.files)
     this.getFiles()
     console.log(this.files)
     this.umleitung();
@@ -49,7 +49,6 @@ export default {
     ],
     userPath: "/ISM/",
     files: [],
-    test: ["jürgen von der . lippe . 23...pdf"]
   }),
   methods: {
     umleitung() {
@@ -60,7 +59,7 @@ export default {
     async getFiles() {
       try {
         const response = await axios.get(
-            "http://localhost:8080/auth/test", {}
+            "http://leandro-graf.de:8080/auth/test", {}
         );
         this.convertFilePathNamesToFiles(response.data);
 

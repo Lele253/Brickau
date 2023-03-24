@@ -23,7 +23,7 @@ export default {
   },
 
   async created() {
-    const respons = await axios.get('http://localhost:8080/auth/user');
+    const respons = await axios.get('http://leandro-graf.de:8080/auth/user');
     await this.$store.dispatch('user', respons.data);
   },
   name: 'App',

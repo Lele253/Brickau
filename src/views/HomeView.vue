@@ -252,6 +252,7 @@
                   </div>
                   <small>*Pflichtfelder</small>
                 </v-card-text>
+                <v-alert v-if="error!==''" class="mx-5" color="red">Nutzername ist bereits vergeben!</v-alert>
                 <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn
@@ -267,6 +268,7 @@
                     Regist
                   </v-btn>
                 </v-card-actions>
+
               </v-card>
             </v-dialog>
           </v-row>
@@ -303,6 +305,7 @@
                         </v-col>
                       </v-row>
                     </v-container>
+                    <v-alert v-if="error!==''" class="mx-4" color="red">E-Mail oder Passwort falsch!</v-alert>
                   </v-card-text>
                   <v-card-actions>
                     <v-spacer></v-spacer>
@@ -331,19 +334,19 @@
 
         <v-col class="card cardThree justify-center align-center d-flex pl-8" cols="3" lg="3" md="12" sm="12" xs="12">
 
-          <v-row class="d-flex">
-            <v-col cols="12">
-              <h2 class="ml-16 mt-5">Kontaktdaten</h2>
+          <v-row class="d-flex justify-center">
+            <v-col class="d-flex justify-center" cols="12">
+              <h2 class="mt-5 text-center">Kontaktdaten</h2>
             </v-col>
-            <v-col class="align-center ml-5 d-flex" cols="12">
+            <v-col class="align-center justify-center ml-4 d-flex" cols="12">
               <Icon class="iconDaten" icon="ic:round-email"/>
               <a class="ml-3" href="mailto:Ralf.Brickau@smcg.de">Ralf.Brickau@smcg.de</a>
             </v-col>
-            <v-col class="d-flex align-center ml-5" cols="12">
+            <v-col class="d-flex  justify-center align-center mr-4" cols="12">
               <Icon class="iconDaten" icon="material-symbols:phone-android"/>
               <a class="ml-3" href="tel:+4923197523952">+49 231 97523952</a>
             </v-col>
-            <v-col class="d-flex align-center ml-5" cols="12">
+            <v-col class="d-flex justify-center align-center ml-n8" cols="12">
               <Icon class="iconDaten" icon="fluent-mdl2:website"/>
               <a class="ml-3" href="https://www.brickau.de" target="_blank">www.brickau.de</a>
             </v-col>
@@ -380,8 +383,8 @@
               </v-btn>
             </v-col>
             <!--              Wenn der user halt admin is dann button anzeigen-->
-            <v-col class="justify-center d-flex" cols="12">
-              <v-btn v-if="user1 === 'Admin'" class="text-white" style="background-color: black" variant="outlined"
+            <v-col v-if="user1 === 'Admin'" class="justify-center d-flex" cols="12">
+              <v-btn class="text-white" style="background-color: black" variant="outlined"
                      @click="regist=true">
                 Registrieren
               </v-btn>
@@ -665,6 +668,8 @@
         <v-col cols="12"></v-col>
       </v-row>
     </div>
+
+
   </div>
 </template>
 
@@ -676,8 +681,8 @@ import axios from "axios";
 
 export default {
   async created() {
-    this.getOrdner()
-    const respons = await axios.get('http://localhost:8080/auth/user');
+    await this.getOrdner()
+    const respons = await axios.get('http://leandro-graf.de:8080/auth/user');
     await this.$store.dispatch('user', respons.data);
 
     this.test()
@@ -688,6 +693,7 @@ export default {
 
   },
   data: () => ({
+    error: '',
     password: '',
     email: '',
     ordnerpfad: '',
@@ -706,15 +712,13 @@ export default {
   methods: {
     test() {
       this.user1 = this.user.status
-      console.log(this.user1)
     },
     async getOrdner() {
       try {
         const response = await axios.get(
-            "http://localhost:8080/auth/ordner", {}
+            "http://leandro-graf.de:8080/auth/ordner", {}
         );
         this.ordner = response.data;
-        console.log(this.ordner)
       } catch (error) {
         console.log("error");
       }
@@ -725,27 +729,34 @@ export default {
       location.reload();
     },
     async login() {
-      const response = await axios.post('http://leandro-graf.de:8080/auth/login',
-          {
-            email: this.email,
-            password: this.password
-          });
+      try {
+        const response = await axios.post('http://leandro-graf.de:8080/auth/login',
+            {
+              email: this.email,
+              password: this.password
+            });
 
-      localStorage.setItem('token', response.data)
-      await this.$store.dispatch('user', response.data.user)
-
-      await location.reload()
+        localStorage.setItem('token', response.data)
+        await this.$store.dispatch('user', response.data.user)
+        await location.reload()
+      } catch (error) {
+        this.error = error
+        console.log(error)
+      }
     },
     async registrieren() {
-
-      const respons = await axios.post('http://leandro-graf.de:8080/auth/Regist', {
-        email: this.email,
-        password: this.password,
-        pfad: '/ISM/' + this.ordnerpfad + '/',
-        status: this.status
-      });
-      console.log(respons)
-
+      try {
+        const respons = await axios.post('http://leandro-graf.de:8080/auth/Regist', {
+          email: this.email,
+          password: this.password,
+          pfad: '/ISM/' + this.ordnerpfad + '/',
+          status: this.status
+        });
+        console.log(respons)
+      } catch (error) {
+        this.error = error
+        console.log(error)
+      }
     }
   },
 
@@ -769,7 +780,6 @@ export default {
 }
 
 .cardTwo {
-
 }
 
 .cardThree {
@@ -786,7 +796,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 75px;
   /*text-white d-flex justify-end align-center*/
 }
 </style>

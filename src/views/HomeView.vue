@@ -101,9 +101,86 @@
               </v-btn>
             </v-col>
             <v-col v-if="user1 === 'Admin'" class="ContainerTwoCardOneColInhalt" cols="12">
-              <v-btn class="text-white" style="background-color: black" variant="outlined" @click="regist=true">
-                Registrieren
-              </v-btn>
+              <template class="regist">
+                <v-row justify="center">
+                  <v-dialog
+                      v-model="regist"
+                      width="1024">
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn
+                          class="text-white" color="primary" dark style="background-color: black"
+                          v-bind="attrs"
+                          variant="outlined"
+                          @click="regist=true"
+                          v-on="on"
+                      >
+                        Registrieren
+                      </v-btn>
+                    </template>
+                    <v-card>
+                      <v-card-title>
+                        <span class="text-h5">Registrieren</span>
+                      </v-card-title>
+                      <v-card-text>
+                        <div>
+                          <v-row>
+
+                            <v-col
+                                cols="12"
+                            >
+                              <v-select
+                                  v-model="ordnerpfad"
+                                  :items="ordner"
+                                  label="Ordnerpfad*"
+                              ></v-select>
+                            </v-col>
+                            <v-col
+                                cols="12"
+                            >
+                              <v-select
+                                  v-model="status"
+                                  :items="rechte"
+                                  label="Status*"
+                              ></v-select>
+                            </v-col>
+                            <v-col cols="12">
+                              <v-text-field
+                                  v-model="email"
+                                  label="Email*"
+                              ></v-text-field>
+                            </v-col>
+                            <v-col cols="12">
+                              <v-text-field
+                                  v-model="password"
+                                  label="Passwort*"
+                                  type="password"
+                              ></v-text-field>
+                            </v-col>
+                          </v-row>
+                        </div>
+                        <small>*Pflichtfelder</small>
+                      </v-card-text>
+                      <v-alert v-if="error!==''" class="mx-5" color="red">Nutzername ist bereits vergeben!</v-alert>
+                      <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn
+                            variant="text"
+                            @click="regist = false"
+                        >
+                          Close
+                        </v-btn>
+                        <v-btn
+                            variant="text"
+                            @click="registrieren "
+                        >
+                          Regist
+                        </v-btn>
+                      </v-card-actions>
+
+                    </v-card>
+                  </v-dialog>
+                </v-row>
+              </template>
 
             </v-col>
             <v-col v-if="user" class="ContainerTwoCardOneColInhalt" cols="12">
@@ -144,7 +221,7 @@
               <div class="d-flex justify-center">
                 <strong class="me-15">1998</strong>
                 <div>
-                  <strong>Berufung zum Professor an der FHw Berlin</strong>
+                  <strong>Berufung zum Professor an der FHW Berlin</strong>
                 </div>
               </div>
             </v-timeline-item>
@@ -196,83 +273,6 @@
           </v-timeline>
         </v-col>
 
-        <template class="regist">
-          <v-row justify="center">
-            <v-dialog
-                v-model="regist"
-                persistent
-                width="1024"
-            >
-              <v-card>
-                <v-card-title>
-                  <span class="text-h5">Registrieren</span>
-                </v-card-title>
-                <v-card-text>
-                  <div>
-                    <v-row>
-
-                      <v-col
-                          cols="12"
-                      >
-                        <v-select
-                            v-model="ordnerpfad"
-                            :items="ordner"
-                            label="Ordnerpfad*"
-                            required
-                        ></v-select>
-                      </v-col>
-                      <v-col
-                          cols="12"
-                      >
-                        <v-select
-                            v-model="status"
-                            :items="rechte"
-                            label="Status*"
-                            required
-                        ></v-select>
-                      </v-col>
-                      <v-col cols="12">
-                        <v-text-field
-                            v-model="email"
-                            label="Email*"
-                            required
-                        ></v-text-field>
-                      </v-col>
-
-                      <v-col cols="12">
-                        <v-text-field
-                            v-model="password"
-                            label="Passwort*"
-                            required
-                            type="password"
-                        ></v-text-field>
-                      </v-col>
-
-                    </v-row>
-                  </div>
-                  <small>*Pflichtfelder</small>
-                </v-card-text>
-                <v-alert v-if="error!==''" class="mx-5" color="red">Nutzername ist bereits vergeben!</v-alert>
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn
-                      variant="text"
-                      @click="regist = false"
-                  >
-                    Close
-                  </v-btn>
-                  <v-btn
-                      variant="text"
-                      @click="registrieren "
-                  >
-                    Regist
-                  </v-btn>
-                </v-card-actions>
-
-              </v-card>
-            </v-dialog>
-          </v-row>
-        </template>
         <template class="login">
           <v-row justify="center">
             <v-dialog
@@ -429,7 +429,7 @@
               <div class="d-flex justify-center">
                 <strong class="me-15">1998</strong>
                 <div>
-                  <strong>Berufung zum Professor an der FHw Berlin</strong>
+                  <strong>Berufung zum Professor an der FHW Berlin</strong>
                 </div>
               </div>
             </v-timeline-item>
@@ -694,12 +694,12 @@ export default {
   },
   data: () => ({
     error: '',
-    password: '',
-    email: '',
-    ordnerpfad: '',
+    password: null,
+    email: null,
+    ordnerpfad: null,
     regist: false,
     loginDialog: false,
-    status: '',
+    status: null,
     user1: '',
     rechte: ['Admin', 'Nutzer'],
     ordner: []
@@ -718,7 +718,13 @@ export default {
         const response = await axios.get(
             "http://leandro-graf.de:8080/auth/ordner", {}
         );
-        this.ordner = response.data;
+        let x = response.data
+        x.forEach((i) => {
+          console.log(i == '.DS_Store')
+          if (i != '.DS_Store') {
+            this.ordner.push(i)
+          }
+        })
       } catch (error) {
         console.log("error");
       }
@@ -745,17 +751,22 @@ export default {
       }
     },
     async registrieren() {
-      try {
-        const respons = await axios.post('http://leandro-graf.de:8080/auth/Regist', {
-          email: this.email,
-          password: this.password,
-          pfad: '/ISM/' + this.ordnerpfad + '/',
-          status: this.status
-        });
-        console.log(respons)
-      } catch (error) {
-        this.error = error
-        console.log(error)
+      if (this.email !== null && this.password !== null && this.status !== null && this.ordnerpfad !== null) {
+        try {
+          const respons = await axios.post('http://leandro-graf.de:8080/auth/Regist', {
+            email: this.email,
+            password: this.password,
+            pfad: '/ISM/' + this.ordnerpfad + '/',
+            status: this.status
+          });
+          console.log(respons)
+          this.regist = false;
+        } catch (error) {
+          this.error = error
+          console.log(error)
+        }
+      } else {
+        alert("Bitte alle Felder ausfüllen")
       }
     }
   },

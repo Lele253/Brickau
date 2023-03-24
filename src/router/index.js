@@ -2,6 +2,7 @@ import {createRouter, createWebHistory} from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ImpressumView from "@/views/ImpressumView";
 import FileExplorerView from "@/views/FileExplorerView";
+import TestView from "@/views/testView";
 
 const routes = [
     {
@@ -19,6 +20,11 @@ const routes = [
         path: '/files',
         name: 'files',
         component: FileExplorerView
+    },
+    {
+        path: '/test',
+        name: 'test',
+        component: TestView
     }
 ]
 

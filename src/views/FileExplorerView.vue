@@ -70,7 +70,7 @@ export default {
     },
     downloadFile(value) {
       let name = value.target.parentNode.firstElementChild.innerHTML;
-      let path = this.user.pfad + name + '.' + this.files.filter((e) => e.name == name)[0].type;
+      let path = this.user.pfad + name + '.' + this.files.filter((e) => e.name === name)[0].type;
       console.log(path)
       const link = document.createElement("a");
       link.href = path;

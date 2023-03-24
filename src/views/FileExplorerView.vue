@@ -75,7 +75,7 @@ export default {
       console.log(path)
       const link = document.createElement("a");
       link.href = path;
-      link.download = path;
+      link.download = name;
       link.click();
     },
     convertFilePathNamesToFiles(filePathNames) {

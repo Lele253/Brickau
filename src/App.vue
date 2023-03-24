@@ -3,7 +3,7 @@
     <HeaderComponent/>
     <div id="home" style="background-color: rgba(0,0,0,0.74)">
       <v-main class="mt-3"
-              style="min-height: 80vh;">
+              style="min-height: 85vh;">
         <router-view/>
       </v-main>
     </div>

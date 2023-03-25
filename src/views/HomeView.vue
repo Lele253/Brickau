@@ -696,7 +696,8 @@ export default {
     status: '',
     user1: '',
     rechte: ['Admin', 'Nutzer'],
-    ordner: []
+    ordner: [],
+    erstellterOrdner:'',
   }),
   name: 'HomeView',
   components: {
@@ -708,10 +709,11 @@ export default {
       this.user1 = this.user.status
 
     },
+
     async getOrdner() {
       try {
         const response = await axios.get(
-            "http://leandro-graf.de:8080/auth/ordner", {}
+            "https://leandro-graf.de:8080/auth/ordner", {}
         );
         let x = response.data
         x.forEach((i) => {

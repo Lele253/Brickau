@@ -1,5 +1,20 @@
 <template>
 <div style=" height: 90vh" class="d-flex justify-center align-center">
+  <v-card class="card mr-5">
+    <v-row justify="center">
+      <v-col cols="10">
+        <v-card-title class="text-center">Ordner erstellen</v-card-title>
+      </v-col>
+      <v-col cols="10">
+        <v-text-field label="Ordnername angeben" variant="solo" v-model="erstellterOrdner"></v-text-field>
+
+      </v-col>
+      <v-col cols="10">
+        <v-btn @click="createFolder">erstellen</v-btn>
+
+      </v-col>
+    </v-row>
+  </v-card>
   <v-card class="card">
       <v-row justify="center" style="width: 100%">
         <v-col cols="12">
@@ -44,6 +59,7 @@ export default {
     ordnerAuswahl:'',
     ordner:[],
     files: [],
+    erstellterOrdner:'',
   }),
   created() {
     this.getOrdner()
@@ -78,6 +94,16 @@ export default {
       })
           .catch(function(){
             console.log('FAILURE!!');
+          });
+    },
+    createFolder(){
+      axios.post('http://localhost:8080/auth/ordnerErstellen', { message: this.erstellterOrdner })
+          .then(response => {
+            console.log( response.data);
+            alert(response.data)
+          })
+          .catch(error => {
+            console.error( error);
           });
     },
     async getOrdner() {

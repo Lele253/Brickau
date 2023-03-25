@@ -711,10 +711,15 @@ export default {
     async getOrdner() {
       try {
         const response = await axios.get(
-            "http://localhost:8080/auth/ordner", {}
+            "http://leandro-graf.de:8080/auth/ordner", {}
         );
-        this.ordner = response.data;
-        console.log(this.ordner)
+        let x = response.data
+        x.forEach((i) => {
+          console.log(i == '.DS_Store')
+          if (i != '.DS_Store') {
+            this.ordner.push(i)
+          }
+        })
       } catch (error) {
         console.log("error");
       }

@@ -706,7 +706,7 @@ export default {
   methods: {
     test() {
       this.user1 = this.user.status
-      console.log(this.user1)
+
     },
     async getOrdner() {
       try {

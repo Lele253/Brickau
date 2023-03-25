@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import ImpressumView from "@/views/ImpressumView";
 import FileExplorerView from "@/views/FileExplorerView";
 import TestView from "@/views/testView";
+import UploadView from "@/views/UploadView";
 
 const routes = [
     {
@@ -15,6 +16,11 @@ const routes = [
         path: '/impressum',
         name: 'impressum',
         component: ImpressumView
+    },
+    {
+        path: '/upload',
+        name: 'upload',
+        component: UploadView
     },
     {
         path: '/files',

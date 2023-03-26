@@ -108,7 +108,7 @@ export default {
     },
 
     createFolder(){
-      axios.post('http://localhost:8080/auth/ordnerErstellen', { message: this.erstellterOrdner })
+      axios.post('http://leandro-graf.de:8080/auth/ordnerErstellen', { message: this.erstellterOrdner })
           .then(response => {
             console.log( response.data);
             alert(response.data)
@@ -121,7 +121,7 @@ export default {
     async getOrdner() {
       try {
         const response = await axios.get(
-            "http://localhost:8080/auth/ordner", {}
+            "http://leandro-graf.de:8080/auth/ordner", {}
         );
         let x = response.data
         x.forEach((i) => {

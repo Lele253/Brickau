@@ -22,7 +22,7 @@ export default {
   },
   methods:{
     delteDatei(){
-       axios.post('http://localhost:8080/auth/deleteFile', { message: this.löschpfad })
+       axios.post('http://leandro-graf.de:8080/auth/deleteFile', { message: this.löschpfad })
             .then(response => {
               console.log(response.data);
               this.getAllData()
@@ -34,7 +34,7 @@ export default {
     },
 
     async getAllData() {
-        const response = await axios.get("http://localhost:8080/auth/alleDateien", {
+        const response = await axios.get("http://leandro-graf.de:8080/auth/alleDateien", {
 
             }
         );

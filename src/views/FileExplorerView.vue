@@ -59,9 +59,15 @@ export default {
     async getFiles() {
       try {
         const response = await axios.get(
-            "http://leandro-graf.de:8080/auth/test", {}
+            "http://leandro-graf.de:8080/auth/alleDateien", {}
         );
-        this.convertFilePathNamesToFiles(response.data);
+        let fileNames = [];
+        response.data.forEach(function (e) {
+          if (this.user.pfad.includes(e.ordner)) {
+            fileNames.push(e.name)
+          }
+        });
+        this.convertFilePathNamesToFiles(fileNames);
 
       } catch (error) {
         console.log("error");
@@ -70,11 +76,12 @@ export default {
     },
     downloadFile(value) {
       let name = value.target.parentNode.firstElementChild.innerHTML;
-      let path = this.user.pfad + name + '.' + this.files.filter((e) => e.name === name)[0].type;
+      let type = this.files.filter((e) => e.name === name)[0].type
+      let path = this.user.pfad + name + '.' + type;
       console.log(path)
       const link = document.createElement("a");
       link.href = path;
-      link.download = name;
+      link.download = name + "." + type;
       link.click();
     },
     convertFilePathNamesToFiles(filePathNames) {

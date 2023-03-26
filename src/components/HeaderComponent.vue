@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar class="header" elevate-on-scroll elevation="10" fixed>
+  <v-app-bar class="header" elevate-on-scroll elevation="0" fixed>
     <v-row>
       <v-col class="d-flex align-center" style="height: 70px">
         <v-app-bar-title class="titel-name text-black mt-2 ml-sm-5">
@@ -117,7 +117,7 @@ export default {
       location.reload();
     },
     async login() {
-      const response = await axios.post('http://localhost:8080/auth/login',
+      const response = await axios.post('http://leandro-graf.de:8080/auth/login',
           {
             email: this.email,
             password: this.password
@@ -135,7 +135,6 @@ export default {
 .header {
   height: 4.5rem;
   width: 100%;
-  box-shadow: 2px 2px 10px #484848;
   background-color: lightskyblue;
 }
 

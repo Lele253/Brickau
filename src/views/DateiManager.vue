@@ -1,15 +1,16 @@
 <template>
   <div>
     <v-card>
-      <h1 @click="löschpfad = x.path " v-for="x in dateien" :key="x" >{{x.name}}  befindet sich im ordner:  {{x.ordner}}</h1>
-      {{löschpfad}}
+      <h1 v-for="x in dateien" :key="x" @click="löschpfad = x.path ">{{ x.name }} befindet sich im ordner:
+        {{ x.ordner }}</h1>
+      {{ löschpfad }}
       <v-btn @click="delteDatei">delete</v-btn>
     </v-card>
 
 
     <v-card class="mt-3">
       <v-card-title> User</v-card-title>
-      <h1  v-for="x in allUser" :key="x" >{{x}}</h1>
+      <h1 v-for="x in allUser" :key="x">{{ x }}</h1>
 
     </v-card>
   </div>
@@ -20,43 +21,39 @@ import axios from "axios";
 
 export default {
   created() {
-        this.getAllData(),
+    this.getAllData(),
         this.getAllUser()
   },
   name: "DateiManager",
-  data(){
-    return{
-      allUser:[],
-      dateien:[],
-      löschpfad:'teasdajhd',
+  data() {
+    return {
+      allUser: [],
+      dateien: [],
+      löschpfad: 'teasdajhd',
 
     }
   },
-  methods:{
-    delteDatei(){
-       axios.post('http://leandro-graf.de:8080/auth/deleteFile', { message: this.löschpfad })
-            .then(response => {
-              console.log(response.data);
-              this.getAllData()
-              return response.data;
-            })
-            .catch(error => {
-              console.error(error);
-            });
+  methods: {
+    delteDatei() {
+      axios.post('http://leandro-graf.de:8080/auth/deleteFile', {message: this.löschpfad})
+          .then(response => {
+            console.log(response.data);
+            this.getAllData()
+            return response.data;
+          })
+          .catch(error => {
+            console.error(error);
+          });
     },
 
     async getAllData() {
-        const response = await axios.get("http://leandro-graf.de:8080/auth/alleDateien", {
-
-            }
-        );
-        this.dateien = response.data
-        console.log(response)
-      },
+      const response = await axios.get("http://leandro-graf.de:8080/auth/alleDateien", {}
+      );
+      this.dateien = response.data
+      console.log(response)
+    },
     async getAllUser() {
-      const response = await axios.get("http://leandro-graf.de:8080/auth/user/all", {
-
-          }
+      const response = await axios.get("http://leandro-graf.de:8080/auth/user/all", {}
       );
       this.allUser = response.data
       console.log(this.allUser)

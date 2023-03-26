@@ -101,15 +101,15 @@
               </v-btn>
             </v-col>
             <v-col class="ContainerTwoCardOneColInhalt" cols="12">
-              <v-btn class="text-white" style="background-color: black" variant="outlined" @click="regist=true">
-                Registrieren
-              </v-btn>
-
-            </v-col>
-            <v-col v-if="user" class="ContainerTwoCardOneColInhalt" cols="12">
-              <v-btn class="text-white" style="background-color: black" variant="outlined"
+              <v-btn v-if="user1 !== 'Admin' && user" class="text-white" style="background-color: black"
+                     variant="outlined"
                      @click="$router.push('/files')">
                 Dateien
+              </v-btn>
+              <v-btn v-if="user1 === 'Admin'" class="text-white" style="background-color: black"
+                     variant="outlined"
+                     @click="$router.push('/verwaltung')">
+                Verwaltung
               </v-btn>
             </v-col>
           </v-row>
@@ -196,81 +196,6 @@
           </v-timeline>
         </v-col>
 
-        <template class="regist">
-          <v-row justify="center">
-            <v-dialog
-                v-model="regist"
-                persistent
-                width="1024"
-            >
-              <v-card>
-                <v-card-title>
-                  <span class="text-h5">Registrieren</span>
-                </v-card-title>
-                <v-card-text>
-                  <div>
-                    <v-row>
-
-                      <v-col
-                          cols="12"
-                      >
-                        <v-select
-                            v-model="ordnerpfad"
-                            :items="ordner"
-                            label="Ordnerpfad*"
-                            required
-                        ></v-select>
-                      </v-col>
-                      <v-col
-                          cols="12"
-                      >
-                        <v-select
-                            v-model="status"
-                            :items="rechte"
-                            label="Status*"
-                            required
-                        ></v-select>
-                      </v-col>
-                      <v-col cols="12">
-                        <v-text-field
-                            v-model="email"
-                            label="Email*"
-                            required
-                        ></v-text-field>
-                      </v-col>
-
-                      <v-col cols="12">
-                        <v-text-field
-                            v-model="password"
-                            label="Passwort*"
-                            required
-                            type="password"
-                        ></v-text-field>
-                      </v-col>
-
-                    </v-row>
-                  </div>
-                  <small>*Pflichtfelder</small>
-                </v-card-text>
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn
-                      variant="text"
-                      @click="regist = false"
-                  >
-                    Close
-                  </v-btn>
-                  <v-btn
-                      variant="text"
-                      @click="registrieren "
-                  >
-                    Regist
-                  </v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
-          </v-row>
-        </template>
         <template class="login">
           <v-row justify="center">
             <v-dialog
@@ -296,11 +221,9 @@
                         <v-col cols="12">
                           <v-text-field
                               v-model="password"
-                              :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                              :type="showPassword ? 'text' : 'password'"
                               label="Passwort"
                               required
-                              @click:append="showPassword = !showPassword"
+                              type="password"
                           ></v-text-field>
                         </v-col>
                       </v-row>
@@ -383,16 +306,15 @@
             </v-col>
             <!--              Wenn der user halt admin is dann button anzeigen-->
             <v-col class="justify-center d-flex" cols="12">
-              <v-btn v-if="user1 === 'Admin'" class="text-white" style="background-color: black" variant="outlined"
+              <v-btn v-if="user1 !== 'Admin' && user" class="text-white" style="background-color: black"
+                     variant="outlined"
                      @click="regist=true">
-                Registrieren
-              </v-btn>
-            </v-col>
-
-            <v-col class="justify-center d-flex" cols="12">
-              <v-btn v-if="user" class="text-white" style="background-color: black" variant="outlined"
-                     @click="$router.push('/files')">
                 Dateien
+              </v-btn>
+              <v-btn v-if="user && user1 === 'Admin'" class="text-white" style="background-color: black"
+                     variant="outlined"
+                     @click="$router.push('/verwaltung')">
+                Verwaltung
               </v-btn>
             </v-col>
           </v-row>
@@ -679,9 +601,8 @@ import axios from "axios";
 export default {
   async created() {
     this.getOrdner()
-    const respons = await axios.get('http://localhost:8080/auth/user');
+    const respons = await axios.get('http://leandro-graf.de:8080/auth/user');
     await this.$store.dispatch('user', respons.data);
-
     this.test()
 
   },
@@ -690,7 +611,6 @@ export default {
 
   },
   data: () => ({
-    showPassword: false,
     password: '',
     email: '',
     ordnerpfad: '',
@@ -710,7 +630,6 @@ export default {
   methods: {
     test() {
       this.user1 = this.user.status
-
     },
 
     async getOrdner() {

@@ -3,7 +3,6 @@ import {createStore} from 'vuex'
 
 const state = {
     user: null,
-
 }
 export default createStore({
 

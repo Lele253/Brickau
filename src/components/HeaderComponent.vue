@@ -137,10 +137,6 @@ export default {
 }
 
 .icon {
-  font-size: 35px;
-}
-
-v-btn {
-  font-size: 5em;
+  font-size: 45px;
 }
 </style>

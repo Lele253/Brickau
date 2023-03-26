@@ -296,9 +296,11 @@
                         <v-col cols="12">
                           <v-text-field
                               v-model="password"
+                              :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
                               label="Passwort"
                               required
                               type="password"
+                              @click:append="showPassword = !showPassword"
                           ></v-text-field>
                         </v-col>
                       </v-row>
@@ -688,6 +690,7 @@ export default {
 
   },
   data: () => ({
+    showPassword: false,
     password: '',
     email: '',
     ordnerpfad: '',
@@ -697,7 +700,7 @@ export default {
     user1: '',
     rechte: ['Admin', 'Nutzer'],
     ordner: [],
-    erstellterOrdner:'',
+    erstellterOrdner: '',
   }),
   name: 'HomeView',
   components: {

@@ -40,9 +40,11 @@
                 <v-col cols="12">
                   <v-text-field
                       v-model="password"
+                      :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
                       label="Passwort"
                       required
                       type="password"
+                      @click:append="showPassword = !showPassword"
                   ></v-text-field>
                 </v-col>
               </v-row>
@@ -85,6 +87,7 @@ export default {
   },
   data() {
     return {
+      showPassword: false,
       list: [
         {name: 'Home', icon: 'ic:baseline-home', path: '/'},
         {name: 'Impressum', icon: 'material-symbols:text-snippet', path: '/impressum'},

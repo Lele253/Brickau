@@ -32,9 +32,7 @@ export default {
     ...mapGetters(['user'])
   },
   created() {
-    this.convertFilePathNamesToFiles(this.files)
-    this.getFiles()
-    console.log(this.files)
+    this.getFiles();
     this.umleitung();
   },
   data: () => ({
@@ -62,9 +60,9 @@ export default {
             "http://leandro-graf.de:8080/auth/alleDateien", {}
         );
         let fileNames = [];
-        response.data.forEach(function (e) {
-          if (this.user.pfad.includes(e.ordner)) {
-            fileNames.push(e.name)
+        response.data.forEach((dateiObjekt) => {
+          if (this.user.pfad.includes(dateiObjekt.ordner)) {
+            fileNames.push(dateiObjekt.name)
           }
         });
         this.convertFilePathNamesToFiles(fileNames);

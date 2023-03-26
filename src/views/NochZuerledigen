@@ -1,8 +1,10 @@
 1. Als Admin den Button ausloggen und verwaltung
 2. Verwaltungspage für den Admin mit registrieren, ordnerverwaltung, nutzerverwaltung etc
 
-(beim registrieren passwort doppelt eingeben oder anzeigen lassen)
+3.(beim registrieren passwort doppelt eingeben oder anzeigen lassen)
 
-Registrieren, Ordner anlegen, Dateien hochladen
+4.Registrieren, Ordner anlegen, Dateien hochladen
 
-ordner löschen , alle nutzer anzeigen plus löschen {backend fertig} , dateien löschen {backend fertig}, alle dateien anzeigen {backend fertig},
+5.ordner löschen , alle nutzer anzeigen plus löschen {backend fertig} , dateien löschen {backend fertig}, alle dateien anzeigen {backend fertig},
+
+6.Usernamen im backend hinzufügen

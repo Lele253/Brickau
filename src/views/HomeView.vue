@@ -623,6 +623,7 @@ export default {
     rechte: ['Admin', 'Nutzer'],
     ordner: [],
     erstellterOrdner: '',
+    showPassword: false,
   }),
   name: 'HomeView',
   components: {

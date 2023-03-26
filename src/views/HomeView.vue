@@ -297,9 +297,9 @@
                           <v-text-field
                               v-model="password"
                               :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                              :type="showPassword ? 'text' : 'password'"
                               label="Passwort"
                               required
-                              type="password"
                               @click:append="showPassword = !showPassword"
                           ></v-text-field>
                         </v-col>

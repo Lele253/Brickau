@@ -4,6 +4,7 @@ import ImpressumView from "@/views/ImpressumView";
 import FileExplorerView from "@/views/FileExplorerView";
 import TestView from "@/views/testView";
 import UploadView from "@/views/UploadView";
+import DateiManager from "@/views/DateiManager";
 
 const routes = [
     {
@@ -21,6 +22,11 @@ const routes = [
         path: '/upload',
         name: 'upload',
         component: UploadView
+    },
+    {
+        path: '/manager',
+        name: 'manager',
+        component: DateiManager
     },
     {
         path: '/files',

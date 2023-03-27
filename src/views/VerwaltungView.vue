@@ -34,7 +34,6 @@ import OrdnerverwaltungComponent from "@/components/OrdnerverwaltungComponent";
 import FilesverwaltungComponent from "@/components/FilesverwaltungComponent";
 import NutzerverwaltungComponent from "@/components/NutzerverwaltungComponent";
 import {mapGetters} from "vuex";
-import axios from "@/axios";
 
 export default {
   computed: {

@@ -1,10 +1,8 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ImpressumView from "@/views/ImpressumView";
-import FileExplorerView from "@/views/FileExplorerView";
-import UploadView from "@/views/UploadView";
-import DateiManager from "@/views/DateiManager";
 import VerwaltungView from "@/views/VerwaltungView";
+import FilesView from "@/views/FilesView";
 
 const routes = [
     {
@@ -19,19 +17,9 @@ const routes = [
         component: ImpressumView
     },
     {
-        path: '/upload',
-        name: 'upload',
-        component: UploadView
-    },
-    {
-        path: '/manager',
-        name: 'manager',
-        component: DateiManager
-    },
-    {
         path: '/Files',
         name: 'files',
-        component: FileExplorerView
+        component: FilesView
     },
     {
         path: '/verwaltung',

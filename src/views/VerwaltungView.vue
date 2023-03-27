@@ -44,7 +44,7 @@ export default {
   },
   mounted() {
     this.umleitung()
-    },
+  },
   name: "VerwaltungsView",
   data() {
     return {

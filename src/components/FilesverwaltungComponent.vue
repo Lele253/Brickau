@@ -3,30 +3,29 @@
     <v-row class="ma-0">
       <v-col cols="3">
 
-              <v-list
-                    class="text-center"
-                    fixed-header
-                    height="470px"
-                    style="border-radius: 20px"
-                >
-                  <v-list-item class="text-h5 mt-2">
-                    <b>Ordnername</b>
-                    <v-divider
-                        :thickness="3">
-                    </v-divider>
-                  </v-list-item>
-                  <v-list-item
-                      active-color="green"
-                      v-for="item in ordner"
-                      :key="item"
-                      :value="item"
-                      @click="this.ausgewaehlterOrdner = item"
-                  >
-                    {{ item }}
-                    <v-divider></v-divider>
-                  </v-list-item>
-                </v-list>
-
+        <v-list
+            class="text-center"
+            fixed-header
+            height="470px"
+            style="border-radius: 20px"
+        >
+          <v-list-item class="text-h5 mt-2">
+            <b>Ordnername</b>
+            <v-divider
+                :thickness="3">
+            </v-divider>
+          </v-list-item>
+          <v-list-item
+              v-for="item in ordner"
+              :key="item"
+              :value="item"
+              active-color="green"
+              @click="this.ausgewaehlterOrdner = item"
+          >
+            {{ item }}
+            <v-divider></v-divider>
+          </v-list-item>
+        </v-list>
 
 
       </v-col>
@@ -54,15 +53,23 @@
                 :key="file"
             >
               <td>{{ file.name }}</td>
-              <a :href="'../ISM/'+ ausgewaehlterOrdner+'/'+ file.name" download> {{ file.name }}</a>
-
-              <td class="text-center">
+              <td style="width: 30px; padding-left: 0">
+                <a :href="'../ISM/'+ ausgewaehlterOrdner+'/'+ file.name" target="_blank">
+                  <Icon class="downloadIcon" icon="ph:file-magnifying-glass-bold"/>
+                </a>
+              </td>
+              <td style="width: 30px; padding-left: 0">
+                <a :href="'../ISM/'+ ausgewaehlterOrdner+'/'+ file.name" download>
+                  <Icon class="downloadIcon" icon="material-symbols:download-for-offline-outline"/>
+                </a>
+              </td>
+              <td style="width: 30px; padding-left: 0">
                 <icon class="icon" icon="line-md:close-circle" style="cursor: pointer"
                       @click="deleteDatei(file.path)"></icon>
               </td>
             </tr>
-            <h1 v-if="filesArray.length == 0" class="text-center mt-10">Der Ordner "{{ ausgewaehlterOrdner }}" ist
-              leer</h1>
+            <h1 v-if="filesArray.length == 0" class="text-center mt-10"> {{ ausgewaehlterOrdner }}
+            </h1>
             </tbody>
           </v-table>
 
@@ -134,7 +141,7 @@ export default {
   data: () => ({
     ordner: [],
     uploadFile: [],
-    ausgewaehlterOrdner: 'Admin',
+    ausgewaehlterOrdner: 'Bitte wählen sie einen Ordner aus',
     allFiles: [],
     files: [],
     error: '',
@@ -227,17 +234,13 @@ export default {
   color: #c41616;
 }
 
+.downloadIcon {
+  font-size: 35px;
+  color: #000000;
+}
+
 html {
   overflow: hidden !important;
 }
 
-.v-card {
-  display: flex !important;
-  flex-direction: column;
-}
-
-.v-card__text {
-  flex-grow: 1;
-  overflow: auto;
-}
 </style>

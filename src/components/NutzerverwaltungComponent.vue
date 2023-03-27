@@ -26,7 +26,7 @@
               v-for="item in allUser"
               :key="item"
           >
-            <td>{{ item.nutzerId }}</td>
+            <td>{{ item.username }}</td>
             <td>{{ item.pfad.substring(5, item.pfad.length - 1) }}</td>
             <td>
               <icon class="icon ml-3" icon="line-md:account-delete" @click="deleteUser(item.nutzerId)"></icon>

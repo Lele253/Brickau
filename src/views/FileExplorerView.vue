@@ -1,25 +1,29 @@
 <template>
-  <div id="fileExplorer">
-    <v-card>
-      <v-card-title>
-        <v-text-field
-            v-model="search"
-            append-icon="search"
-            hide-details
-            label="Search"
-            single-line
-        ></v-text-field>
-      </v-card-title>
-      <v-data-table
-          :headers="headers"
-          :items="files"
-          :search="search"
-          class="elevation-1"
-          item-value="name"
-          @click:row="downloadFile"
-      ></v-data-table>
-    </v-card>
-  </div>
+  <v-card class="ml-10 mr-10 mt-10 mb-10" style="min-height: 70vh">
+    <v-card-item>
+      <div id="fileExplorer">
+        <v-card>
+          <v-card-title>
+            <v-text-field
+                v-model="search"
+                append-icon="search"
+                hide-details
+                label="Search"
+                single-line
+            ></v-text-field>
+          </v-card-title>
+          <v-data-table
+              :headers="headers"
+              :items="files"
+              :search="search"
+              class="elevation-1"
+              item-value="name"
+              @click:row="downloadFile"
+          ></v-data-table>
+        </v-card>
+      </div>
+    </v-card-item>
+  </v-card>
 </template>
 
 <script>

@@ -26,10 +26,12 @@
               v-for="item in allUser"
               :key="item"
           >
-            <td>{{ item.username }}</td>
+            <td>{{ item.email }}</td>
             <td>{{ item.pfad.substring(5, item.pfad.length - 1) }}</td>
             <td>
-              <icon class="icon ml-3" icon="line-md:account-delete" @click="deleteUser(item.nutzerId)"></icon>
+              <icon v-if="item.email !== 'Admin'" class="icon ml-3" icon="line-md:account-delete"
+                    style="cursor: pointer"
+                    @click="deleteUser(item.nutzerId)"></icon>
             </td>
           </tr>
           </tbody>
@@ -108,6 +110,7 @@
 import axios from "axios";
 import {Icon} from '@iconify/vue';
 
+
 export default {
   data: () => ({
     password: '',
@@ -122,13 +125,6 @@ export default {
   }),
 
   name: "NutzerverwaltungComponent",
-  computed: {},
-  filters: {
-    ordnerFilter(x) {
-      let zwischenArray = x.split('/')
-      return zwischenArray[-2]
-    }
-  },
   methods: {
     async deleteUser(id) {
       console.log(id)

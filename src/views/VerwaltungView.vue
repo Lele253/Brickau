@@ -1,6 +1,5 @@
 <template>
-
-  <div style="margin-top: -4px; background: transparent">
+  <div class="hidden-md-and-down" style="margin-top: -4px; background: transparent">
     <v-divider></v-divider>
     <h1 class="toolbar d-flex justify-center">
       Verwaltung
@@ -18,7 +17,7 @@
       </v-toolbar-items>
     </v-toolbar>
     <div class="d-flex justify-center" style="height: 100%; margin-top: 50px">
-      <v-card style="background: transparent; width: 90vw; height: 500px">
+      <v-card style="background: transparent; width: 90vw; min-height: 500px">
         <OrdnerverwaltungComponent v-if="menuItems[0].component"></OrdnerverwaltungComponent>
         <NutzerverwaltungComponent v-if="menuItems[1].component"></NutzerverwaltungComponent>
         <FilesverwaltungComponent v-if="menuItems[2].component"></FilesverwaltungComponent>
@@ -34,13 +33,21 @@ import {Icon} from '@iconify/vue';
 import OrdnerverwaltungComponent from "@/components/OrdnerverwaltungComponent";
 import FilesverwaltungComponent from "@/components/FilesverwaltungComponent";
 import NutzerverwaltungComponent from "@/components/NutzerverwaltungComponent";
+import {mapGetters} from "vuex";
 
 export default {
+  computed: {
+    ...mapGetters(['user'])
+  },
+  created() {
+    this.setStatus()
+  },
   name: "VerwaltungsView",
   data() {
     return {
       appTitle: 'Verwaltung',
       sidebar: false,
+      user1: '',
       menuItems: [
         {title: 'Ordner', component: false, icon: 'material-symbols:folder'},
         {title: 'Nutzer', component: false, icon: 'mdi:user'},
@@ -50,6 +57,9 @@ export default {
     }
   },
   methods: {
+    setStatus() {
+      this.user1 = this.user.status
+    },
     componentSwitchen(titel) {
       this.menuItems.forEach(function (e) {
         if (e.title === titel) {

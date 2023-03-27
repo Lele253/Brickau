@@ -29,7 +29,7 @@ const routes = [
         component: DateiManager
     },
     {
-        path: '/files',
+        path: '/Files',
         name: 'files',
         component: FileExplorerView
     },

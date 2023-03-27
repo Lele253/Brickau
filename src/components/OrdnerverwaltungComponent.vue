@@ -11,7 +11,7 @@
           <thead>
           <tr>
             <th>
-              Ordnername
+              Ordner auswählen
             </th>
             <th>
               Anzahl Dateien
@@ -29,7 +29,8 @@
             <td>{{ item }}</td>
             <td>{{ item.anzahl }}</td>
             <td class="text-center">
-              <icon class="icon " icon="line-md:close-circle" @click="deleteFolder(item)"></icon>
+              <icon class="icon" icon="line-md:close-circle" style="cursor: pointer"
+                    @click="deleteOrdner(item)"></icon>
             </td>
           </tr>
           </tbody>
@@ -80,6 +81,13 @@ import axios from "axios";
 import {Icon} from '@iconify/vue';
 
 export default {
+  data() {
+    return {
+      ordner: [],
+      error: '',
+      erstellterOrdner: ''
+    }
+  },
   components: {
     Icon,
   },
@@ -88,6 +96,18 @@ export default {
     this.getOrdner();
   },
   methods: {
+    deleteOrdner(ordnername) {
+      axios.post('http://leandro-graf.de:8080/auth/deleteFolder', {message: ordnername})
+          .then(response => {
+            console.log(response.data);
+            this.getOrdner()
+            return response.data;
+          })
+          .catch(error => {
+            this.error = error;
+            console.error(error);
+          });
+    },
     async getOrdner() {
       this.ordner = [];
       try {
@@ -117,13 +137,6 @@ export default {
     },
   },
   name: "OrdnerverwaltungComponent",
-  data() {
-    return {
-      ordner: [],
-      error: '',
-      erstellterOrdner: ''
-    }
-  },
 }
 </script>
 

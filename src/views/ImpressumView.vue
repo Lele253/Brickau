@@ -1,5 +1,5 @@
 <template>
-  <div class="text-white mt-8" style="margin-left: 2%">
+  <div class="text-white mt-8 pb-8" style="margin-left: 2%">
     <!--    <h1>Impressum</h1>-->
 
     <!--    <b class="mt-10">I</b> Prof. Dr. Ralf A. Brickau-->

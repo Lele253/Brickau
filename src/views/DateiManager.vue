@@ -4,14 +4,14 @@
       <h1 v-for="x in dateien" :key="x" @click="löschpfad = x.path ">{{ x.name }} befindet sich im ordner:
         {{ x.ordner }}</h1>
       {{ löschpfad }}
-      <v-btn @click="delteDatei">delete</v-btn>
+      <v-btn @click="deleteDatei">delete</v-btn>
     </v-card>
 
 
     <v-card class="mt-3">
       <v-card-title> User</v-card-title>
       <h1 v-for="x in allUser" :key="x">{{ x }}</h1>
-<v-btn @click="delteOrdner('alle1')">order löschen</v-btn>
+      <v-btn @click="delteOrdner('alle1')">order löschen</v-btn>
     </v-card>
 
   </div>
@@ -30,12 +30,12 @@ export default {
     return {
       allUser: [],
       dateien: [],
-      löschpfad: 'teasdajhd',
+      löschpfad: '',
 
     }
   },
   methods: {
-    delteDatei() {
+    deleteDatei() {
       axios.post('http://leandro-graf.de:8080/auth/deleteFile', {message: this.löschpfad})
           .then(response => {
             console.log(response.data);

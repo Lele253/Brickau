@@ -1,13 +1,7 @@
-1. Als Admin den Button ausloggen und verwaltung
-2. Verwaltungspage für den Admin mit registrieren, ordnerverwaltung, nutzerverwaltung etc
 
-3.(beim registrieren passwort doppelt eingeben oder anzeigen lassen)
+1.ordner löschen {fertig im backend} , alle nutzer anzeigen plus löschen {backend fertig} , dateien löschen {backend fertig}, alle dateien anzeigen {backend fertig},
 
-4.Registrieren, Ordner anlegen, Dateien hochladen
+2. umleitung in FileExploreView falls nicht Admin
 
-5.ordner löschen , alle nutzer anzeigen plus löschen {backend fertig} , dateien löschen {backend fertig}, alle dateien anzeigen {backend fertig},
+3.handyansicht in FileExplore ausschalten
 
-
-7. username beim nutzer erstellen angeben
-
-ordner anzahldateien backend

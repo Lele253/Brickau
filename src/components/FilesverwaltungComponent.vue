@@ -54,7 +54,7 @@
                 :key="file"
             >
               <td>{{ file.name }}</td>
-              <a :href="'../ISM/'+ ausgewaehlterOrdner+ file.name" download> {{ file.name }}</a>
+              <a :href="'../ISM/'+ ausgewaehlterOrdner+'/'+ file.name" download> {{ file.name }}</a>
 
               <td class="text-center">
                 <icon class="icon" icon="line-md:close-circle" style="cursor: pointer"

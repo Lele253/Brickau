@@ -11,8 +11,9 @@
     <v-card class="mt-3">
       <v-card-title> User</v-card-title>
       <h1 v-for="x in allUser" :key="x">{{ x }}</h1>
-
+<v-btn @click="delteOrdner('alle1')">order löschen</v-btn>
     </v-card>
+
   </div>
 </template>
 
@@ -36,6 +37,18 @@ export default {
   methods: {
     delteDatei() {
       axios.post('http://leandro-graf.de:8080/auth/deleteFile', {message: this.löschpfad})
+          .then(response => {
+            console.log(response.data);
+            this.getAllData()
+            return response.data;
+          })
+          .catch(error => {
+            console.error(error);
+          });
+    },
+
+    delteOrdner(ordnername) {
+      axios.post('http://localhost:8080/auth/deleteFolder', {message: ordnername})
           .then(response => {
             console.log(response.data);
             this.getAllData()

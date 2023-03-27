@@ -88,10 +88,10 @@ export default {
 
       }
       console.log(this.ordnerAuswahl)
-      axios.post('http://localhost:8080/auth/ordnerName',{
+      axios.post('http://leandro-graf.de:8080/auth/ordnerName',{
         message: this.ordnerAuswahl
       })
-      axios.post( 'http://localhost:8080/auth/upload',
+      axios.post( 'http://leandro-graf.de:8080/auth/upload',
           formData,
           {
             headers: {

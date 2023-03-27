@@ -139,12 +139,12 @@ export default {
       await this.getAllUser()
     },
     async registrieren() {
-
       const respons = await axios.post('http://leandro-graf.de:8080/auth/Regist', {
         email: this.email,
         password: this.password,
         pfad: '/ISM/' + this.ordnerpfad + '/',
-        status: this.status
+        status: this.status,
+        username: this.email
       });
       console.log(respons)
       await this.getAllUser()

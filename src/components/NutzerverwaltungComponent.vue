@@ -42,7 +42,7 @@
 
       <v-col cols="6">
         <v-card
-            height="470px"
+            min-height="470px"
             style="border-radius: 20px"
         >
           <v-card-title>
@@ -93,13 +93,23 @@
           </v-card-text>
           <v-card-actions class="d-flex justify-center">
             <v-btn
+                v-if="überprüfe"
                 color="white"
                 style="background: black"
                 @click="registrieren"
             >
-              Regist
+              Registrieren
+            </v-btn>
+            <v-btn
+                v-if="!überprüfe"
+                color="grey"
+                style="background: black"
+                @click="error= 'Bitte alle Felder ausfüllen'"
+            >
+              Registrieren
             </v-btn>
           </v-card-actions>
+          <v-alert v-if="error !== ''" class="text-center mt-5" color="red">{{ error }}</v-alert>
         </v-card>
       </v-col>
     </v-row>
@@ -120,10 +130,18 @@ export default {
     allUser: [],
     ordner: [],
     rechte: ['Admin', 'Nutzer'],
-    rechte1: '',
-    status: ''
+    status: '',
+    error: ''
   }),
-
+  computed: {
+    überprüfe: function () {
+      if (this.email == '' || this.password == '' || this.status == '' || this.ordnerpfad == '') {
+        return false;
+      } else {
+        return true;
+      }
+    }
+  },
   name: "NutzerverwaltungComponent",
   methods: {
     async deleteUser(id) {
@@ -147,8 +165,7 @@ export default {
       this.password = '';
       this.email = '';
       this.ordnerpfad = '';
-      this.rechte1 = ''
-
+      this.status = ''
     },
     async getAllUser() {
       this.allUser = []

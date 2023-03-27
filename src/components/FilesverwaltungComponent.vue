@@ -79,13 +79,14 @@
                 v-for="file in filesArray"
                 :key="file"
             >
-              <td>{{ file.name }}
-              </td>
+              <td>{{ file.name }}</td>
               <td class="text-center">
                 <icon class="icon" icon="line-md:close-circle" style="cursor: pointer"
                       @click="deleteDatei(file.path)"></icon>
               </td>
             </tr>
+            <h1 v-if="filesArray.length == 0" class="text-center mt-10">Der Ordner "{{ ausgewaehlterOrdner }}" ist
+              leer</h1>
             </tbody>
           </v-table>
 
@@ -161,6 +162,7 @@ export default {
     allFiles: [],
     files: [],
     error: '',
+    leererOrdner: ''
   }),
   computed: {
     filesArray: function () {

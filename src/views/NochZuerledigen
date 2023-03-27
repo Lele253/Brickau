@@ -1,7 +1,7 @@
 
 1.ordner löschen {fertig im backend} , alle nutzer anzeigen plus löschen {backend fertig} , dateien löschen {backend fertig}, alle dateien anzeigen {backend fertig},
 
-2. umleitung in FileExploreView falls nicht Admin
+2. umleitung in verwaltung falls nicht Admin
 
-3.handyansicht in FileExplore ausschalten
+3.handyansicht in Verwaltung ausschalten
 

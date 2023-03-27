@@ -37,8 +37,9 @@ export default {
     ...mapGetters(['user'])
   },
   created() {
-    this.getFiles();
     this.umleitung();
+
+    this.getFiles();
   },
   data: () => ({
     search: '',
@@ -54,7 +55,9 @@ export default {
     files: [],
   }),
   methods: {
-    umleitung() {
+   async umleitung() {
+     console.log(this.user)
+
       if (!this.user) {
         this.$router.push('/')
       }

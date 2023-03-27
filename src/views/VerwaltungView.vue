@@ -34,6 +34,7 @@ import OrdnerverwaltungComponent from "@/components/OrdnerverwaltungComponent";
 import FilesverwaltungComponent from "@/components/FilesverwaltungComponent";
 import NutzerverwaltungComponent from "@/components/NutzerverwaltungComponent";
 import {mapGetters} from "vuex";
+import axios from "@/axios";
 
 export default {
   computed: {
@@ -42,6 +43,9 @@ export default {
   created() {
     this.setStatus()
   },
+  mounted() {
+    this.umleitung()
+    },
   name: "VerwaltungsView",
   data() {
     return {
@@ -57,6 +61,12 @@ export default {
     }
   },
   methods: {
+    async umleitung() {
+      console.log(this.user.status == 'Admin')
+      if (!this.user) {
+        this.$router.push('/')
+      }
+    },
     setStatus() {
       this.user1 = this.user.status
     },

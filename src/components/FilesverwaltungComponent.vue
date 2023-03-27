@@ -3,7 +3,7 @@
     <v-row class="ma-0">
       <v-col cols="3">
 
-        <!--        <v-list
+              <v-list
                     class="text-center"
                     fixed-header
                     height="470px"
@@ -16,43 +16,17 @@
                     </v-divider>
                   </v-list-item>
                   <v-list-item
+                      active-color="green"
                       v-for="item in ordner"
                       :key="item"
-                      link
+                      :value="item"
                       @click="this.ausgewaehlterOrdner = item"
                   >
                     {{ item }}
                     <v-divider></v-divider>
                   </v-list-item>
-                </v-list>-->
+                </v-list>
 
-        <v-table
-            fixed-header
-            height="470px"
-            style="border-radius: 20px"
-        >
-          <thead>
-          <tr>
-            <th class="text-h5 mt-2 text-center text-black">
-              Ordner auswählen
-            </th>
-            <v-divider
-                :thickness="5">
-            </v-divider>
-          </tr>
-          </thead>
-          <tbody>
-          <tr
-              v-for="item in ordner"
-              :key="item"
-          >
-            <td style="cursor: pointer"
-                @click="ausgewaehlterOrdner = item"
-            >{{ item }}
-            </td>
-          </tr>
-          </tbody>
-        </v-table>
 
 
       </v-col>
@@ -80,6 +54,8 @@
                 :key="file"
             >
               <td>{{ file.name }}</td>
+              <a :href="'../ISM/'+ file.name" download> {{ file.name }}</a>
+
               <td class="text-center">
                 <icon class="icon" icon="line-md:close-circle" style="cursor: pointer"
                       @click="deleteDatei(file.path)"></icon>

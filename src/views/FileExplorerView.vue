@@ -1,5 +1,5 @@
 <template>
-  <v-card class="ml-10 mr-10 mt-10 mb-10" style="min-height: 70vh">
+  <v-card class="ml-10 mr-10 mt-10 mb-10" style="min-height: 70vh; border-radius: 30px">
     <v-card-item>
       <div id="fileExplorer">
         <v-card>
@@ -18,6 +18,7 @@
               :search="search"
               class="elevation-1"
               item-value="name"
+              style="cursor: pointer"
               @click:row="downloadFile"
           ></v-data-table>
         </v-card>

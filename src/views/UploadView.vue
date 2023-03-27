@@ -38,7 +38,7 @@
           <div class="container">
             <div class="large-12 medium-12 small-12 cell">
               <label>
-                <input id="files" ref="allFiles" multiple type="file" v-on:change="handleFilesUpload()"/>
+                <input id="files" ref="files" multiple type="file" v-on:change="handleFilesUpload()"/>
               </label>
               <v-btn @click="submitFiles">Upload</v-btn>
             </div>
@@ -77,7 +77,6 @@ export default {
       this.files = this.$refs.files.files;
       console.log(this.files)
     },
-
     submitFiles() {
       let formData = new FormData();
       for (var i = 0; i < this.files.length; i++) {

@@ -113,11 +113,14 @@
           </v-card-item>
           <v-card-actions>
             <v-file-input
+                id="files"
+                ref="files"
                 v-model="uploadFile"
                 chips
                 class="mr-3"
-                label="Bitte wählen Sie eine Datei aus"
-                multiple
+                label="Bitte wählen Sie eine Datei aus" multiple
+                type="file" v-on:change="handleFilesUpload()"
+
             ></v-file-input>
           </v-card-actions>
           <v-card-actions v-if="error !== ''" class="pb-5 mx-5">
@@ -171,6 +174,10 @@ export default {
     }
   },
   methods: {
+    handleFilesUpload() {
+      this.files = this.$refs.files.files;
+      console.log(this.files)
+    },
     deleteDatei(pfad) {
       let löschpfad = pfad
       axios.post('http://leandro-graf.de:8080/auth/deleteFile', {message: löschpfad})
@@ -183,7 +190,7 @@ export default {
             console.error(error);
           });
     },
-    submitFiles() {
+    async submitFiles() {
       let formData = new FormData();
       for (var i = 0; i < this.files.length; i++) {
         let file = this.files[i];
@@ -191,10 +198,10 @@ export default {
 
       }
       console.log(this.ausgewaehlterOrdner)
-      let response = axios.post('http://leandro-graf.de:8080/auth/ordnerName', {
+      await axios.post('http://leandro-graf.de:8080/auth/ordnerName', {
         message: this.ausgewaehlterOrdner
       })
-      axios.post('http://leandro-graf.de:8080/auth/upload',
+      await axios.post('http://leandro-graf.de:8080/auth/upload',
           formData,
           {
             headers: {
@@ -203,12 +210,13 @@ export default {
           }
       ).then(function () {
         console.log('jap')
-        alert('Dateien wurden erfolgreich hochgeladen.')
+        console.log('Dateien wurden erfolgreich hochgeladen.')
       })
           .catch(function () {
             console.log('FAILURE!!');
-            this.error = response
           });
+      await this.getAllData()
+      this.uploadFile = []
     },
     async getAllData() {
       const response = await axios.get("http://leandro-graf.de:8080/auth/alleDateien", {});

@@ -312,15 +312,10 @@
             </v-col>
             <!--              Wenn der user halt admin is dann button anzeigen-->
             <v-col class="justify-center d-flex" cols="12">
-              <v-btn v-if="user1 !== 'Admin' && user" class="text-white" style="background-color: black"
+              <v-btn class="text-white" style="background-color: black"
                      variant="outlined"
                      @click="$router.push('/files')">
                 Dateien
-              </v-btn>
-              <v-btn v-if="user && user1 === 'Admin'" class="text-white" style="background-color: black"
-                     variant="outlined"
-                     @click="$router.push('/verwaltung')">
-                Verwaltung
               </v-btn>
             </v-col>
           </v-row>

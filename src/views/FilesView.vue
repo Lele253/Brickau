@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card class="hidden-sm-and-down ml-10 mr-10 mt-10 mb-10" style="min-height: 70vh; border-radius: 30px">
+    <v-card class="desktop hidden-sm-and-down ml-10 mr-10 mt-10 mb-10" style="min-height: 70vh; border-radius: 30px">
       <v-card-item>
         <div id="fileExplorer">
           <v-card>
@@ -38,11 +38,11 @@
       </v-card-item>
     </v-card>
 
-    <v-card class="hidden-md-and-up my-2" style="min-height: 73vh">
-      <v-card-title class="text-center mt-2 ">
-        Hallo {{ user.email }}, diese Dateien stehen <br> Ihnen zur Verfügung
+    <v-card class="mobile  hidden-md-and-up my-2" style="min-height: 73vh; margin-right: 5%; margin-left: 5%">
+      <v-card-text class="text-center mt-2 " style="font-size: 2vh">
+        Hallo {{ user.email }}, diese Dateien stehen Ihnen zur Verfügung
         <v-divider :thickness="3" class="mt-2"></v-divider>
-      </v-card-title>
+      </v-card-text>
       <v-table
           fixed-header
           height="100%"

@@ -25,6 +25,15 @@
     </div>
   </div>
 
+  <div class="hidden-lg-and-up" style="height: 40vh; width: 100%">
+    <div class="align-center d-flex justify-center mt-10">
+      <v-alert class="text-center" color="red" style="max-width: 80vw; border-radius: 20px">
+        <h1 class="text-center">Achtung</h1>
+        Diese Ansicht ist auf dem Handy und auf dem Tablet nicht verfügbar. Bitte
+        öffnen Sie diese auf Ihrem Laptop oder PC erneut
+      </v-alert>
+    </div>
+  </div>
 </template>
 
 <script>

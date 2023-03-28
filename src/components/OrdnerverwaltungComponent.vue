@@ -103,7 +103,7 @@
                 v-if="!ordnerVoll"
                 color="green"
                 variant="text"
-                @click="confirmDialog = false, deleteOrdner(selectedOrdner)"
+                @click="deleteOrdner(selectedOrdner)"
             >
               Löschen
             </v-btn>
@@ -145,6 +145,7 @@ export default {
   },
   methods: {
     istOrdnerVoll(ordner) {
+      this.selectedOrdner = ordner
       this.ordnerVoll = false
       this.allFiles.forEach((i) => {
         if (i.ordner == ordner) {
@@ -163,6 +164,7 @@ export default {
           .then(response => {
             console.log(response.data);
             this.getOrdner()
+            this.confirmDialog = false
             return response.data;
           })
           .catch(error => {

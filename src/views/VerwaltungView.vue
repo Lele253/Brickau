@@ -1,5 +1,5 @@
 <template>
-  <div class="hidden-md-and-down" style="margin-top: -4px; background: transparent">
+  <div class="hidden-sm-and-down" style="margin-top: -4px; background: transparent">
     <v-divider></v-divider>
     <h1 class="toolbar d-flex justify-center">
       Verwaltung
@@ -25,7 +25,7 @@
     </div>
   </div>
 
-  <div class="hidden-lg-and-up" style="height: 40vh; width: 100%">
+  <div class="hidden-md-and-up" style="height: 40vh; width: 100%">
     <div class="align-center d-flex justify-center mt-10">
       <v-alert class="text-center" color="red" style="max-width: 80vw; border-radius: 20px">
         <h1 class="text-center">Achtung</h1>

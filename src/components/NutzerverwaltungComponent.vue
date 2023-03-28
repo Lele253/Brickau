@@ -31,7 +31,7 @@
             <td>
               <icon v-if="item.email !== 'Admin'" class="icon ml-3" icon="line-md:account-delete"
                     style="cursor: pointer"
-                    @click="deleteUser(item.nutzerId)"></icon>
+                    @click="confirmDialog = true, selectedUser = item"></icon>
             </td>
           </tr>
           </tbody>
@@ -114,6 +114,41 @@
       </v-col>
     </v-row>
   </div>
+
+  <template>
+    <v-row justify="center">
+      <v-dialog
+          v-model="confirmDialog"
+          persistent
+          width="auto"
+      >
+        <v-card>
+          <v-card-title class="text-h5">
+            Ordner löschen
+          </v-card-title>
+          <v-card-text>Möchten Sie den Nutzer '{{ selectedUser.email }}' wirklich löschen?
+          </v-card-text>
+          <v-card-actions class="d-flex justify-center">
+            <v-btn
+                color="red"
+                variant="text"
+                @click="confirmDialog = false"
+            >
+              Abbrechen
+            </v-btn>
+            <v-btn
+                color="green"
+                variant="text"
+                @click="confirmDialog = false, deleteUser(selectedUser.nutzerId)"
+            >
+              Löschen
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-row>
+  </template>
+
 </template>
 
 <script>
@@ -131,7 +166,9 @@ export default {
     ordner: [],
     rechte: ['Admin', 'Nutzer'],
     status: '',
-    error: ''
+    error: '',
+    confirmDialog: false,
+    selectedUser: []
   }),
   computed: {
     überprüfe: function () {
@@ -153,19 +190,23 @@ export default {
       await this.getAllUser()
     },
     async registrieren() {
-      const respons = await axios.post('http://leandro-graf.de:8080/auth/Regist', {
-        email: this.email,
-        password: this.password,
-        pfad: '/ISM/' + this.ordnerpfad + '/',
-        status: this.status,
-        username: this.email
-      });
-      console.log(respons)
+      try {
+        await axios.post('http://leandro-graf.de:8080/auth/Regist', {
+          email: this.email,
+          password: this.password,
+          pfad: '/ISM/' + this.ordnerpfad + '/',
+          status: this.status,
+          username: this.email
+        });
+      } catch (e) {
+        this.error = ''
+      }
       await this.getAllUser()
       this.password = '';
       this.email = '';
       this.ordnerpfad = '';
       this.status = ''
+
     },
     async getAllUser() {
       this.allUser = []
@@ -176,6 +217,7 @@ export default {
     },
     async getOrdner() {
       this.ordner = [];
+      this.error = '';
       try {
         const response = await axios.get(
             "http://leandro-graf.de:8080/auth/ordner", {}

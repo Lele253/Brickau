@@ -41,7 +41,7 @@
 
     <v-card class="hidden-sm-and-up my-2">
       <v-card-title class="text-center mt-2 ">
-        Hallo {{ user.email }}, diese Dateien stehen Ihnen zur Verfügung
+        Hallo {{ user.email }}, diese Dateien stehen <br> Ihnen zur Verfügung
         <v-divider :thickness="3" class="mt-2"></v-divider>
       </v-card-title>
       <v-table

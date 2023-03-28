@@ -30,7 +30,7 @@
             <td>{{ item.anzahl }}</td>
             <td class="text-center">
               <icon class="icon" icon="line-md:close-circle" style="cursor: pointer"
-                    @click="deleteOrdner(item)"></icon>
+                    @click="confirmDialog = true, selectedOrdner = item"></icon>
             </td>
           </tr>
           </tbody>
@@ -74,7 +74,43 @@
       </v-col>
     </v-row>
   </div>
+
+  <template>
+    <v-row justify="center">
+      <v-dialog
+          v-model="confirmDialog"
+          persistent
+          width="auto"
+      >
+        <v-card>
+          <v-card-title class="text-h5">
+            Ordner löschen
+          </v-card-title>
+          <v-card-text>Möchten Sie den Ordner '{{ selectedOrdner }}' wirklich löschen?
+          </v-card-text>
+          <v-card-actions class="d-flex justify-center">
+            <v-btn
+                color="red"
+                variant="text"
+                @click="confirmDialog = false"
+            >
+              Abbrechen
+            </v-btn>
+            <v-btn
+                color="green"
+                variant="text"
+                @click="confirmDialog = false, deleteOrdner(selectedOrdner)"
+            >
+              Löschen
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-row>
+  </template>
+
 </template>
+
 
 <script>
 import axios from "axios";
@@ -85,8 +121,13 @@ export default {
     return {
       ordner: [],
       error: '',
-      erstellterOrdner: ''
+      erstellterOrdner: '',
+      confirmDialog: false,
+      selectedOrdner: ''
     }
+  },
+  unmounted() {
+    this.error = '';
   },
   components: {
     Icon,
@@ -127,6 +168,7 @@ export default {
     async createFolder() {
       let response = await axios.post('http://leandro-graf.de:8080/auth/ordnerErstellen', {message: this.erstellterOrdner})
       if (response.data !== 'diesen Ordner gibt es bereits') {
+        this.error = ''
         console.log(response.data);
         this.getOrdner();
         this.erstellterOrdner = '';

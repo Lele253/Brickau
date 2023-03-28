@@ -65,7 +65,7 @@
               </td>
               <td style="width: 30px; padding-left: 0">
                 <icon class="icon" icon="line-md:close-circle" style="cursor: pointer"
-                      @click="deleteDatei(file.path)"></icon>
+                      @click="confirmDialog = true; selectedFile = file.path"></icon>
               </td>
             </tr>
             <h1 v-if="filesArray.length == 0" class="text-center mt-10"> {{ ausgewaehlterOrdner }}
@@ -123,6 +123,42 @@
 
     </v-row>
   </div>
+
+  <template>
+    <v-row justify="center">
+      <v-dialog
+          v-model="confirmDialog"
+          persistent
+          width="auto"
+      >
+        <v-card>
+          <v-card-title class="text-h5">
+            Ordner löschen
+          </v-card-title>
+          <v-card-text>
+            Möchten Sie die Datei '{{ selectedFile.substring(31, selectedFile.length - 1) }}' wirklich löschen?
+          </v-card-text>
+          <v-card-actions class="d-flex justify-center">
+            <v-btn
+                color="red"
+                variant="text"
+                @click="confirmDialog = false"
+            >
+              Abbrechen
+            </v-btn>
+            <v-btn
+                color="green"
+                variant="text"
+                @click="confirmDialog = false, deleteDatei(selectedFile)"
+            >
+              Löschen
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-row>
+  </template>
+
 </template>
 
 <script>
@@ -145,7 +181,9 @@ export default {
     allFiles: [],
     files: [],
     error: '',
-    leererOrdner: ''
+    leererOrdner: '',
+    confirmDialog: false,
+    selectedFile: ''
   }),
   computed: {
     filesArray: function () {
@@ -199,10 +237,13 @@ export default {
       })
           .catch(function () {
             console.log('FAILURE!!');
+            this.error = 'Bitte wählen Sie einen Ordner aus'
           });
       await this.getAllData()
       this.uploadFile = []
     },
+
+
     async getAllData() {
       const response = await axios.get("http://leandro-graf.de:8080/auth/alleDateien", {});
       this.allFiles = response.data

@@ -228,6 +228,10 @@
                               @click:append="showPassword = !showPassword"
                           ></v-text-field>
                         </v-col>
+                        <v-col v-if="error !== ''" cols="12">
+                          <v-alert color="red">Der Nutzername oder das Passwort ist falsch!
+                          </v-alert>
+                        </v-col>
                       </v-row>
                     </v-container>
                   </v-card-text>
@@ -235,7 +239,7 @@
                     <v-spacer></v-spacer>
                     <v-btn
                         variant="text"
-                        @click="loginDialog = false"
+                        @click="loginDialog = false, error = ''"
                     >
                       Close
                     </v-btn>
@@ -624,6 +628,7 @@ export default {
     ordner: [],
     erstellterOrdner: '',
     showPassword: false,
+    error: ''
   }),
   name: 'HomeView',
   components: {
@@ -657,16 +662,20 @@ export default {
       location.reload();
     },
     async login() {
-      const response = await axios.post('http://leandro-graf.de:8080/auth/login',
-          {
-            email: this.email,
-            password: this.password
-          });
+      try {
+        const response = await axios.post('http://leandro-graf.de:8080/auth/login',
+            {
+              email: this.email,
+              password: this.password
+            });
+        localStorage.setItem('token', response.data)
+        await this.$store.dispatch('user', response.data.user)
 
-      localStorage.setItem('token', response.data)
-      await this.$store.dispatch('user', response.data.user)
+        await location.reload()
 
-      await location.reload()
+      } catch (e) {
+        this.error = e;
+      }
     },
     async registrieren() {
 

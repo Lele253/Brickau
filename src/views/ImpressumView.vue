@@ -13,8 +13,8 @@
     <h2>Impressum</h2>
     <p>Prof. Dr. Ralf A. Brickau<br/>
       Unternehmensberater<br/>Otto-Hahn-Straße 19<br/>44227 Dortmund</p>
-    <p>Telefon: 015789636558<br/>
-      E-Mail: <a href="mailto:Ralf.Brickau@smcg.de">Ralf.Brickau@smcg.de</a><br/>
+    <p>Telefon: +49 231 97523952<br/>
+      E-Mail: <a href="mailto:Ralf.Brickau@smcg.de" style="color: beige">Ralf.Brickau@smcg.de</a><br/>
     </p>
     <br/><br/>
     <h2>Disclaimer – rechtliche Hinweise</h2>
@@ -51,7 +51,8 @@
     § 4 Besondere Nutzungsbedingungen<br/>
     Soweit besondere Bedingungen für einzelne Nutzungen dieser Website von den vorgenannten Paragraphen abweichen, wird
     an entsprechender Stelle ausdrücklich darauf hingewiesen. In diesem Falle gelten im jeweiligen Einzelfall die
-    besonderen Nutzungsbedingungen.<p>Quelle: <a href="https://www.juraforum.de">Mehr Infos</a></p>
+    besonderen Nutzungsbedingungen.<p>Quelle: <a href="https://www.juraforum.de" style="color: beige;">Mehr Infos</a>
+  </p>
 
   </div>
 </template>

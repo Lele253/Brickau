@@ -30,7 +30,7 @@
             <td>{{ item.anzahl }}</td>
             <td class="text-center">
               <icon class="icon" icon="line-md:close-circle" style="cursor: pointer"
-                    @click="confirmDialog = true, selectedOrdner = item"></icon>
+                    @click="istOrdnerVoll(item)"></icon>
             </td>
           </tr>
           </tbody>
@@ -86,7 +86,10 @@
           <v-card-title class="text-h5">
             Ordner löschen
           </v-card-title>
-          <v-card-text>Möchten Sie den Ordner '{{ selectedOrdner }}' wirklich löschen?
+          <v-card-text v-if="!ordnerVoll">Möchten Sie den Ordner '{{ selectedOrdner }}' wirklich löschen?
+          </v-card-text>
+          <v-card-text v-if="ordnerVoll">Sie können den Ordner '{{ selectedOrdner }}' nicht löschen, da sich noch
+            Inhalt in diesem befinden!
           </v-card-text>
           <v-card-actions class="d-flex justify-center">
             <v-btn
@@ -97,6 +100,7 @@
               Abbrechen
             </v-btn>
             <v-btn
+                v-if="!ordnerVoll"
                 color="green"
                 variant="text"
                 @click="confirmDialog = false, deleteOrdner(selectedOrdner)"
@@ -123,7 +127,9 @@ export default {
       error: '',
       erstellterOrdner: '',
       confirmDialog: false,
-      selectedOrdner: ''
+      selectedOrdner: '',
+      alleFiles: [],
+      ordnerVoll: ''
     }
   },
   unmounted() {
@@ -132,11 +138,26 @@ export default {
   components: {
     Icon,
   },
-
+  computed: {},
   created() {
     this.getOrdner();
+    this.getAllData()
   },
   methods: {
+    istOrdnerVoll(ordner) {
+      this.ordnerVoll = false
+      this.allFiles.forEach((i) => {
+        if (i.ordner == ordner) {
+          this.ordnerVoll = true
+        }
+      })
+      this.confirmDialog = true
+    },
+    async getAllData() {
+      const response = await axios.get("http://leandro-graf.de:8080/auth/alleDateien", {});
+      this.allFiles = response.data
+      console.log(response)
+    },
     deleteOrdner(ordnername) {
       axios.post('http://leandro-graf.de:8080/auth/deleteFolder', {message: ordnername})
           .then(response => {
@@ -146,7 +167,6 @@ export default {
           })
           .catch(error => {
             this.error = error;
-            console.error(error);
           });
     },
     async getOrdner() {

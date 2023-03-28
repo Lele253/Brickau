@@ -136,7 +136,9 @@
             Ordner löschen
           </v-card-title>
           <v-card-text>
-            Möchten Sie die Datei '{{ selectedFile.substring(31, selectedFile.length - 1) }}' wirklich löschen?
+            Möchten Sie die Datei '{{
+              selectedFile.substring(26 + ausgewaehlterOrdner.length)
+            }}' wirklich löschen?
           </v-card-text>
           <v-card-actions class="d-flex justify-center">
             <v-btn

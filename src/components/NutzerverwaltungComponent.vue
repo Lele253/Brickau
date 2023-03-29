@@ -123,8 +123,8 @@
           width="auto"
       >
         <v-card>
-          <v-card-title class="text-h5">
-            Ordner löschen
+          <v-card-title class="text-center text-h5">
+            Nutzer löschen
           </v-card-title>
           <v-card-text>Möchten Sie den Nutzer '{{ selectedUser.email }}' wirklich löschen?
           </v-card-text>

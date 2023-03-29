@@ -94,7 +94,7 @@
           </v-card-item>
           <v-card-item class="text-center mt-n7">
             <Icon v-if="!loadAnzeige" icon="line-md:cloud-upload-loop" style="font-size: 175px"/>
-            <Icon v-if="loadAnzeige" style="font-size: 175px" icon="line-md:loading-twotone-loop" />
+            <Icon v-if="loadAnzeige" icon="line-md:loading-twotone-loop" style="font-size: 175px"/>
           </v-card-item>
           <v-card-actions>
             <v-file-input
@@ -133,8 +133,8 @@
           width="auto"
       >
         <v-card>
-          <v-card-title class="text-h5">
-            Ordner löschen
+          <v-card-title class="text-center text-h5">
+            Datei löschen
           </v-card-title>
           <v-card-text>
             Möchten Sie die Datei '{{

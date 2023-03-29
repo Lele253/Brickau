@@ -312,9 +312,11 @@
             </v-col>
             <!--              Wenn der user halt admin is dann button anzeigen-->
             <v-col class="justify-center d-flex" cols="12">
-              <v-btn class="text-white" style="background-color: black"
-                     variant="outlined"
-                     @click="$router.push('/files')">
+              <v-btn
+                  v-if="user"
+                  class="text-white" style="background-color: black"
+                  variant="outlined"
+                  @click="$router.push('/files')">
                 Dateien
               </v-btn>
             </v-col>

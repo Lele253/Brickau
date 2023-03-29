@@ -83,7 +83,7 @@
           width="auto"
       >
         <v-card>
-          <v-card-title class="text-h5">
+          <v-card-title class="text-center text-h5">
             Ordner löschen
           </v-card-title>
           <v-card-text v-if="!ordnerVoll">Möchten Sie den Ordner '{{ selectedOrdner }}' wirklich löschen?

@@ -93,8 +93,8 @@
             <h3>{{ ausgewaehlterOrdner }}</h3>
           </v-card-item>
           <v-card-item class="text-center mt-n7">
-            <Icon v-if="!test" icon="line-md:cloud-upload-loop" style="font-size: 175px"/>
-            <Icon v-if="test" style="font-size: 175px" icon="line-md:loading-twotone-loop" />
+            <Icon v-if="!loadAnzeige" icon="line-md:cloud-upload-loop" style="font-size: 175px"/>
+            <Icon v-if="loadAnzeige" style="font-size: 175px" icon="line-md:loading-twotone-loop" />
           </v-card-item>
           <v-card-actions>
             <v-file-input
@@ -187,7 +187,7 @@ export default {
     leererOrdner: '',
     confirmDialog: false,
     selectedFile: '',
-    test: false
+    loadAnzeige: false
   }),
   computed: {
     filesArray: function () {
@@ -220,7 +220,7 @@ export default {
     },
     async submitFiles() {
       let formData = new FormData();
-      this.test = true
+      this.loadAnzeige = true
       for (var i = 0; i < this.files.length; i++) {
         let file = this.files[i];
         formData.append('files', file);
@@ -247,7 +247,7 @@ export default {
           });
       await this.getAllData()
       this.uploadFile = []
-      this.test = false
+      this.loadAnzeige = false
     },
 
 

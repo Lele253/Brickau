@@ -93,7 +93,8 @@
             <h3>{{ ausgewaehlterOrdner }}</h3>
           </v-card-item>
           <v-card-item class="text-center mt-n7">
-            <Icon icon="line-md:cloud-upload-loop" style="font-size: 175px"/>
+            <Icon v-if="!test" icon="line-md:cloud-upload-loop" style="font-size: 175px"/>
+            <Icon v-if="test" style="font-size: 175px" icon="line-md:loading-twotone-loop" />
           </v-card-item>
           <v-card-actions>
             <v-file-input
@@ -185,7 +186,8 @@ export default {
     error: '',
     leererOrdner: '',
     confirmDialog: false,
-    selectedFile: ''
+    selectedFile: '',
+    test: false
   }),
   computed: {
     filesArray: function () {
@@ -207,6 +209,7 @@ export default {
       let löschpfad = pfad
       axios.post('http://leandro-graf.de:8080/auth/deleteFile', {message: löschpfad})
           .then(response => {
+
             console.log(response.data);
             this.getAllData()
             return response.data;
@@ -217,6 +220,7 @@ export default {
     },
     async submitFiles() {
       let formData = new FormData();
+      this.test = true
       for (var i = 0; i < this.files.length; i++) {
         let file = this.files[i];
         formData.append('files', file);
@@ -243,6 +247,7 @@ export default {
           });
       await this.getAllData()
       this.uploadFile = []
+      this.test = false
     },
 
 

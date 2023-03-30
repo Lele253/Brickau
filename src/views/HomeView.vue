@@ -83,7 +83,7 @@
             <v-col class="ContainerTwoCardOneColInhalt" cols="12">
               <p class="text-center" style="width: 300px">
                 Sie sind Student vom mir und möchten sich Dateien herunterladen? Dann melden Sie
-                sich mit den von mir bereitgestellten Anmeldedaten an!
+                sich mit den von mir bereitgestellten Anmeldedaten an! {{ this.readGetRequest }}
               </p>
             </v-col>
             <v-col class="ContainerTwoCardOneColInhalt icon" cols="12">
@@ -633,6 +633,12 @@ export default {
   },
 
   methods: {
+    async readGetRequest() {
+      return await axios.get(
+          "http://leandro-graf.de:8080/auth/ordner", {}
+      );
+
+    },
     test() {
       this.user1 = this.user.status
     },

@@ -103,7 +103,7 @@
                 v-model="uploadFile"
                 chips
                 class="mr-3"
-                label="Bitte wählen Sie eine Datei aus" multiple
+                label="Bitte wählen Sie eine Datei aus"
                 type="file" v-on:change="handleFilesUpload()"
 
             ></v-file-input>
@@ -203,7 +203,6 @@ export default {
   methods: {
     handleFilesUpload() {
       this.files = this.$refs.files.files;
-      console.log(this.files)
     },
     deleteDatei(pfad) {
       let löschpfad = pfad
@@ -226,7 +225,6 @@ export default {
         formData.append('files', file);
 
       }
-      console.log(this.ausgewaehlterOrdner)
       await axios.post('http://leandro-graf.de:8080/auth/ordnerName', {
         message: this.ausgewaehlterOrdner
       })
@@ -238,7 +236,6 @@ export default {
             },
           }
       ).then(function () {
-        console.log('jap')
         console.log('Dateien wurden erfolgreich hochgeladen.')
       })
           .catch(function () {

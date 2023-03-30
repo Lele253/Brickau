@@ -24,7 +24,7 @@
           width="512"
       >
         <v-card>
-          <v-card-title>
+          <v-card-title class="text-center">
             <span class="text-h5">Anmelden</span>
           </v-card-title>
           <v-card-text>
@@ -33,7 +33,7 @@
                 <v-col cols="12">
                   <v-text-field
                       v-model="email"
-                      label="Email"
+                      label="Nutzername"
                       required
                   ></v-text-field>
                 </v-col>
@@ -58,12 +58,14 @@
             <v-btn
                 variant="text"
                 @click="loginDialog = false, error = ''"
+                color="red"
             >
               Close
             </v-btn>
             <v-btn
                 variant="text"
                 @click="login"
+                color="green"
             >
               Login
             </v-btn>

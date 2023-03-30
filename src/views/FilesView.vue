@@ -77,6 +77,7 @@
 import axios from "axios";
 import {mapGetters} from "vuex";
 import {Icon} from '@iconify/vue';
+import router from "@/router";
 
 export default {
   data: () => ({
@@ -84,6 +85,7 @@ export default {
   }),
   created() {
     this.getAllData()
+    this.umleitung()
   },
   computed: {
     ...mapGetters(['user']),
@@ -102,6 +104,11 @@ export default {
   },
   name: "FilesView",
   methods: {
+    umleitung() {
+      if (this.user == null) {
+        router.push('/')
+      }
+    },
     async getAllData() {
       const response = await axios.get("http://leandro-graf.de:8080/auth/alleDateien", {});
       this.allFiles = response.data

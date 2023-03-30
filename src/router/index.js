@@ -3,7 +3,6 @@ import HomeView from '../views/HomeView.vue'
 import ImpressumView from "@/views/ImpressumView";
 import VerwaltungView from "@/views/VerwaltungView";
 import FilesView from "@/views/FilesView";
-import TestView from "@/views/TestView";
 
 const routes = [
     {
@@ -16,11 +15,6 @@ const routes = [
         path: '/impressum',
         name: 'impressum',
         component: ImpressumView
-    },
-    {
-        path: '/test',
-        name: 'test',
-        component: TestView
     },
     {
         path: '/Files',

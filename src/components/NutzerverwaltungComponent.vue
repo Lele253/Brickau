@@ -75,7 +75,7 @@
                 <v-col cols="12">
                   <v-text-field
                       v-model="email"
-                      label="Email*"
+                      label="Nutzername*"
                       required
                   ></v-text-field>
                 </v-col>
@@ -182,7 +182,6 @@ export default {
   name: "NutzerverwaltungComponent",
   methods: {
     async deleteUser(id) {
-      console.log(id)
       await axios.delete('http://leandro-graf.de:8080/auth/user/all/' + id)
           .then(response => {
             console.log(response);

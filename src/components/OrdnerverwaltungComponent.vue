@@ -11,10 +11,10 @@
           <thead>
           <tr>
             <th>
-              Ordner auswählen
+              Ordnernamen
             </th>
             <th>
-              Anzahl Dateien
+
             </th>
             <th class="text-center">
               Löschen

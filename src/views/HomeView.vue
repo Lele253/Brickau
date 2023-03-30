@@ -83,7 +83,7 @@
             <v-col class="ContainerTwoCardOneColInhalt" cols="12">
               <p class="text-center" style="width: 300px">
                 Sie sind Student vom mir und möchten sich Dateien herunterladen? Dann melden Sie
-                sich mit den von mir bereitgestellten Anmeldedaten an! {{ this.readGetRequest }}
+                sich mit den von mir bereitgestellten Anmeldedaten an!
               </p>
             </v-col>
             <v-col class="ContainerTwoCardOneColInhalt icon" cols="12">
@@ -205,7 +205,7 @@
             >
               <v-card>
                 <v-form @submit.prevent="login">
-                  <v-card-title>
+                  <v-card-title class="text-center">
                     <span class="text-h5">Anmelden</span>
                   </v-card-title>
                   <v-card-text>
@@ -214,7 +214,7 @@
                         <v-col cols="12">
                           <v-text-field
                               v-model="email"
-                              label="Email"
+                              label="Nutzername"
                               required
                           ></v-text-field>
                         </v-col>
@@ -240,11 +240,13 @@
                     <v-btn
                         variant="text"
                         @click="loginDialog = false, error = ''"
+                        color="red"
                     >
                       Close
                     </v-btn>
                     <v-btn
                         @click="login"
+                        color="green"
                     >
                       Login
                     </v-btn>
@@ -268,7 +270,7 @@
             </v-col>
             <v-col class="align-center ml-5 d-flex" cols="12">
               <Icon class="iconDaten" icon="ic:round-email"/>
-              <a class="ml-3" href="mailto:Ralf.Brickau@smcg.de">Ralf.Brickau@smcg.de</a>
+              <a class="ml-3" href="mailto:ralf.brickau@smcg.de">ralf.brickau@smcg.de</a>
             </v-col>
             <v-col class="d-flex align-center ml-5" cols="12">
               <Icon class="iconDaten" icon="material-symbols:phone-android"/>
@@ -314,10 +316,17 @@
             <v-col class="justify-center d-flex" cols="12">
               <v-btn
                   v-if="user"
-                  class="text-white" style="background-color: black"
+                  class="text-white hidden-md" style="background-color: black"
                   variant="outlined"
                   @click="$router.push('/files')">
                 Dateien
+              </v-btn>
+              <v-btn
+                  v-if="user"
+                  class="text-white hidden-sm-and-down hidden-lg-and-up" style="background-color: black"
+                  variant="outlined"
+                  @click="$router.push('/verwaltung')">
+                Verwaltung
               </v-btn>
             </v-col>
           </v-row>
@@ -415,7 +424,7 @@
               <Icon class="iconDaten" icon="ic:round-email"/>
             </v-col>
             <v-col class="mt-2" cols="5" lg="5" sm="4">
-              <a href="mailto:ralf.brickau@ism.de">Ralf.Brickau@ism.de</a>
+              <a href="mailto:ralf.brickau@smcg.de">ralf.brickau@smcg.de</a>
             </v-col>
           </v-row>
           <v-row class="d-flex justify-center">
@@ -451,7 +460,7 @@
             <Icon class="mt-5 text-grey" icon="material-symbols:person" style="font-size: 200px"/>
           </div>
           <div class="d-flex justify-center text-white" style="width: 100%; margin-left: 25%">
-            <h1>About him</h1>
+            <h1>About Me</h1>
           </div>
           <div class="d-flex justify-center mt-4 text text-white"
                style="text-align: right;font-size: 17px; margin-left: 25%">
@@ -526,7 +535,7 @@
             <Icon class="mt-5 text-grey" icon="material-symbols:person" style="font-size: 200px"/>
           </div>
           <div class="d-flex justify-center text-white" style="width: 100%">
-            <h1>About him</h1>
+            <h1>About Me</h1>
           </div>
           <div class="mt-4 text text-white"
                style="text-align: center;font-size: 17px; margin-left: 3%; margin-right: 3%">
@@ -633,12 +642,6 @@ export default {
   },
 
   methods: {
-    async readGetRequest() {
-      return await axios.get(
-          "http://leandro-graf.de:8080/auth/ordner", {}
-      );
-
-    },
     test() {
       this.user1 = this.user.status
     },
@@ -650,7 +653,6 @@ export default {
         );
         let x = response.data
         x.forEach((i) => {
-          console.log(i == '.DS_Store')
           if (i != '.DS_Store') {
             this.ordner.push(i)
           }

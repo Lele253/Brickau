@@ -43,12 +43,14 @@ import OrdnerverwaltungComponent from "@/components/OrdnerverwaltungComponent";
 import FilesverwaltungComponent from "@/components/FilesverwaltungComponent";
 import NutzerverwaltungComponent from "@/components/NutzerverwaltungComponent";
 import {mapGetters} from "vuex";
+import router from "@/router";
 
 export default {
   computed: {
     ...mapGetters(['user'])
   },
   created() {
+    this.umleitung()
     this.setStatus()
   },
   mounted() {
@@ -76,7 +78,11 @@ export default {
       }
     },
     setStatus() {
+      try {
       this.user1 = this.user.status
+      } catch (e) {
+        router.push('/')
+      }
     },
     componentSwitchen(titel) {
       this.menuItems.forEach(function (e) {

@@ -24,7 +24,10 @@ export default {
 
 <style scoped>
 .footer {
+  position: fixed;
   background-color: lightskyblue;
   height: 60px;
+  width: 100%;
+  bottom: 0px;
 }
 </style>

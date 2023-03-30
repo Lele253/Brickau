@@ -1,22 +1,22 @@
 <template>
-  <div class="hidden-sm-and-down" style="margin-top: -4px; background: transparent">
+  <div class="hidden-sm-and-down " style="margin-top: -4px; background: transparent">
     <v-divider></v-divider>
-    <h1 class="toolbar d-flex justify-center">
-      Verwaltung
-    </h1>
-    <v-toolbar class="toolbar">
-      <v-toolbar-items class="d-flex justify-center" style="width: 100%">
-        <v-btn
-            v-for="item in menuItems"
-            :key="item.title"
-            style="  margin: 0px 50px 0px 50px;"
-            @click="componentSwitchen(item.title)">
-          <icon :icon=item.icon class="icon"></icon>
-          {{ item.title }}
-        </v-btn>
-      </v-toolbar-items>
-    </v-toolbar>
-    <div class="d-flex justify-center" style="height: 100%; margin-top: 50px">
+    <div class="subheader">
+      <v-toolbar class="toolbar">
+        <v-toolbar-items class="d-flex justify-center" style="width: 100%">
+          <v-btn
+              v-for="item in menuItems"
+              :key="item.title"
+              style="  margin: 0px 50px 0px 50px;"
+              @click="componentSwitchen(item.title)">
+            <icon :icon=item.icon class="icon"></icon>
+            {{ item.title }}
+          </v-btn>
+        </v-toolbar-items>
+      </v-toolbar>
+    </div>
+
+    <div class="d-flex justify-center" style="height: 100%; margin-top: 70px">
       <v-card style="background: transparent; width: 90vw; min-height: 500px">
         <OrdnerverwaltungComponent v-if="menuItems[0].component"></OrdnerverwaltungComponent>
         <NutzerverwaltungComponent v-if="menuItems[1].component"></NutzerverwaltungComponent>
@@ -109,5 +109,10 @@ export default {
 
 .toolbar {
   background-color: lightskyblue;
+}
+.subheader{
+  position: fixed;
+  width: 100%;
+ z-index: 9000;
 }
 </style>

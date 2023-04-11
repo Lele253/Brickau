@@ -124,7 +124,7 @@ export default {
     },
     async login() {
       try {
-        const response = await axios.post('http://leandro-graf.de:8080/auth/login',
+        const response = await axios.post('http://brickau.de:8080/auth/login',
             {
               email: this.email,
               password: this.password

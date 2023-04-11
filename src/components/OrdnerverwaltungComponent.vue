@@ -155,12 +155,12 @@ export default {
       this.confirmDialog = true
     },
     async getAllData() {
-      const response = await axios.get("http://leandro-graf.de:8080/auth/alleDateien", {});
+      const response = await axios.get("http://brickau.de:8080/auth/alleDateien", {});
       this.allFiles = response.data
       console.log(response)
     },
     deleteOrdner(ordnername) {
-      axios.post('http://leandro-graf.de:8080/auth/deleteFolder', {message: ordnername})
+      axios.post('http://brickau.de:8080/auth/deleteFolder', {message: ordnername})
           .then(response => {
             console.log(response.data);
             this.getOrdner()
@@ -175,7 +175,7 @@ export default {
       this.ordner = [];
       try {
         const response = await axios.get(
-            "http://leandro-graf.de:8080/auth/ordner", {}
+            "http://brickau.de:8080/auth/ordner", {}
         );
         let x = response.data
         x.forEach((i) => {
@@ -188,7 +188,7 @@ export default {
       }
     },
     async createFolder() {
-      let response = await axios.post('http://leandro-graf.de:8080/auth/ordnerErstellen', {message: this.erstellterOrdner})
+      let response = await axios.post('http://brickau.de:8080/auth/ordnerErstellen', {message: this.erstellterOrdner})
       if (response.data !== 'diesen Ordner gibt es bereits') {
         this.error = ''
         console.log(response.data);

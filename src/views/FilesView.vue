@@ -110,7 +110,7 @@ export default {
       }
     },
     async getAllData() {
-      const response = await axios.get("http://leandro-graf.de:8080/auth/alleDateien", {});
+      const response = await axios.get("http://brickau.de:8080/auth/alleDateien", {});
       this.allFiles = response.data
       console.log(response)
     },

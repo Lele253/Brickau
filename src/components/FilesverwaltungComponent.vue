@@ -206,7 +206,7 @@ export default {
     },
     deleteDatei(pfad) {
       let löschpfad = pfad
-      axios.post('http://leandro-graf.de:8080/auth/deleteFile', {message: löschpfad})
+      axios.post('http://brickau.de:8080/auth/deleteFile', {message: löschpfad})
           .then(response => {
 
             console.log(response.data);
@@ -225,10 +225,10 @@ export default {
         formData.append('files', file);
 
       }
-      await axios.post('http://leandro-graf.de:8080/auth/ordnerName', {
+      await axios.post('http://brickau.de:8080/auth/ordnerName', {
         message: this.ausgewaehlterOrdner
       })
-      await axios.post('http://leandro-graf.de:8080/auth/upload',
+      await axios.post('http://brickau.de:8080/auth/upload',
           formData,
           {
             headers: {
@@ -249,7 +249,7 @@ export default {
 
 
     async getAllData() {
-      const response = await axios.get("http://leandro-graf.de:8080/auth/alleDateien", {});
+      const response = await axios.get("http://brickau.de:8080/auth/alleDateien", {});
       this.allFiles = response.data
       console.log(response)
     },
@@ -257,7 +257,7 @@ export default {
       this.ordner = [];
       try {
         const response = await axios.get(
-            "http://leandro-graf.de:8080/auth/ordner", {}
+            "http://brickau.de:8080/auth/ordner", {}
         );
         let x = response.data
         x.forEach((i) => {

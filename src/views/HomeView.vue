@@ -613,7 +613,7 @@ import axios from "axios";
 export default {
   async created() {
     this.getOrdner()
-    const respons = await axios.get('http://leandro-graf.de:8080/auth/user');
+    const respons = await axios.get('http://brickau.de:8080/auth/user');
     await this.$store.dispatch('user', respons.data);
     this.test()
 
@@ -649,7 +649,7 @@ export default {
     async getOrdner() {
       try {
         const response = await axios.get(
-            "http://leandro-graf.de:8080/auth/ordner", {}
+            "http://brickau.de:8080/auth/ordner", {}
         );
         let x = response.data
         x.forEach((i) => {
@@ -668,7 +668,7 @@ export default {
     },
     async login() {
       try {
-        const response = await axios.post('http://leandro-graf.de:8080/auth/login',
+        const response = await axios.post('http://brickau.de:8080/auth/login',
             {
               email: this.email,
               password: this.password
@@ -684,7 +684,7 @@ export default {
     },
     async registrieren() {
 
-      const respons = await axios.post('http://leandro-graf.de:8080/auth/Regist', {
+      const respons = await axios.post('http://brickau.de:8080/auth/Regist', {
         email: this.email,
         password: this.password,
         pfad: '/ISM/' + this.ordnerpfad + '/',

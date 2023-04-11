@@ -65,7 +65,7 @@ export default {
     async getFiles() {
       try {
         const response = await axios.get(
-            "http://leandro-graf.de:8080/auth/alleDateien", {}
+            "http://brickau.de:8080/auth/alleDateien", {}
         );
         let fileNames = [];
         response.data.forEach((dateiObjekt) => {

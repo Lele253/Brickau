@@ -182,7 +182,7 @@ export default {
   name: "NutzerverwaltungComponent",
   methods: {
     async deleteUser(id) {
-      await axios.delete('http://leandro-graf.de:8080/auth/user/all/' + id)
+      await axios.delete('http://brickau.de:8080/auth/user/all/' + id)
           .then(response => {
             console.log(response);
           });
@@ -190,7 +190,7 @@ export default {
     },
     async registrieren() {
       try {
-        await axios.post('http://leandro-graf.de:8080/auth/Regist', {
+        await axios.post('http://brickau.de:8080/auth/Regist', {
           email: this.email,
           password: this.password,
           pfad: '/ISM/' + this.ordnerpfad + '/',
@@ -209,7 +209,7 @@ export default {
     },
     async getAllUser() {
       this.allUser = []
-      const response = await axios.get("http://leandro-graf.de:8080/auth/user/all", {}
+      const response = await axios.get("http://brickau.de:8080/auth/user/all", {}
       );
       this.allUser = response.data
       return response.data
@@ -219,7 +219,7 @@ export default {
       this.error = '';
       try {
         const response = await axios.get(
-            "http://leandro-graf.de:8080/auth/ordner", {}
+            "http://brickau.de:8080/auth/ordner", {}
         );
         let x = response.data
         x.forEach((i) => {

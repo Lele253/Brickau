@@ -27,9 +27,9 @@
               :key="item"
           >
             <td>{{ item.email }}</td>
-            <td>{{ item.pfad.substring(5, item.pfad.length - 1) }}</td>
+            <td>{{ item.pfad.substring(1, item.pfad.length - 1) }}</td>
             <td>
-              <icon v-if="item.email !== 'Admin'" class="icon ml-3" icon="line-md:account-delete"
+              <icon v-if="item.status !== 'Admin'" class="icon ml-3" icon="line-md:account-delete"
                     style="cursor: pointer"
                     @click="confirmDialog = true, selectedUser = item"></icon>
             </td>
@@ -182,7 +182,7 @@ export default {
   name: "NutzerverwaltungComponent",
   methods: {
     async deleteUser(id) {
-      await axios.delete('http://brickau.de:8080/auth/user/all/' + id)
+      await axios.delete('https://leandro-graf.de:8085/auth/user/all/' + id)
           .then(response => {
             console.log(response);
           });
@@ -190,10 +190,10 @@ export default {
     },
     async registrieren() {
       try {
-        await axios.post('http://brickau.de:8080/auth/Regist', {
+        await axios.post('https://leandro-graf.de:8085/auth/Regist', {
           email: this.email,
           password: this.password,
-          pfad: '/ISM/' + this.ordnerpfad + '/',
+          pfad: '/' + this.ordnerpfad + '/',
           status: this.status,
           username: this.email
         });
@@ -209,7 +209,7 @@ export default {
     },
     async getAllUser() {
       this.allUser = []
-      const response = await axios.get("http://brickau.de:8080/auth/user/all", {}
+      const response = await axios.get("https://leandro-graf.de:8085/auth/user/all", {}
       );
       this.allUser = response.data
       return response.data
@@ -219,11 +219,11 @@ export default {
       this.error = '';
       try {
         const response = await axios.get(
-            "http://brickau.de:8080/auth/ordner", {}
+            "https://leandro-graf.de:8085/auth/ordner", {}
         );
         let x = response.data
         x.forEach((i) => {
-          if (i != '.DS_Store') {
+          if (i != '.DS_Store' && i != 'img' && i != 'js' && i != 'fonts' && i != 'css' && i != 'favicon.png' && i != 'index.html') {
             this.ordner.push(i)
           }
         })

@@ -1,5 +1,6 @@
 <template>
   <v-div class="footer " padless>
+    <v-divider thickness="2"></v-divider>
     <v-row justify="center" no-gutters>
       <v-col class="text-center mt-2" cols="12">
         <router-link class="mx-2 text-black" to="/"><strong>Home</strong></router-link>

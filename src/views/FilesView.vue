@@ -19,14 +19,14 @@
               >
                 <td>{{ file.name }}</td>
                 <td style="width: 30px; padding-left: 0">
-                  <a :href="'..' +user.pfad + file.name" target="_blank">
+                  <a :href="'https://leandro-graf.de/Brickau/Ordner/'+user.pfad+ file.name" target="_blank">
                     <Icon class="downloadIcon" icon="ph:file-magnifying-glass-bold"/>
                   </a>
                 </td>
                 <td style="width: 30px; padding-left: 0">
-                  <a :href="'..'+user.pfad+ file.name" download>
+<!--                  <a type="application/zip" :href="'https://leandro-graf.de/Brickau/Ordner/'+user.pfad+ file.name" download>
                     <Icon class="downloadIcon" icon="material-symbols:download-for-offline-outline"/>
-                  </a>
+                  </a>-->
                 </td>
               </tr>
               <h1 v-if="filesArray.length == 0" class="text-center mt-10">Ihnen stehen zur Zeit keine Dateien zur
@@ -55,14 +55,14 @@
         >
           <td style="font-size: 15px; max-width: 20px">{{ file.name }}</td>
           <td style="width: 30px; padding-left: 0">
-            <a :href="'..' +user.pfad + file.name" target="_blank">
+            <a :href="'https://leandro-graf.de/Brickau/Ordner/' +user.pfad + file.name" target="_blank">
               <Icon class="mobileIcon" icon="ph:file-magnifying-glass-bold"/>
             </a>
           </td>
           <td style="width: 30px; padding-left: 0">
-            <a :href="'..'+user.pfad+ file.name" download>
+<!--            <a type="application/zip"  :href="'https://leandro-graf.de/Brickau/Ordner/'+user.pfad+ file.name" download>
               <Icon class="mobileIcon" icon="material-symbols:download-for-offline-outline"/>
-            </a>
+            </a>-->
           </td>
         </tr>
         <h1 v-if="filesArray.length == 0" class="text-center mt-10">Ihnen stehen zur Zeit keine Dateien zur
@@ -92,7 +92,7 @@ export default {
     filesArray: function () {
       let result = [];
       this.allFiles.forEach((i) => {
-        if (i.ordner == this.user.pfad.substring(5, this.user.pfad.length - 1)) {
+        if (i.ordner == this.user.pfad.substring(1, this.user.pfad.length - 1)) {
           result.push(i)
         }
       })
@@ -110,7 +110,7 @@ export default {
       }
     },
     async getAllData() {
-      const response = await axios.get("http://brickau.de:8080/auth/alleDateien", {});
+      const response = await axios.get("https://leandro-graf.de:8085/auth/alleDateien", {});
       this.allFiles = response.data
       console.log(response)
     },

@@ -48,7 +48,12 @@
                   ></v-text-field>
                 </v-col>
                 <v-col v-if="error !== ''" cols="12">
-                  <v-alert color="red">Der Nutzername oder das Passwort ist falsch!</v-alert>
+                  <v-alert v-if="error == 'AxiosError: Request failed with status code 401'" color="red">Der Nutzername oder das Passwort ist falsch!</v-alert>
+                  <v-alert v-else class="text-center" color="red">Es bestehen
+                    derzeit
+                    Serverprobleme.
+                    Bitte wenden Sie sich an den Administrator der Website, um das Problem zu beheben!
+                  </v-alert>
                 </v-col>
               </v-row>
             </v-container>
@@ -63,18 +68,19 @@
               Close
             </v-btn>
             <v-btn
+                v-if="!loadAnzeige"
                 variant="text"
                 @click="login"
                 color="green"
             >
               Login
             </v-btn>
+            <Icon v-if="loadAnzeige" icon="line-md:loading-twotone-loop" style="font-size: 40px"/>
           </v-card-actions>
         </v-card>
       </v-dialog>
     </v-row>
   </template>
-
 </template>
 
 <script>
@@ -92,6 +98,7 @@ export default {
   },
   data() {
     return {
+      loadAnzeige: false,
       showPassword: false,
       list: [
         {name: 'Home', icon: 'ic:baseline-home', path: '/'},
@@ -124,7 +131,8 @@ export default {
     },
     async login() {
       try {
-        const response = await axios.post('http://brickau.de:8080/auth/login',
+        this.loadAnzeige = true;
+        const response = await axios.post('https://leandro-graf.de:8085/auth/login',
             {
               email: this.email,
               password: this.password
@@ -133,8 +141,9 @@ export default {
         await this.$store.dispatch('user', response.data.user)
 
         await location.reload()
-
+        this.loadAnzeige = false;
       } catch (e) {
+        this.loadAnzeige = false;
         this.error = e;
       }
     },

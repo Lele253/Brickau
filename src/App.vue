@@ -23,7 +23,7 @@ export default {
   },
 
   async created() {
-    const respons = await axios.get('http://brickau.de:8080/auth/user');
+    const respons = await axios.get('https://leandro-graf.de:8085/auth/user');
     await this.$store.dispatch('user', respons.data);
   },
   name: 'App',

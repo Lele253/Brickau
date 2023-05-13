@@ -54,15 +54,15 @@
             >
               <td>{{ file.name }}</td>
               <td style="width: 30px; padding-left: 0">
-                <a :href="'../ISM/'+ ausgewaehlterOrdner+'/'+ file.name" target="_blank">
+                <a :href="'https://leandro-graf.de/Brickau/Ordner/'+ ausgewaehlterOrdner+'/'+ file.name" target="_blank">
                   <Icon class="downloadIcon" icon="ph:file-magnifying-glass-bold"/>
                 </a>
               </td>
-              <td style="width: 30px; padding-left: 0">
-                <a :href="'../ISM/'+ ausgewaehlterOrdner+'/'+ file.name" download>
+<!--              <td style="width: 30px; padding-left: 0">
+                <a :href="'https://leandro-graf.de/Brickau/Ordner/'+ ausgewaehlterOrdner+'/'+ file.name" download>
                   <Icon class="downloadIcon" icon="material-symbols:download-for-offline-outline"/>
                 </a>
-              </td>
+              </td>-->
               <td style="width: 30px; padding-left: 0">
                 <icon class="icon" icon="line-md:close-circle" style="cursor: pointer"
                       @click="confirmDialog = true; selectedFile = file.path"></icon>
@@ -111,11 +111,19 @@
           <v-card-actions v-if="error !== ''" class="pb-5 mx-5">
             <v-alert color="red">{{ error }}</v-alert>
           </v-card-actions>
-          <v-card-actions class="d-flex justify-center">
+          <v-card-actions class="d-flex justify-center" v-if="ausgewaehlterOrdner != 'Bitte wählen sie einen Ordner aus'">
             <v-btn
+                v-if="uploadFile != 0 "
                 color="white"
                 style="background-color: black"
                 @click="submitFiles">
+              Upload
+            </v-btn>
+            <v-btn
+                v-if="uploadFile.length == 0"
+                color="grey"
+                style="background-color: black"
+                >
               Upload
             </v-btn>
           </v-card-actions>
@@ -138,9 +146,10 @@
           </v-card-title>
           <v-card-text>
             Möchten Sie die Datei '{{
-              selectedFile.substring(26 + ausgewaehlterOrdner.length)
+              selectedFile.substring(30 + ausgewaehlterOrdner.length)
             }}' wirklich löschen?
           </v-card-text>
+          ´
           <v-card-actions class="d-flex justify-center">
             <v-btn
                 color="red"
@@ -206,7 +215,7 @@ export default {
     },
     deleteDatei(pfad) {
       let löschpfad = pfad
-      axios.post('http://brickau.de:8080/auth/deleteFile', {message: löschpfad})
+      axios.post('https://leandro-graf.de:8085/auth/deleteFile', {message: löschpfad})
           .then(response => {
 
             console.log(response.data);
@@ -223,12 +232,11 @@ export default {
       for (var i = 0; i < this.files.length; i++) {
         let file = this.files[i];
         formData.append('files', file);
-
       }
-      await axios.post('http://brickau.de:8080/auth/ordnerName', {
+      await axios.post('https://leandro-graf.de:8085/auth/ordnerName', {
         message: this.ausgewaehlterOrdner
       })
-      await axios.post('http://brickau.de:8080/auth/upload',
+      await axios.post('https://leandro-graf.de:8085/auth/upload',
           formData,
           {
             headers: {
@@ -249,7 +257,7 @@ export default {
 
 
     async getAllData() {
-      const response = await axios.get("http://brickau.de:8080/auth/alleDateien", {});
+      const response = await axios.get("https://leandro-graf.de:8085/auth/alleDateien", {});
       this.allFiles = response.data
       console.log(response)
     },
@@ -257,11 +265,12 @@ export default {
       this.ordner = [];
       try {
         const response = await axios.get(
-            "http://brickau.de:8080/auth/ordner", {}
+            "https://leandro-graf.de:8085/auth/ordner", {}
         );
         let x = response.data
         x.forEach((i) => {
-          if (i != '.DS_Store') {
+          if (i != '.DS_Store' && i != 'img' && i != 'js' && i != 'fonts' && i != 'css' && i != 'favicon.png' && i != 'index.html') {
+            console.log(i)
             this.ordner.push(i)
           }
         })

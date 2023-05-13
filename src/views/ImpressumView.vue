@@ -6,7 +6,7 @@
     <!--    <br>-->
     <!--    <b class="mt-10">T</b> 0157 89636558-->
     <!--    <br>-->
-    <!--    <b class="mt-10">W</b> www.ralf.Brickau.de-->
+    <!--    <b class="mt-10">W</b> www.brickau.de-->
     <!--    <br>-->
     <!--    <b class="mt-10">C</b> Synergetic Management Consulting Group-->
 
@@ -16,6 +16,11 @@
     <p>Telefon: +49 231 97523952<br/>
       E-Mail: <a href="mailto:Ralf.Brickau@smcg.de" style="color: beige">Ralf.Brickau@smcg.de</a><br/>
     </p>
+    <br/><br/>
+    <h2>Website created by</h2>
+    <a class="creater" href="https://franke-arts.de" target="_blank">Stefan Franke</a> <br/>
+    <a class="creater" href="https://leandro-graf.de" target="_blank">Leandro Graf</a> <br/>
+    <a class="creater" href="https://tim-foehrs.de" target="_blank">Tim Thorben-Föhrs</a> <br/>
     <br/><br/>
     <h2>Disclaimer – rechtliche Hinweise</h2>
     § 1 Warnhinweis zu Inhalten<br/>
@@ -68,4 +73,11 @@ export default {
 </script>
 
 <style>
+.creater {
+  color: beige;
+}
+.creater:hover {
+  color: green;
+  font-size: 15px;
+}
 </style>

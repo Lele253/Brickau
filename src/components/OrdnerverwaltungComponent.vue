@@ -28,7 +28,7 @@
           >
             <td>{{ item }}</td>
             <td>{{ item.anzahl }}</td>
-            <td class="text-center">
+            <td class="text-center" v-if="item != 'Admin'">
               <icon class="icon" icon="line-md:close-circle" style="cursor: pointer"
                     @click="istOrdnerVoll(item)"></icon>
             </td>
@@ -155,12 +155,12 @@ export default {
       this.confirmDialog = true
     },
     async getAllData() {
-      const response = await axios.get("http://brickau.de:8080/auth/alleDateien", {});
+      const response = await axios.get("https://leandro-graf.de:8085/auth/alleDateien", {});
       this.allFiles = response.data
       console.log(response)
     },
     deleteOrdner(ordnername) {
-      axios.post('http://brickau.de:8080/auth/deleteFolder', {message: ordnername})
+      axios.post('https://leandro-graf.de:8085/auth/deleteFolder', {message: ordnername})
           .then(response => {
             console.log(response.data);
             this.getOrdner()
@@ -175,11 +175,11 @@ export default {
       this.ordner = [];
       try {
         const response = await axios.get(
-            "http://brickau.de:8080/auth/ordner", {}
+            "https://leandro-graf.de:8085/auth/ordner", {}
         );
         let x = response.data
         x.forEach((i) => {
-          if (i != '.DS_Store') {
+          if (i != '.DS_Store' && i != 'img' && i != 'js' && i != 'fonts' && i != 'css' && i != 'favicon.png' && i != 'index.html') {
             this.ordner.push(i)
           }
         })
@@ -188,7 +188,7 @@ export default {
       }
     },
     async createFolder() {
-      let response = await axios.post('http://brickau.de:8080/auth/ordnerErstellen', {message: this.erstellterOrdner})
+      let response = await axios.post('https://leandro-graf.de:8085/auth/ordnerErstellen', {message: this.erstellterOrdner})
       if (response.data !== 'diesen Ordner gibt es bereits') {
         this.error = ''
         console.log(response.data);

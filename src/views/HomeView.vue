@@ -121,7 +121,7 @@
           <v-timeline align="start" side="end">
             <v-timeline-item size="small">
               <div class="d-flex">
-                <strong class="me-3">seit August 2021</strong>
+                <strong class="me-3">seit August 2001</strong>
                 <div>
                   <strong>International School of Management</strong>
                   <div class="text-caption">
@@ -132,6 +132,38 @@
               </div>
             </v-timeline-item>
 
+            <v-timeline-item dot-color="black" size="small">
+              <div class="d-flex">
+                <strong class="me-10">seit Dez 2000</strong>
+                <div>
+                  <strong>IT-Center</strong>
+                  <div class="text-caption">
+                    Dozent Am IT-Center Dortmund GmbH und verschiedenen VWA, Lehraufträge an Partner-Hochschulen der ISM
+                    im Ausland
+                  </div>
+                </div>
+              </div>
+            </v-timeline-item>
+
+            <v-timeline-item dot-color="black" size="small">
+              <div class="d-flex justify-center">
+                <strong class="me-6">seit 1999</strong>
+                <div>
+                  <strong>Unternehmensberater für verschiedene Unternehmen</strong>
+                </div>
+              </div>
+            </v-timeline-item>
+            <v-timeline-item dot-color="black" size="small">
+              <div class="d-flex justify-center">
+                <strong class="me-13">seit 1999</strong>
+                <div>
+                  <strong>
+                    BWL-Studien-Abschlüsse an FH Dortmund, University of Plymouth, Chartered Institute of Marketing, PhD
+                    an der University of Plymouth
+                  </strong>
+                </div>
+              </div>
+            </v-timeline-item>
             <v-timeline-item dot-color="black" size="small">
               <div class="d-flex">
                 <strong class="me-15">1999</strong>
@@ -150,43 +182,12 @@
             </v-timeline-item>
             <v-timeline-item dot-color="black" size="small">
               <div class="d-flex">
-                <strong class="me-10">seit Dez 2000</strong>
-                <div>
-                  <strong>IT-Center</strong>
-                  <div class="text-caption">
-                    Dozent Am IT-Center Dortmund GmbH und verschiedenen VWA, Lehraufträge an Partner-Hochschulen der ISM
-                    im Ausland
-                  </div>
-                </div>
-              </div>
-            </v-timeline-item>
-            <v-timeline-item dot-color="black" size="small">
-              <div class="d-flex justify-center">
-                <strong class="me-6">seit 1999</strong>
-                <div>
-                  <strong>Unternehmensberater für verschiedene Unternehmen</strong>
-                </div>
-              </div>
-            </v-timeline-item>
-            <v-timeline-item dot-color="black" size="small">
-              <div class="d-flex">
                 <strong class="me-9">1994-1999</strong>
                 <div>
                   <strong>Key Accounter</strong>
                   <div class="text-caption">
                     Konzeptionelle Marketing-, Beratungs- und Vertriebstätigkeit bei Großkunden in der Food-Industrie
                   </div>
-                </div>
-              </div>
-            </v-timeline-item>
-            <v-timeline-item dot-color="black" size="small">
-              <div class="d-flex justify-center">
-                <strong class="me-13">seit 1999</strong>
-                <div>
-                  <strong>
-                    BWL-Studien-Abschlüsse an FH Dortmund, University of Plymouth, Chartered Institute of Marketing, PhD
-                    an der University of Plymouth
-                  </strong>
                 </div>
               </div>
             </v-timeline-item>
@@ -204,58 +205,62 @@
                 width="512"
             >
               <v-card>
-                <v-form @submit.prevent="login">
-                  <v-card-title class="text-center">
-                    <span class="text-h5">Anmelden</span>
-                  </v-card-title>
-                  <v-card-text>
-                    <v-container>
-                      <v-row>
-                        <v-col cols="12">
-                          <v-text-field
-                              v-model="email"
-                              label="Nutzername"
-                              required
-                          ></v-text-field>
-                        </v-col>
-                        <v-col cols="12">
-                          <v-text-field
-                              v-model="password"
-                              :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                              :type="showPassword ? 'text' : 'password'"
-                              label="Passwort"
-                              required
-                              @click:append="showPassword = !showPassword"
-                          ></v-text-field>
-                        </v-col>
-                        <v-col v-if="error !== ''" cols="12">
-                          <v-alert color="red">Der Nutzername oder das Passwort ist falsch!
-                          </v-alert>
-                        </v-col>
-                      </v-row>
-                    </v-container>
-                  </v-card-text>
-                  <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn
-                        variant="text"
-                        @click="loginDialog = false, error = ''"
-                        color="red"
-                    >
-                      Close
-                    </v-btn>
-                    <v-btn
-                        @click="login"
-                        color="green"
-                    >
-                      Login
-                    </v-btn>
-                  </v-card-actions>
-                </v-form>
+                <v-card-title class="text-center">
+                  <span class="text-h5">Anmelden</span>
+                </v-card-title>
+                <v-card-text>
+                  <v-container>
+                    <v-row>
+                      <v-col cols="12">
+                        <v-text-field
+                            v-model="email"
+                            label="Nutzername"
+                            required
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-text-field
+                            v-model="password"
+                            :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                            :type="showPassword ? 'text' : 'password'"
+                            label="Passwort"
+                            required
+                            @click:append="showPassword = !showPassword"
+                        ></v-text-field>
+                      </v-col>
+                      <v-col v-if="error !== ''" cols="12">
+                        <v-alert v-if="error == 'AxiosError: Request failed with status code 401'" color="red">Der Nutzername oder das Passwort ist falsch!</v-alert>
+                        <v-alert v-else class="text-center" color="red">Es bestehen
+                          derzeit
+                          Serverprobleme.
+                          Bitte wenden Sie sich an den Administrator der Website, um das Problem zu beheben!
+                        </v-alert>
+                      </v-col>
+                    </v-row>
+                  </v-container>
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn
+                      variant="text"
+                      @click="loginDialog = false, error = ''"
+                      color="red"
+                  >
+                    Close
+                  </v-btn>
+                  <v-btn
+                      v-if="!loadAnzeige"
+                      variant="text"
+                      @click="login"
+                      color="green"
+                  >
+                    Login
+                  </v-btn>
+                  <Icon v-if="loadAnzeige" icon="line-md:loading-twotone-loop" style="font-size: 40px"/>
+                </v-card-actions>
               </v-card>
             </v-dialog>
           </v-row>
-
         </template>
 
 
@@ -278,7 +283,7 @@
             </v-col>
             <v-col class="d-flex align-center ml-5" cols="12">
               <Icon class="iconDaten" icon="fluent-mdl2:website"/>
-              <a class="ml-3" href="https://www.brickau.de" target="_blank">www.brickau.de</a>
+              <a class="ml-3" href="https://www.Brickau.de">www.brickau.de </a>
             </v-col>
           </v-row>
 
@@ -440,7 +445,7 @@
               <Icon class="iconDaten" icon="fluent-mdl2:website"/>
             </v-col>
             <v-col class="mt-2" cols="5" lg="5" sm="4">
-              <a href="https://www.brickau.de">www.brickau.de</a>
+              <a href="https://www.Brickau.de">www.Brickau.de</a>
             </v-col>
           </v-row>
 
@@ -613,7 +618,7 @@ import axios from "axios";
 export default {
   async created() {
     this.getOrdner()
-    const respons = await axios.get('http://brickau.de:8080/auth/user');
+    const respons = await axios.get('https://leandro-graf.de:8085/auth/user');
     await this.$store.dispatch('user', respons.data);
     this.test()
 
@@ -633,6 +638,7 @@ export default {
     rechte: ['Admin', 'Nutzer'],
     ordner: [],
     erstellterOrdner: '',
+    loadAnzeige: false,
     showPassword: false,
     error: ''
   }),
@@ -649,11 +655,11 @@ export default {
     async getOrdner() {
       try {
         const response = await axios.get(
-            "http://brickau.de:8080/auth/ordner", {}
+            "https://leandro-graf.de:8085/auth/ordner", {}
         );
         let x = response.data
         x.forEach((i) => {
-          if (i != '.DS_Store') {
+          if (i != '.DS_Store' && i != 'img' && i != 'js' && i != 'fonts' && i != 'css' && i != 'favicon.png' && i != 'index.html') {
             this.ordner.push(i)
           }
         })
@@ -668,7 +674,8 @@ export default {
     },
     async login() {
       try {
-        const response = await axios.post('http://brickau.de:8080/auth/login',
+        this.loadAnzeige = true;
+        const response = await axios.post('https://leandro-graf.de:8085/auth/login',
             {
               email: this.email,
               password: this.password
@@ -677,14 +684,15 @@ export default {
         await this.$store.dispatch('user', response.data.user)
 
         await location.reload()
-
+        this.loadAnzeige = false;
       } catch (e) {
+        this.loadAnzeige = false;
         this.error = e;
       }
     },
     async registrieren() {
 
-      const respons = await axios.post('http://brickau.de:8080/auth/Regist', {
+      const respons = await axios.post('https://leandro-graf.de:8085/auth/Regist', {
         email: this.email,
         password: this.password,
         pfad: '/ISM/' + this.ordnerpfad + '/',
